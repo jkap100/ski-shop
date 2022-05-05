@@ -1,18 +1,18 @@
-import "../App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Login() {
   return (
     <div>
+      {" "}
       <h1>Ski Shop </h1>
       <p>
-        <Link to="/login">
-          <button>Enter</button>
+        <Link to="/signup">
+          <button>Sign Up</button>
         </Link>
       </p>
     </div>
   );
 }
 
-export default Home;
+export default Login;
