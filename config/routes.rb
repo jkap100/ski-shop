@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   resources :users
+  
+  get '/profile', to: "users#profile"
 
-  post('/login', { to: 'authentication#login' })
+  post'/login', to: 'authentication#login'
 
-  # get '/profile', to: 'users#profile'
-
-
+  
 end
