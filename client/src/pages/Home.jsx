@@ -1,4 +1,4 @@
-// import "../App.css";
+import "bulma/css/bulma.min.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,6 @@ function Home() {
     <div className="container my-6">
       <div class="columns is-centered ">
         <div class="column is-half">
-          <div>First column</div>
           <div className="box has-text-centered mx-6">
             <h1 className="title">
               <strong>Ski Shop</strong>

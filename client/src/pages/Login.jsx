@@ -1,5 +1,4 @@
 import "bulma/css/bulma.min.css";
-import { Form } from "react-bulma-components";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -41,44 +40,51 @@ function Login() {
     <div className="container my-6">
       <div className="columns is-centered">
         <form onSubmit={handleLogin}>
-          <div class="field">
+          <div className="field">
             <label className="label">Username</label>
-            <p class="control has-icons-left has-icons-right">
+            <p className="control has-icons-left has-icons-right">
               <input
-                class="input"
+                className="input"
                 type="text"
                 name="username"
                 placeholder="Username"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               ></input>
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
+              <span className="icon is-small is-left">
+                <i className="fas fa-user"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+              <span className="icon is-small is-right">
+                <i className="fas fa-check"></i>
               </span>
             </p>
           </div>
-          <div class="field">
+          <div className="field">
             <label className="label">Password</label>
-            <p class="control has-icons-left">
+            <p className="control has-icons-left has-icons-right">
               <input
-                class="input"
+                className="input"
                 type="password"
                 name="password"
                 placeholder="Password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               ></input>
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock"></i>
+              </span>
+              <span className="icon is-small is-right">
+                <i className="fas fa-check"></i>
               </span>
             </p>
           </div>
-          <div class="field">
-            <p class="control">
-              <button class="button is-black">Login</button>
+
+          <div className="field">
+            <p className="control">
+              <button className="button is-black">Login</button>
+              <Link to="/signup">
+                <button className="button is-outlined mx-4">Sign Up</button>
+              </Link>
             </p>
           </div>
         </form>

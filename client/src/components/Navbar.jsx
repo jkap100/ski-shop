@@ -3,6 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const logOut = () => {
+    localStorage.clear();
+    console.log(localStorage);
+  };
+
   return (
     <div>
       <section>
@@ -12,9 +17,9 @@ function Navbar() {
           aria-label="main navigation"
         >
           <div className="navbar-brand">
-            <a className="navbar-item" href="https://bulma.io">
+            <span className="navbar-item">
               <img src="../snowflake.png" alt=""></img>
-            </a>
+            </span>
 
             <div
               role="button"
@@ -30,7 +35,7 @@ function Navbar() {
             </div>
           </div>
 
-          <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-menu">
             <div className="navbar-start">
               <Link to="/">
                 <strong className="navbar-item has-text-white">Home</strong>
@@ -81,22 +86,17 @@ function Navbar() {
           </div>
 
           <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <div className="button is-outlined navButton">
-                  <Link to="./cart">
-                    <span className="has-text-black">Cart</span>
-                  </Link>
-                </div>
-
-                <div className="button is-outlined navButton">
-                  <Link to="./signup">
-                    <span className="has-text-black">Sign Up</span>
-                  </Link>
-                </div>
-
-                <Link to="./login">
-                  <span className="button is-outlined navButton">Log in</span>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <div className="navbar-link">User</div>
+              <div className="navbar-dropdown">
+                <Link to="/login">
+                  <div className="navbar-item">Log In</div>
+                </Link>
+                <Link to="/signup">
+                  <div className="navbar-item">Sign Up</div>
+                </Link>
+                <Link to="/login">
+                  <div className="navbar-item">Log Out</div>
                 </Link>
               </div>
             </div>
