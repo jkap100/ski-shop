@@ -1,6 +1,6 @@
 import React from "react";
 
-function AccessoryAll({ allAccessoryObj }) {
+function AccessoryAll({ allAccessoryObj, handleAddToCart }) {
   return (
     <div className="column is-one-quarter">
       <div className="card mx-2">
@@ -39,7 +39,10 @@ function AccessoryAll({ allAccessoryObj }) {
         </div>
 
         <div className="card-footer is-centered">
-          <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+          <button
+            className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+            onClick={() => handleAddToCart(allAccessoryObj)}
+          >
             Add to Cart
           </button>
           <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
