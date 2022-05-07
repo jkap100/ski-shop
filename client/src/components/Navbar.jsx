@@ -105,7 +105,9 @@ function Navbar() {
                   <div className="navbar-item">Sign Up</div>
                 </Link>
                 <Link to="/login">
-                  <div className="navbar-item">Log Out</div>
+                  <div className="navbar-item" onClick={logOut}>
+                    Log Out
+                  </div>
                 </Link>
               </div>
             </div>

@@ -1,6 +1,6 @@
 class UserSkisController < ApplicationController
 
-    skip_before_action :authorize
+    skip_before_action :authorize, only: [:index]
 
     def index
         render json: UserSki.all

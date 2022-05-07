@@ -17,6 +17,11 @@ function AllSkisShow({ products, setProducts, setErrors }) {
   }, []);
 
   const onAddSkiToCart = (ski) => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
     const body = {
       user_id: localStorage.currentUserId,
       ski_id: ski.id,
@@ -24,9 +29,7 @@ function AllSkisShow({ products, setProducts, setErrors }) {
 
     fetch("http://localhost:3000/user_skis", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers,
       body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
