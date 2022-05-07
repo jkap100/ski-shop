@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+function Signup({
+  username,
+  setUsername,
+  password,
+  setPassword,
+  email,
+  setEmail,
+}) {
   const navigate = useNavigate();
 
   const handleLogin = (event) => {

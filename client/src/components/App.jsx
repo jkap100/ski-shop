@@ -26,6 +26,7 @@ function App() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const [products, setProducts] = useState([]);
 
@@ -46,7 +47,19 @@ function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/signup"
+            element={
+              <Signup
+                username={username}
+                setUsername={setUsername}
+                password={password}
+                setPassword={setPassword}
+                email={email}
+                setEmail={setEmail}
+              />
+            }
+          />
           <Route
             path="/skis"
             element={

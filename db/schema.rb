@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_132232) do
+ActiveRecord::Schema.define(version: 2022_05_07_153210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,33 @@ ActiveRecord::Schema.define(version: 2022_05_07_132232) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_accessories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "accessory_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["accessory_id"], name: "index_user_accessories_on_accessory_id"
+    t.index ["user_id"], name: "index_user_accessories_on_user_id"
+  end
+
+  create_table "user_apparels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "apparel_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["apparel_id"], name: "index_user_apparels_on_apparel_id"
+    t.index ["user_id"], name: "index_user_apparels_on_user_id"
+  end
+
+  create_table "user_skis", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ski_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ski_id"], name: "index_user_skis_on_ski_id"
+    t.index ["user_id"], name: "index_user_skis_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -66,4 +93,10 @@ ActiveRecord::Schema.define(version: 2022_05_07_132232) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "user_accessories", "accessories"
+  add_foreign_key "user_accessories", "users"
+  add_foreign_key "user_apparels", "apparels"
+  add_foreign_key "user_apparels", "users"
+  add_foreign_key "user_skis", "skis"
+  add_foreign_key "user_skis", "users"
 end

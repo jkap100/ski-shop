@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Login({ username, setUsername, password, setPassword }) {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState("");
 
@@ -16,9 +14,6 @@ function Login({ username, setUsername, password, setPassword }) {
       username: username,
       password: password,
     };
-
-    setUsername("");
-    setPassword("");
 
     fetch("http://localhost:3000/login", {
       method: "POST",

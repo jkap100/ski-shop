@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :accessories
+  resources :user_accessories
+  resources :user_apparels
+  resources :user_skis
   resources :users
+
+  resources :accessories
   resources :apparels
   resources :skis
   
