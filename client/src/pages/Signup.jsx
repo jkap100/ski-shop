@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -28,7 +30,7 @@ function Signup() {
           console.error(result.error);
         } else {
           console.log("token", result.token);
-          // route them to profile page
+          navigate("/login");
           localStorage.setItem("token", result.token);
         }
       });
