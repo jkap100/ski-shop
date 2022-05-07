@@ -1,10 +1,13 @@
 import "bulma/css/bulma.min.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function Login({ username, setUsername, password, setPassword }) {
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -13,6 +16,9 @@ function Login() {
       username: username,
       password: password,
     };
+
+    setUsername("");
+    setPassword("");
 
     fetch("http://localhost:3000/login", {
       method: "POST",
@@ -27,7 +33,7 @@ function Login() {
           console.error(result.error);
         } else {
           console.log("token", result.token);
-          // route them to profile page
+          navigate("/skis");
           localStorage.setItem("token", result.token);
         }
       });

@@ -9,6 +9,7 @@ class CreateSkis < ActiveRecord::Migration[6.1]
       t.string :sex
       t.string :description
       t.string :image
+      t.string :brand
 
       t.timestamps
     end

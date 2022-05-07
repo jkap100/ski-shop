@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_132232) do
     t.string "sex"
     t.string "description"
     t.string "image"
+    t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_132232) do
     t.string "sex"
     t.string "description"
     t.string "image"
+    t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_132232) do
     t.string "sex"
     t.string "description"
     t.string "image"
+    t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

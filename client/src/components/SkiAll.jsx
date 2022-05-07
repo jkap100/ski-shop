@@ -6,7 +6,9 @@ function Ski({ allSkiObj }) {
       <div className="card mx-2">
         <div className="card-header">
           <span className="card-header-title level is-centered">
-            <h3 className="level">{allSkiObj.name}</h3>
+            <h3 className="level">
+              <strong>{allSkiObj.name}</strong>
+            </h3>
           </span>
         </div>
 
@@ -25,9 +27,15 @@ function Ski({ allSkiObj }) {
         </div>
 
         <div className="card-content">
-          <h4>Location: {allSkiObj.price}</h4>
-          <h5>Country: {allSkiObj.category}</h5>
-          <h6>Vertical feet: {allSkiObj.sku}</h6>
+          <h5>
+            <strong>Price:</strong> ${allSkiObj.price}
+          </h5>
+          <h5>
+            <strong>Category:</strong> {allSkiObj.category}
+          </h5>
+          <h5>
+            <strong>Brand:</strong> {allSkiObj.brand}
+          </h5>
         </div>
 
         <div className="card-footer is-centered">

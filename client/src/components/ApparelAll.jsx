@@ -6,7 +6,9 @@ function ApparelAll({ allApparelObj }) {
       <div className="card mx-2">
         <div className="card-header">
           <span className="card-header-title level is-centered">
-            <h3 className="level">{allApparelObj.name}</h3>
+            <h3 className="level">
+              <strong>{allApparelObj.name}</strong>
+            </h3>
           </span>
         </div>
 
@@ -25,9 +27,15 @@ function ApparelAll({ allApparelObj }) {
         </div>
 
         <div className="card-content">
-          <h4>Location: {allApparelObj.price}</h4>
-          <h5>Country: {allApparelObj.category}</h5>
-          <h6>Vertical feet: {allApparelObj.sku}</h6>
+          <h5>
+            <strong>Price:</strong> ${allApparelObj.price}
+          </h5>
+          <h5>
+            <strong>Category:</strong> {allApparelObj.category}
+          </h5>
+          <h5>
+            <strong>Brand:</strong> {allApparelObj.brand}
+          </h5>
         </div>
 
         <div className="card-footer is-centered">

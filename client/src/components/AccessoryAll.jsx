@@ -6,7 +6,9 @@ function AccessoryAll({ allAccessoryObj }) {
       <div className="card mx-2">
         <div className="card-header">
           <span className="card-header-title level is-centered">
-            <h3 className="level">{allAccessoryObj.name}</h3>
+            <h3 className="level">
+              <strong>{allAccessoryObj.name}</strong>
+            </h3>
           </span>
         </div>
 
@@ -25,9 +27,15 @@ function AccessoryAll({ allAccessoryObj }) {
         </div>
 
         <div className="card-content">
-          <h4>Location: {allAccessoryObj.price}</h4>
-          <h5>Country: {allAccessoryObj.category}</h5>
-          <h6>Vertical feet: {allAccessoryObj.sku}</h6>
+          <h5>
+            <strong>Price:</strong> ${allAccessoryObj.price}
+          </h5>
+          <h5>
+            <strong>Category:</strong> {allAccessoryObj.category}
+          </h5>
+          <h5>
+            <strong>Brand:</strong> {allAccessoryObj.brand}
+          </h5>
         </div>
 
         <div className="card-footer is-centered">

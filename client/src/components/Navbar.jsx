@@ -2,7 +2,7 @@ import "../App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar({ skis, setSkis, setErrors }) {
+function Navbar() {
   const logOut = () => {
     localStorage.clear();
     console.log(localStorage);

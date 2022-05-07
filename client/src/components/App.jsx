@@ -24,20 +24,28 @@ import Cart from "../pages/Cart";
 function App() {
   const [error, setErrors] = useState("");
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const [products, setProducts] = useState([]);
-  const [skis, setSkis] = useState([]);
-
-  const [apparels, setApparels] = useState([]);
-
-  const [accessories, setAccessories] = useState([]);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar skis={skis} setSkis={setSkis} setErrors={setErrors} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                username={username}
+                setUsername={setUsername}
+                password={password}
+                setPassword={setPassword}
+              />
+            }
+          />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/skis"
