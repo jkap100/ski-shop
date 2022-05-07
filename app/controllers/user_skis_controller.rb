@@ -2,6 +2,10 @@ class UserSkisController < ApplicationController
 
     skip_before_action :authorize
 
+    def index
+        render json: UserSki.all
+    end
+
     def create
         user_ski = UserSki.create(user_ski_params)
         render json: user_ski, status: :created

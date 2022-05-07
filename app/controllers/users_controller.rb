@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         render json: @users, status: :ok
     end
 
-    def profile
+    def cart
         render json: @user, status: :ok
     end
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   
   
-  get '/profile', to: "users#profile"
+  get '/cart', to: "users#cart"
 
   post'/login', to: 'authentication#login'
   
