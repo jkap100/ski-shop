@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Ski({ allSkiObj }) {
+function Ski({ allSkiObj, handleAddToCart }) {
   return (
     <div className="column is-one-quarter">
       <div className="card mx-2">
@@ -39,7 +39,10 @@ function Ski({ allSkiObj }) {
         </div>
 
         <div className="card-footer is-centered">
-          <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+          <button
+            className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+            onClick={() => handleAddToCart(allSkiObj)}
+          >
             Add to Cart
           </button>
           <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">

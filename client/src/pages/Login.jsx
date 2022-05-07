@@ -28,8 +28,11 @@ function Login({ username, setUsername, password, setPassword }) {
           console.error(result.error);
         } else {
           console.log("token", result.token);
+          // console.log(result.user.id);
           navigate("/skis");
           localStorage.setItem("token", result.token);
+          localStorage.setItem("currentUserId", result.user.id);
+          console.log(localStorage);
         }
       });
 

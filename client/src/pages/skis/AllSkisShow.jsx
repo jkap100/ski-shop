@@ -16,8 +16,29 @@ function AllSkisShow({ products, setProducts, setErrors }) {
     });
   }, []);
 
+  const onAddSkiToCart = (ski) => {
+    const body = {
+      user_id: localStorage.currentUserId,
+      ski_id: ski.id,
+    };
+
+    fetch("http://localhost:3000/user_skis", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (r.ok) {
+        console.log("added to cart");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  };
+
   const allSkis = products.map((ski) => (
-    <SkiAll key={ski.id} allSkiObj={ski} />
+    <SkiAll key={ski.id} allSkiObj={ski} handleAddToCart={onAddSkiToCart} />
   ));
 
   return (
