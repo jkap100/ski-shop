@@ -11,7 +11,7 @@ import PowderShow from "../pages/skis/PowderShow";
 import FreestyleShow from "../pages/skis/FreestyleShow";
 import RaceShow from "../pages/skis/RaceShow";
 //APPAREL PAGES
-import AllApparelsShow from "../pages/apparel/AllApparelsShow";
+import AllApparelsShow from "../pages/apparel/AllApparelShow";
 import JacketsShow from "../pages/apparel/JacketsShow";
 import PantsShow from "../pages/apparel/PantsShow";
 //ACCESSORIES PAGES
@@ -24,6 +24,7 @@ import Cart from "../pages/Cart";
 function App() {
   const [error, setErrors] = useState("");
 
+  const [products, setProducts] = useState([]);
   const [skis, setSkis] = useState([]);
 
   const [apparels, setApparels] = useState([]);
@@ -42,8 +43,8 @@ function App() {
             path="/skis"
             element={
               <AllSkisShow
-                skis={skis}
-                setSkis={setSkis}
+                products={products}
+                setProducts={setProducts}
                 setErrors={setErrors}
               />
             }
@@ -55,8 +56,8 @@ function App() {
             path="/apparels"
             element={
               <AllApparelsShow
-                apparels={apparels}
-                setApparel={setApparels}
+                products={products}
+                setProducts={setProducts}
                 setErrors={setErrors}
               />
             }
@@ -67,8 +68,8 @@ function App() {
             path="/accessories"
             element={
               <AllAccessoriesShow
-                accessories={accessories}
-                setAccessories={setAccessories}
+                products={products}
+                setProducts={setProducts}
                 setErrors={setErrors}
               />
             }

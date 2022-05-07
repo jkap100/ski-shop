@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 
-function AllSkisShow({ skis, setSkis, setErrors }) {
+function AllSkisShow({ products, setProducts, setErrors }) {
   useEffect(() => {
     fetch("http://localhost:3000/skis").then((r) => {
       if (r.ok) {
-        r.json().then(setSkis);
+        r.json().then(setProducts);
       } else {
         r.json().then((error) => setErrors(error.errors));
       }
     });
   }, []);
 
-  const allSkis = skis.map((ski) => <SkiAll key={ski.id} allSkiObj={ski} />);
+  const allSkis = products.map((ski) => (
+    <SkiAll key={ski.id} allSkiObj={ski} />
+  ));
 
   return (
     <div className="container">
