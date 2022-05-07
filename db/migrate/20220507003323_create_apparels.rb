@@ -1,6 +1,6 @@
-class CreateSkis < ActiveRecord::Migration[6.1]
+class CreateApparels < ActiveRecord::Migration[6.1]
   def change
-    create_table :skis do |t|
+    create_table :apparels do |t|
       t.integer :sku
       t.string :name
       t.integer :price

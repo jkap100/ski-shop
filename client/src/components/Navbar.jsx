@@ -2,7 +2,7 @@ import "../App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ skis, setSkis, setErrors }) {
   const logOut = () => {
     localStorage.clear();
     console.log(localStorage);
@@ -53,6 +53,9 @@ function Navbar() {
                   <Link to="/race_skis">
                     <div className="navbar-item">Race</div>
                   </Link>
+                  <Link to="/skis">
+                    <div className="navbar-item">All Skis</div>
+                  </Link>
                 </div>
               </div>
 
@@ -65,20 +68,26 @@ function Navbar() {
                   <Link to="/pants">
                     <div className="navbar-item">Pants</div>
                   </Link>
+                  <Link to="/apparels">
+                    <div className="navbar-item">All Apparel</div>
+                  </Link>
                 </div>
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable">
                 <div className="navbar-link">Accessories</div>
                 <div className="navbar-dropdown">
-                  <Link to="/powder_skis">
+                  <Link to="/gloves">
                     <div className="navbar-item">Gloves</div>
                   </Link>
-                  <Link to="/freestyle_skis">
+                  <Link to="/goggles">
                     <div className="navbar-item">Goggles</div>
                   </Link>
-                  <Link to="/freestyle_skis">
+                  <Link to="/hats">
                     <div className="navbar-item">Hats</div>
+                  </Link>
+                  <Link to="/accessories">
+                    <div className="navbar-item">All Accessories</div>
                   </Link>
                 </div>
               </div>

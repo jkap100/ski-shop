@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Powder", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Powder", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Powder", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Freestyle", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "freestyle", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Freestyle", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Freestyle", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Race", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Race", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Race", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+Ski.create(sku: 1000, name: "skis", price: 100, size: "180", category: "Race", sex: "M", description: "Description skis goes here.", image:"https://images.evo.com/imgp/zoom/197744/826829/atomic-bent-chetler-120-skis-2022-.jpg")
+
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+Apparel.create(sku: 2000, name: "trew", price: 200, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg")
+
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+Accessory.create(sku: 3000, name: "smith", price: 150, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg")
+
+puts "Seeding Complete"

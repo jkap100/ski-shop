@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_192005) do
+ActiveRecord::Schema.define(version: 2022_05_07_132232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accessories", force: :cascade do |t|
+    t.integer "sku"
+    t.string "name"
+    t.integer "price"
+    t.string "size"
+    t.string "category"
+    t.string "sex"
+    t.string "description"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "apparels", force: :cascade do |t|
+    t.integer "sku"
+    t.string "name"
+    t.integer "price"
+    t.string "size"
+    t.string "category"
+    t.string "sex"
+    t.string "description"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "skis", force: :cascade do |t|
     t.integer "sku"
@@ -23,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_05_06_192005) do
     t.string "category"
     t.string "sex"
     t.string "description"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

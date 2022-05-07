@@ -1,26 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Ski from "../../components/SkiAll";
 
-function FreestyleShow() {
-  const getProfile = (_) => {
-    fetch("http://localhost:3000/profile", {
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.error) {
-          console.error(result.error);
-        } else {
-          console.log(result);
-        }
-      });
-  };
-
+function FreestyleShow({ skis, setSkis, setErrors }) {
   return (
-    <div>
-      FreestyleShow
-      <button onClick={getProfile}>Get profile</button>
+    <div className="container">
+      <div className="columns is-multiline">FreeStlye Skis</div>
     </div>
   );
 }
