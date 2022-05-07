@@ -16,8 +16,36 @@ function AllApparelShow({ products, setProducts, setErrors }) {
     });
   }, []);
 
+  const onAddApparelToCart = (apparel) => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    const body = {
+      user_id: localStorage.currentUserId,
+      apparel_id: apparel.id,
+    };
+
+    fetch("http://localhost:3000/user_apparels", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (r.ok) {
+        console.log("added to cart");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  };
+
   const allApparel = products.map((apparel) => (
-    <ApparelAll key={apparel.id} allApparelObj={apparel} />
+    <ApparelAll
+      key={apparel.id}
+      allApparelObj={apparel}
+      handleAddToCart={onAddApparelToCart}
+    />
   ));
   return (
     <div className="container">
