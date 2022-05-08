@@ -4,6 +4,7 @@ class CreateSkis < ActiveRecord::Migration[6.1]
       t.integer :sku
       t.string :name
       t.integer :price
+      t.integer :cost
       t.string :size
       t.string :category
       t.string :sex

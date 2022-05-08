@@ -90,28 +90,61 @@ function InventoryShow({
     });
   };
 
-  const handleDeleteApparelInv = (apparel) => {
-    console.log(apparel);
+  const handleDeleteApparelInv = (id) => {
+    console.log(id);
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    fetch(`http://localhost:3000/apparels/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    }).then((r) => {
+      if (r.ok) {
+        console.log("removed from inventory");
+        window.location.reload(true);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   };
-  const handleDeleteAccessoryInv = (accessory) => {
-    console.log(accessory);
+
+  const handleDeleteAccessoryInv = (id) => {
+    console.log(id);
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    fetch(`http://localhost:3000/accessories/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    }).then((r) => {
+      if (r.ok) {
+        console.log("removed from inventory");
+        window.location.reload(true);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   };
 
   const initialValue = 0;
 
-  const invSkis = skiInventory.map((ski) => ski.price);
+  const invSkis = skiInventory.map((ski) => ski.cost);
   const totalSkiCost = invSkis.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
 
-  const invApparel = apparelInventory.map((apparel) => apparel.price);
+  const invApparel = apparelInventory.map((apparel) => apparel.cost);
   const totalApparelCost = invApparel.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
 
-  const invAccessories = accessoryInventory.map((accessory) => accessory.price);
+  const invAccessories = accessoryInventory.map((accessory) => accessory.cost);
   const totalAccessoryCost = invAccessories.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
@@ -128,7 +161,7 @@ function InventoryShow({
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
+                <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
@@ -141,7 +174,7 @@ function InventoryShow({
                   </td>
                   <td className="product">{item.name}</td>
                   <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
+                    {item.cost.toLocaleString("en-US")}
                   </td>
                   <td className="category has-text-centered">
                     {item.category}
@@ -174,7 +207,7 @@ function InventoryShow({
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
+                <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
@@ -187,7 +220,7 @@ function InventoryShow({
                   </td>
                   <td className="product">{item.name}</td>
                   <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
+                    {item.cost.toLocaleString("en-US")}
                   </td>
                   <td className="category has-text-centered">
                     {item.category}
@@ -195,7 +228,7 @@ function InventoryShow({
                   <td className="has-text-centered">
                     <button
                       className="button is-black is-small"
-                      onClick={() => handleDeleteSkiInv(item.id)}
+                      onClick={() => handleDeleteApparelInv(item.id)}
                     >
                       X
                     </button>
@@ -220,7 +253,7 @@ function InventoryShow({
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
+                <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
@@ -233,7 +266,7 @@ function InventoryShow({
                   </td>
                   <td className="product">{item.name}</td>
                   <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
+                    {item.cost.toLocaleString("en-US")}
                   </td>
                   <td className="category has-text-centered">
                     {item.category}

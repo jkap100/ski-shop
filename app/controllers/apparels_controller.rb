@@ -6,4 +6,10 @@ class ApparelsController < ApplicationController
         render json: Apparel.all
     end
 
+    def destroy
+        apparel = Apparel.find(params[:id])
+        apparel.destroy
+        head :no_content
+    end
+
 end
