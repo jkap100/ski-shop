@@ -11,6 +11,12 @@ class UserAccessoriesController < ApplicationController
         render json: user_accessory, status: :created
     end
 
+    def destroy
+        user_accessory = UserAccessory.find(params[:id])
+        user_accessory.destroy
+        head :no_content
+    end
+
     private
 
     def user_accessory_params
