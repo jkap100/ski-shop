@@ -3,9 +3,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function Login({ username, setUsername, password, setPassword }) {
+function Login({
+  username,
+  setUsername,
+  password,
+  setPassword,
+  currentUser,
+  setCurrentUser,
+}) {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState("");
+  // const [currentUser, setCurrentUser] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -32,10 +39,11 @@ function Login({ username, setUsername, password, setPassword }) {
           navigate("/skis");
           localStorage.setItem("token", result.token);
           localStorage.setItem("currentUserId", result.user.id);
+          localStorage.setItem("isAdmin", result.user.admin);
           console.log(localStorage);
         }
       });
-
+    setCurrentUser(localStorage.getItem("isAdmin"));
     setUsername("");
     setPassword("");
   };

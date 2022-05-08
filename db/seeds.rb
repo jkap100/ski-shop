@@ -33,4 +33,5 @@ Accessory.create(sku: 3000, name: "SPowder Town Beanie", price: 150, size: "L", 
 Accessory.create(sku: 3000, name: "Powder Town Beanie", price: 150, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia")
 Accessory.create(sku: 3000, name: "Powder Town Beanie", price: 150, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia")
 
+User.create(username: "jon", password:"jon", email:"jon@jon.com", admin: true)
 puts "Seeding Complete"

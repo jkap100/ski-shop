@@ -22,6 +22,7 @@ import GlovesShow from "../pages/accessories/GlovesShow";
 import HatsShow from "../pages/accessories/HatsShow";
 
 import CartShow from "../pages/CartShow";
+import InventoryShow from "../pages/InventoryShow";
 
 function App() {
   const [error, setErrors] = useState("");
@@ -129,6 +130,7 @@ function App() {
           <Route path="/goggles" element={<GogglesShow />} />
           <Route path="/gloves" element={<GlovesShow />} />
           <Route path="/hats" element={<HatsShow />} />
+          <Route path="/inventory" element={<InventoryShow />} />
           <Route
             path="/cart"
             element={

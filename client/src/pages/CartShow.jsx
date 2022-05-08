@@ -29,7 +29,7 @@ function CartShow({
         r.json().then(setCart);
       } else {
         r.json().then((error) => setErrors(error.errors));
-        // navigate("/login");
+        navigate("/login");
       }
     });
   }, []);

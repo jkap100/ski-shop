@@ -1,5 +1,5 @@
 import "../App.css";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({ searchTerm, setSearchTerm }) {
@@ -7,6 +7,10 @@ function Navbar({ searchTerm, setSearchTerm }) {
     localStorage.clear();
     console.log(localStorage);
   };
+
+  const isUserAdmin = localStorage.getItem("isAdmin");
+  <IsAdmin isUserAdmin={isUserAdmin} />;
+  console.log(isUserAdmin);
 
   return (
     <div>
@@ -90,6 +94,14 @@ function Navbar({ searchTerm, setSearchTerm }) {
                     <div className="navbar-item">All Accessories</div>
                   </Link>
                 </div>
+              </div>
+
+              <div className="navbar-item has-dropdown is-hoverable">
+                {localStorage.getItem("isAdmin") ? (
+                  <div>Inventory</div>
+                ) : (
+                  <div className="notAdmin">Not Admin</div>
+                )}
               </div>
             </div>
           </div>

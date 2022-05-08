@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart({ cartObj, setErrors }) {
-  //   console.log(cartObj);
+  const navigate = useNavigate();
 
   const handleDeleteSki = (id) => {
     console.log(id);

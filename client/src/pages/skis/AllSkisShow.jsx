@@ -34,6 +34,7 @@ function AllSkisShow({ skis, setSkis, setErrors }) {
     }).then((r) => {
       if (r.ok) {
         console.log("added to cart");
+        // alert("Added to cart");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
