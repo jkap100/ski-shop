@@ -5,3 +5,15 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
 }
+
+.product {
+  width: 500px;
+}
+
+.price {
+  width: 300px;
+}
+
+.category {
+  width: 370px;
+}
