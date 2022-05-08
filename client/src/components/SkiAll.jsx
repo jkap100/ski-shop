@@ -28,7 +28,7 @@ function Ski({ allSkiObj, handleAddToCart }) {
 
         <div className="card-content">
           <h5>
-            <strong>Price:</strong> ${allSkiObj.price}
+            <strong>Price:</strong> ${allSkiObj.price.toLocaleString("en-US")}
           </h5>
           <h5>
             <strong>Category:</strong> {allSkiObj.category}

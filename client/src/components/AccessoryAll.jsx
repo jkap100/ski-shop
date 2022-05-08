@@ -28,7 +28,8 @@ function AccessoryAll({ allAccessoryObj, handleAddToCart }) {
 
         <div className="card-content">
           <h5>
-            <strong>Price:</strong> ${allAccessoryObj.price}
+            <strong>Price:</strong> $
+            {allAccessoryObj.price.toLocaleString("en-US")}
           </h5>
           <h5>
             <strong>Category:</strong> {allAccessoryObj.category}

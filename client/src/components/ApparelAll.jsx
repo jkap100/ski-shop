@@ -28,7 +28,8 @@ function ApparelAll({ allApparelObj, handleAddToCart }) {
 
         <div className="card-content">
           <h5>
-            <strong>Price:</strong> ${allApparelObj.price}
+            <strong>Price:</strong> $
+            {allApparelObj.price.toLocaleString("en-US")}
           </h5>
           <h5>
             <strong>Category:</strong> {allApparelObj.category}
