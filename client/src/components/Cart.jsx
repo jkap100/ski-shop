@@ -3,6 +3,46 @@ import React from "react";
 function Cart({ cartObj, setErrors }) {
   //   console.log(cartObj);
 
+  const handleDeleteSki = (id) => {
+    console.log(id);
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    fetch(`http://localhost:3000/user_skis/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    }).then((r) => {
+      if (r.ok) {
+        console.log("removed from cart");
+        window.location.reload(true);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  };
+
+  const handleDeleteApparel = (id) => {
+    console.log(id);
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    fetch(`http://localhost:3000/user_apparels/${id}`, {
+      method: "DELETE",
+      headers: headers,
+    }).then((r) => {
+      if (r.ok) {
+        console.log("removed from cart");
+        window.location.reload(true);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  };
+
   const handleDeleteAccessory = (id) => {
     console.log(id);
     const headers = {
@@ -40,7 +80,7 @@ function Cart({ cartObj, setErrors }) {
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  const totalSkiPrice = cartApparels.reduce(
+  const totalSkiPrice = cartSkis.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
@@ -67,7 +107,12 @@ function Cart({ cartObj, setErrors }) {
                   <td className="price">{item.price}</td>
                   <td className="category">{item.category}</td>
                   <td>
-                    <button className="button is-black is-small">X</button>
+                    <button
+                      className="button is-black is-small"
+                      onClick={() => handleDeleteSki(item.id)}
+                    >
+                      X
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -99,7 +144,12 @@ function Cart({ cartObj, setErrors }) {
                   <td>{item.price}</td>
                   <td>{item.category}</td>
                   <td>
-                    <button className="button is-black is-small">X</button>
+                    <button
+                      className="button is-black is-small"
+                      onClick={() => handleDeleteApparel(item.id)}
+                    >
+                      X
+                    </button>
                   </td>
                 </tr>
               ))}

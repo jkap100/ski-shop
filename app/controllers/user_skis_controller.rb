@@ -11,6 +11,12 @@ class UserSkisController < ApplicationController
         render json: user_ski, status: :created
     end
 
+    def destroy
+        user_ski = UserSki.find_by params[:ski_id]
+        user_ski.destroy
+        head :no_content
+    end
+
     private
 
     def user_ski_params

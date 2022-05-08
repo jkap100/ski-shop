@@ -94,24 +94,26 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="navbar-end">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <div className="navbar-link">User</div>
-              <div className="navbar-dropdown">
-                <Link to="/login">
-                  <div className="navbar-item">Log In</div>
-                </Link>
-                <Link to="/signup">
-                  <div className="navbar-item">Sign Up</div>
-                </Link>
-                <Link to="/cart">
-                  <div className="navbar-item">Shopping Cart</div>
-                </Link>
-                <Link to="/login">
-                  <div className="navbar-item" onClick={logOut}>
-                    Log Out
-                  </div>
-                </Link>
+          <div className="navbar-menu">
+            <div className="navbar-end">
+              <div className="navbar-item has-dropdown is-hoverable">
+                <div className="navbar-link">User</div>
+                <div className="navbar-dropdown">
+                  <Link to="/login">
+                    <div className="navbar-item">Log In</div>
+                  </Link>
+                  <Link to="/signup">
+                    <div className="navbar-item">Sign Up</div>
+                  </Link>
+                  <Link to="/cart">
+                    <div className="navbar-item">Shopping Cart</div>
+                  </Link>
+                  <Link to="/login">
+                    <div className="navbar-item" onClick={logOut}>
+                      Log Out
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

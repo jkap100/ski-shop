@@ -12,7 +12,9 @@ class UserAccessoriesController < ApplicationController
     end
 
     def destroy
-        user_accessory = UserAccessory.find(params[:id])
+        # byebug
+        user_accessory = UserAccessory.find_by params[:accessory_id]
+      
         user_accessory.destroy
         head :no_content
     end

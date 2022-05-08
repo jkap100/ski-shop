@@ -11,6 +11,12 @@ class UserApparelsController < ApplicationController
         render json: user_apparel, status: :created
     end
 
+    def destroy
+        user_apparel = UserApparel.find_by params[:apparel_id]
+        user_apparel.destroy
+        head :no_content
+    end
+
     private
 
     def user_apparel_params
