@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cart from "../components/Cart";
 
 function CartShow({
   skis,
@@ -33,7 +34,15 @@ function CartShow({
     });
   }, []);
 
-  return <div>Cart</div>;
+  const cartItems = cart.map((c) => <Cart key={c.id} cartObj={c} />);
+
+  // console.log(cartItems);
+
+  return (
+    <div>
+      <div>{cartItems}</div>
+    </div>
+  );
 }
 
 export default CartShow;
