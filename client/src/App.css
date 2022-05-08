@@ -18,6 +18,10 @@ html {
   width: 370px;
 }
 
+.cart-image {
+  width: 250px;
+}
+
 #search {
   display: flex;
   margin-left: auto;

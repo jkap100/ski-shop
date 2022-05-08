@@ -45,6 +45,22 @@ function App() {
     );
   });
 
+  const filteredApparel = apparels.filter((apparel) => {
+    return (
+      apparel.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      apparel.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      apparel.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
+  const filteredAccessories = accessories.filter((accessory) => {
+    return (
+      accessory.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      accessory.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      accessory.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -92,7 +108,7 @@ function App() {
             path="/apparels"
             element={
               <AllApparelsShow
-                apparels={apparels}
+                apparels={filteredApparel}
                 setApparels={setApparels}
                 setErrors={setErrors}
               />
@@ -104,7 +120,7 @@ function App() {
             path="/accessories"
             element={
               <AllAccessoriesShow
-                accessories={accessories}
+                accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 setErrors={setErrors}
               />
