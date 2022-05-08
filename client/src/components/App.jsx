@@ -35,10 +35,20 @@ function App() {
   const [accessories, setAccessories] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredSkis = skis.filter((ski) => {
+    return (
+      ski.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ski.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ski.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -69,7 +79,7 @@ function App() {
             path="/skis"
             element={
               <AllSkisShow
-                skis={skis}
+                skis={filteredSkis}
                 setSkis={setSkis}
                 setErrors={setErrors}
               />

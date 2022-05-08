@@ -2,7 +2,7 @@ import "../App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ searchTerm, setSearchTerm }) {
   const logOut = () => {
     localStorage.clear();
     console.log(localStorage);
@@ -98,6 +98,7 @@ function Navbar() {
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable">
                 <div className="navbar-link">User</div>
+
                 <div className="navbar-dropdown">
                   <Link to="/login">
                     <div className="navbar-item">Log In</div>
@@ -114,6 +115,17 @@ function Navbar() {
                     </div>
                   </Link>
                 </div>
+              </div>
+              <div id="search-div">
+                <input
+                  className="has-text-centered"
+                  id="search"
+                  value={searchTerm}
+                  type="text"
+                  placeholder="Search Products"
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <i className=""></i>
               </div>
             </div>
           </div>

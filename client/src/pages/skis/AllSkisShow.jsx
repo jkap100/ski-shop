@@ -40,13 +40,17 @@ function AllSkisShow({ skis, setSkis, setErrors }) {
     });
   };
 
+  console.log(skis);
+
   const allSkis = skis.map((ski) => (
     <SkiAll key={ski.id} allSkiObj={ski} handleAddToCart={onAddSkiToCart} />
   ));
 
   return (
-    <div className="container">
-      <div className="columns is-multiline">{allSkis}</div>
+    <div>
+      <div className="container">
+        <div className="columns is-multiline">{allSkis}</div>
+      </div>
     </div>
   );
 }
