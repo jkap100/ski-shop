@@ -1,4 +1,5 @@
 import "../App.css";
+import useCollapse from "react-collapsed";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -22,7 +23,7 @@ import GlovesShow from "../pages/accessories/GlovesShow";
 import HatsShow from "../pages/accessories/HatsShow";
 
 import CartShow from "../pages/CartShow";
-import InventoryShow from "../pages/InventoryShow";
+import InventoryShow from "../pages/inventory/InventoryShow";
 
 function App() {
   const [error, setErrors] = useState("");
@@ -70,6 +71,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

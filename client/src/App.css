@@ -1,3 +1,7 @@
+/* @import "bulma";
+
+@import "~@creativebulma/bulma-collapsible"; */
+
 html {
   background: url("https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80")
     no-repeat center center fixed;
@@ -62,6 +66,16 @@ html {
   .navbar-brand .navbar-item.is-hoverable:hover .navbar-dropdown {
     display: block;
   }
+}
+
+.collapsible .content {
+  padding: 6px;
+  background-color: white;
+}
+.collapsible .header {
+  background-color: black;
+  padding: 6px;
+  cursor: pointer;
 }
 
 .product {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import InventoryOrder from "../../components/InventoryOrder";
 
 function InventoryShow({
   skiInventory,
@@ -154,6 +155,8 @@ function InventoryShow({
 
   return (
     <div className="container">
+      <InventoryOrder />
+
       <div className="column">
         <div className="box">
           <table className="table is-fullwidth">

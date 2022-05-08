@@ -1,3 +1,4 @@
+import "bulma/css/bulma.min.css";
 import React, { useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
@@ -48,10 +49,8 @@ function AllSkisShow({ skis, setSkis, setErrors }) {
   ));
 
   return (
-    <div>
-      <div className="container">
-        <div className="columns is-multiline">{allSkis}</div>
-      </div>
+    <div className="container">
+      <div className="columns is-multiline">{allSkis}</div>
     </div>
   );
 }
