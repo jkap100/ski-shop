@@ -8,9 +8,7 @@ function Navbar({ searchTerm, setSearchTerm }) {
     console.log(localStorage);
   };
 
-  const isUserAdmin = localStorage.getItem("isAdmin");
-  <IsAdmin isUserAdmin={isUserAdmin} />;
-  console.log(isUserAdmin);
+  console.log(`Is User Admin: ${localStorage.getItem("isAdmin")}`);
 
   return (
     <div>
