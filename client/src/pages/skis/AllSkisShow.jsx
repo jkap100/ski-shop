@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 
-function AllSkisShow({ products, setProducts, setErrors }) {
+function AllSkisShow({ skis, setSkis, setErrors }) {
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/skis").then((r) => {
       if (r.ok) {
-        r.json().then(setProducts);
+        r.json().then(setSkis);
       } else {
         r.json().then((error) => setErrors(error.errors));
         navigate("/login");
@@ -40,7 +40,7 @@ function AllSkisShow({ products, setProducts, setErrors }) {
     });
   };
 
-  const allSkis = products.map((ski) => (
+  const allSkis = skis.map((ski) => (
     <SkiAll key={ski.id} allSkiObj={ski} handleAddToCart={onAddSkiToCart} />
   ));
 

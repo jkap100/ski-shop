@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function Ski({ allSkiObj, handleAddToCart }) {
   return (
@@ -38,16 +38,20 @@ function Ski({ allSkiObj, handleAddToCart }) {
           </h5>
         </div>
 
-        <div className="card-footer is-centered">
-          <button
-            className="mt-2 mb-2 ml-5 button is-dark is-responsive"
-            onClick={() => handleAddToCart(allSkiObj)}
-          >
-            Add to Cart
-          </button>
-          <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
-            View Details
-          </button>
+        <div className="card-footer ">
+          <footer className="card-footer has-text-centered has-background-white">
+            <div>
+              <button
+                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                onClick={() => handleAddToCart(allSkiObj)}
+              >
+                Add to Cart
+              </button>
+              <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+                View Details
+              </button>
+            </div>
+          </footer>
         </div>
       </div>
     </div>

@@ -20,7 +20,8 @@ import AllAccessoriesShow from "../pages/accessories/AllAccessoriesShow";
 import GogglesShow from "../pages/accessories/GogglesShow";
 import GlovesShow from "../pages/accessories/GlovesShow";
 import HatsShow from "../pages/accessories/HatsShow";
-import Cart from "../pages/Cart";
+
+import CartShow from "../pages/CartShow";
 
 function App() {
   const [error, setErrors] = useState("");
@@ -29,7 +30,10 @@ function App() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const [products, setProducts] = useState([]);
+  const [skis, setSkis] = useState([]);
+  const [apparels, setApparels] = useState([]);
+  const [accessories, setAccessories] = useState([]);
+  const [cart, setCart] = useState([]);
 
   return (
     <div className="App">
@@ -65,8 +69,8 @@ function App() {
             path="/skis"
             element={
               <AllSkisShow
-                products={products}
-                setProducts={setProducts}
+                skis={skis}
+                setSkis={setSkis}
                 setErrors={setErrors}
               />
             }
@@ -78,8 +82,8 @@ function App() {
             path="/apparels"
             element={
               <AllApparelsShow
-                products={products}
-                setProducts={setProducts}
+                apparels={apparels}
+                setApparels={setApparels}
                 setErrors={setErrors}
               />
             }
@@ -90,8 +94,8 @@ function App() {
             path="/accessories"
             element={
               <AllAccessoriesShow
-                products={products}
-                setProducts={setProducts}
+                accessories={accessories}
+                setAccessories={setAccessories}
                 setErrors={setErrors}
               />
             }
@@ -99,7 +103,22 @@ function App() {
           <Route path="/goggles" element={<GogglesShow />} />
           <Route path="/gloves" element={<GlovesShow />} />
           <Route path="/hats" element={<HatsShow />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/cart"
+            element={
+              <CartShow
+                skis={skis}
+                setSkis={setSkis}
+                apparels={apparels}
+                setApparels={setApparels}
+                accessories={accessories}
+                setAccessories={setAccessories}
+                setErrors={setErrors}
+                cart={cart}
+                setCart={setCart}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

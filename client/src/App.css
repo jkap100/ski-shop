@@ -5,8 +5,3 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
 }
-
-.is-vertical-center {
-  display: flex;
-  align-items: center;
-}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Ski from "../../components/SkiAll";
+// import Ski from "../../components/SkiAll";
 
 function FreestyleShow({ skis, setSkis, setErrors }) {
   return (

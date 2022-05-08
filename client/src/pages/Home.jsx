@@ -23,7 +23,7 @@ function Home() {
                   </Link>
 
                   <Link to="/skis">
-                    <button className="button is-black is-large mx-6">
+                    <button className="button is-black is-large mx-6 is-hoveredd">
                       Shop
                     </button>
                   </Link>

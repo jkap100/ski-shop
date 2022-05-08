@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import ApparelAll from "../../components/ApparelAll";
 import { useNavigate } from "react-router-dom";
 
-function AllApparelShow({ products, setProducts, setErrors }) {
+function AllApparelShow({ apparels, setApparels, setErrors }) {
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/apparels").then((r) => {
       if (r.ok) {
-        r.json().then(setProducts);
+        r.json().then(setApparels);
       } else {
         r.json().then((error) => setErrors(error.errors));
         navigate("/login");
@@ -40,7 +40,7 @@ function AllApparelShow({ products, setProducts, setErrors }) {
     });
   };
 
-  const allApparel = products.map((apparel) => (
+  const allApparel = apparels.map((apparel) => (
     <ApparelAll
       key={apparel.id}
       allApparelObj={apparel}
