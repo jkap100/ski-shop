@@ -36,6 +36,10 @@ function App() {
   const [accessories, setAccessories] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [skiInventory, setSkiInventory] = useState([]);
+  const [apparelInventory, setApparelInventory] = useState([]);
+  const [accessoryInventory, setAccessoryInventory] = useState([]);
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredSkis = skis.filter((ski) => {
@@ -130,7 +134,20 @@ function App() {
           <Route path="/goggles" element={<GogglesShow />} />
           <Route path="/gloves" element={<GlovesShow />} />
           <Route path="/hats" element={<HatsShow />} />
-          <Route path="/inventory" element={<InventoryShow />} />
+          <Route
+            path="/inventory"
+            element={
+              <InventoryShow
+                skiInventory={skiInventory}
+                setSkiInventory={setSkiInventory}
+                apparelInventory={apparelInventory}
+                setApparelInventory={setApparelInventory}
+                accessoryInventory={accessoryInventory}
+                setAccessoryInventory={setAccessoryInventory}
+                setErrors={setErrors}
+              />
+            }
+          />
           <Route
             path="/cart"
             element={
