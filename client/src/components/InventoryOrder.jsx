@@ -1,14 +1,13 @@
 import React from "react";
 import useCollapse from "react-collapsed";
-import { Link } from "react-router-dom";
 
 function Collapsible() {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
-    <div className="collapsible is-hoverable">
+    <div className="collapsible">
       <div className="box">
-        <div className="header is-hoverable" {...getToggleProps()}>
-          <strong className="is-hoverable has-text-white">
+        <div className="header " {...getToggleProps()}>
+          <strong className="has-text-white">
             {isExpanded ? "Collapse" : "Order Inventory"}
           </strong>
         </div>
