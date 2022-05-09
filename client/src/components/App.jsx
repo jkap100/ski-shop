@@ -120,6 +120,8 @@ function App() {
               <AllSkisShow
                 skis={filteredSkis}
                 setSkis={setSkis}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
                 setErrors={setErrors}
               />
             }
@@ -133,6 +135,8 @@ function App() {
               <AllApparelsShow
                 apparels={filteredApparel}
                 setApparels={setApparels}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
                 setErrors={setErrors}
               />
             }
@@ -145,6 +149,8 @@ function App() {
               <AllAccessoriesShow
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
                 setErrors={setErrors}
               />
             }

@@ -120,3 +120,7 @@ html {
 .pointer {
   cursor: pointer;
 }
+
+.detail-image {
+  max-height: 500px;
+}
