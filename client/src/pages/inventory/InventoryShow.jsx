@@ -3,7 +3,6 @@ import useCollapse from "react-collapsed";
 import { useNavigate } from "react-router-dom";
 
 function InventoryShow({
-  skis,
   skiInventory,
   setSkiInventory,
   apparelInventory,
@@ -179,7 +178,7 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          window.location.reload(true);
+          setSkiInventory([...skiInventory, body]);
         }
       });
   };
@@ -213,7 +212,7 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          window.location.reload(true);
+          setApparelInventory([...apparelInventory, body]);
         }
       });
   };
@@ -247,7 +246,7 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          window.location.reload(true);
+          setAccessoryInventory([...accessoryInventory, body]);
         }
       });
   };
