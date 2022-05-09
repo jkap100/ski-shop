@@ -8,8 +8,7 @@ class ApparelsController < ApplicationController
 
 
     def create
-        apperal = Accessory.find(params[:id])
-        apparel.create!(apparel_params)
+        apparel = Apparel.create!(apparel_params)
         render json: apparel, status: :created
     end
 

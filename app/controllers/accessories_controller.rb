@@ -7,8 +7,7 @@ class AccessoriesController < ApplicationController
     end
 
     def create
-        accessory = Accessory.find(params[:id])
-        accessory.create!(accessory_params)
+        accessory = Accessory.create!(accessory_params)
         render json: accessory, status: :created
     end
 

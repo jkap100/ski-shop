@@ -7,9 +7,7 @@ class SkisController < ApplicationController
     end
 
     def create
-        # byebug
         ski = Ski.create!(ski_params)
-        
         render json: ski, status: :created
     end
 

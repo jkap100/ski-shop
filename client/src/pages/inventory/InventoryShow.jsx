@@ -127,10 +127,70 @@ function InventoryShow({
 
   const handleOrderApparelInv = (apparel) => {
     console.log(apparel);
+
+    const body = {
+      name: apparel.name,
+      sku: apparel.sku,
+      price: apparel.price,
+      cost: apparel.cost,
+      size: apparel.size,
+      category: apparel.category,
+      sex: apparel.sex,
+      description: apparel.description,
+      image: apparel.image,
+      brand: apparel.brand,
+    };
+    console.log(body);
+    fetch("http://localhost:3000/apparels", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.error) {
+          console.error(result.error);
+        } else {
+          window.location.reload(true);
+        }
+      });
   };
 
   const handleOrderAccessoryInv = (accessory) => {
     console.log(accessory);
+
+    const body = {
+      name: accessory.name,
+      sku: accessory.sku,
+      price: accessory.price,
+      cost: accessory.cost,
+      size: accessory.size,
+      category: accessory.category,
+      sex: accessory.sex,
+      description: accessory.description,
+      image: accessory.image,
+      brand: accessory.brand,
+    };
+    console.log(body);
+    fetch("http://localhost:3000/accessories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.error) {
+          console.error(result.error);
+        } else {
+          window.location.reload(true);
+        }
+      });
   };
 
   const handleDeleteSkiInv = (id) => {
