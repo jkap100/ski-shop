@@ -1,6 +1,6 @@
 import React from "react";
 
-function ApparelAll({ allApparelObj, handleAddToCart }) {
+function ApparelAll({ allApparelObj, handleAddToCart, handleViewApparel }) {
   return (
     <div className="column is-one-quarter">
       <div className="card mx-2">
@@ -48,7 +48,10 @@ function ApparelAll({ allApparelObj, handleAddToCart }) {
               >
                 Add to Cart
               </button>
-              <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+              <button
+                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                onClick={() => handleViewApparel(allApparelObj)}
+              >
                 View Details
               </button>
             </div>

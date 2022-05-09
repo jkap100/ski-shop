@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import ApparelAll from "../../components/ApparelAll";
 import { useNavigate } from "react-router-dom";
 
-function AllApparelShow({ apparels, setApparels, setErrors }) {
+function AllApparelShow({
+  apparels,
+  setApparels,
+  viewProduct,
+  setViewProduct,
+  setErrors,
+}) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +21,19 @@ function AllApparelShow({ apparels, setApparels, setErrors }) {
       }
     });
   }, []);
+
+  const onViewApparel = (apparel) => {
+    console.log(apparel);
+    fetch(`http://localhost:3000/apparels/${apparel.id}`).then((r) => {
+      if (r.ok) {
+        r.json().then(setViewProduct);
+        navigate("/product_detail");
+      } else {
+        r.json().then((error) => setErrors(error.errors));
+        navigate("/login");
+      }
+    });
+  };
 
   const onAddApparelToCart = (apparel) => {
     const headers = {
@@ -45,6 +64,7 @@ function AllApparelShow({ apparels, setApparels, setErrors }) {
       key={apparel.id}
       allApparelObj={apparel}
       handleAddToCart={onAddApparelToCart}
+      handleViewApparel={onViewApparel}
     />
   ));
   return (

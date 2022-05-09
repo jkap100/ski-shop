@@ -1,6 +1,10 @@
 import React from "react";
 
-function AccessoryAll({ allAccessoryObj, handleAddToCart }) {
+function AccessoryAll({
+  allAccessoryObj,
+  handleAddToCart,
+  handleViewAccessory,
+}) {
   return (
     <div className="column is-one-quarter">
       <div className="card mx-2">
@@ -48,7 +52,10 @@ function AccessoryAll({ allAccessoryObj, handleAddToCart }) {
               >
                 Add to Cart
               </button>
-              <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+              <button
+                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                onClick={() => handleViewAccessory(allAccessoryObj)}
+              >
                 View Details
               </button>
             </div>

@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import AccessoryAll from "../../components/AccessoryAll";
 import { useNavigate } from "react-router-dom";
 
-function AllAccessoriesShow({ accessories, setAccessories, setErrors }) {
+function AllAccessoriesShow({
+  accessories,
+  setAccessories,
+  viewProduct,
+  setViewProduct,
+  setErrors,
+}) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +21,19 @@ function AllAccessoriesShow({ accessories, setAccessories, setErrors }) {
       }
     });
   }, []);
+
+  const onViewAccessory = (accessory) => {
+    console.log(accessory);
+    fetch(`http://localhost:3000/apparels/${accessory.id}`).then((r) => {
+      if (r.ok) {
+        r.json().then(setViewProduct);
+        navigate("/product_detail");
+      } else {
+        r.json().then((error) => setErrors(error.errors));
+        navigate("/login");
+      }
+    });
+  };
 
   const onAddAccessoryToCart = (accessory) => {
     const headers = {
@@ -45,6 +64,7 @@ function AllAccessoriesShow({ accessories, setAccessories, setErrors }) {
       key={a.id}
       allAccessoryObj={a}
       handleAddToCart={onAddAccessoryToCart}
+      handleViewAccessory={onViewAccessory}
     />
   ));
 
