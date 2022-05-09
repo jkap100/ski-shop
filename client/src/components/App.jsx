@@ -23,6 +23,7 @@ import GlovesShow from "../pages/accessories/GlovesShow";
 import HatsShow from "../pages/accessories/HatsShow";
 
 import CartShow from "../pages/CartShow";
+
 import InventoryShow from "../pages/inventory/InventoryShow";
 
 function App() {
@@ -40,6 +41,17 @@ function App() {
   const [skiInventory, setSkiInventory] = useState([]);
   const [apparelInventory, setApparelInventory] = useState([]);
   const [accessoryInventory, setAccessoryInventory] = useState([]);
+
+  const [name, setName] = useState("");
+  const [sku, setSku] = useState("");
+  const [price, setPrice] = useState("");
+  const [cost, setCost] = useState("");
+  const [size, setSize] = useState("");
+  const [category, setCategory] = useState("");
+  const [sex, setSex] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [brand, setBrand] = useState("");
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -146,6 +158,26 @@ function App() {
                 setApparelInventory={setApparelInventory}
                 accessoryInventory={accessoryInventory}
                 setAccessoryInventory={setAccessoryInventory}
+                name={name}
+                setName={setName}
+                sku={sku}
+                setSku={setSku}
+                price={price}
+                setPrice={setPrice}
+                cost={cost}
+                setCost={setCost}
+                size={size}
+                setSize={setSize}
+                category={category}
+                setCategory={setCategory}
+                sex={sex}
+                setSex={setSex}
+                description={description}
+                setDescription={description}
+                image={image}
+                setImage={setImage}
+                brand={brand}
+                setBrand={setBrand}
                 setErrors={setErrors}
               />
             }

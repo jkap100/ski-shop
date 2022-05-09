@@ -9,6 +9,26 @@ function InventoryShow({
   setApparelInventory,
   accessoryInventory,
   setAccessoryInventory,
+  name,
+  setName,
+  sku,
+  setSku,
+  price,
+  setPrice,
+  cost,
+  setCost,
+  size,
+  setSize,
+  category,
+  setCategory,
+  sex,
+  setSex,
+  description,
+  setDescription,
+  image,
+  setImage,
+  brand,
+  setBrand,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -69,6 +89,49 @@ function InventoryShow({
       }
     });
   }, []);
+
+  const handleOrderSkiInv = (ski) => {
+    // event.preventDefault();
+    console.log(ski);
+
+    const body = {
+      name: ski.name,
+      sku: ski.sku,
+      price: ski.price,
+      cost: ski.cost,
+      size: ski.size,
+      category: ski.category,
+      sex: ski.sex,
+      description: ski.description,
+      image: ski.image,
+      brand: ski.brand,
+    };
+    console.log(body);
+    fetch("http://localhost:3000/skis", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.error) {
+          console.error(result.error);
+        } else {
+          window.location.reload(true);
+        }
+      });
+  };
+
+  const handleOrderApparelInv = (apparel) => {
+    console.log(apparel);
+  };
+
+  const handleOrderAccessoryInv = (accessory) => {
+    console.log(accessory);
+  };
 
   const handleDeleteSkiInv = (id) => {
     console.log(id);
@@ -166,6 +229,7 @@ function InventoryShow({
                 <th className="product">Item Name</th>
                 <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="has-text-centered">Order</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -181,6 +245,14 @@ function InventoryShow({
                   </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="has-text-centered">
+                    <button
+                      className="button is-outlined is-small"
+                      onClick={() => handleOrderSkiInv(item)}
+                    >
+                      <strong>+</strong>
+                    </button>
                   </td>
                   <td className="has-text-centered">
                     <button
@@ -212,6 +284,7 @@ function InventoryShow({
                 <th className="product">Item Name</th>
                 <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="has-text-centered">Order</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -227,6 +300,14 @@ function InventoryShow({
                   </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="has-text-centered">
+                    <button
+                      className="button is-outlined is-small"
+                      onClick={() => handleOrderApparelInv(item)}
+                    >
+                      <strong>+</strong>
+                    </button>
                   </td>
                   <td className="has-text-centered">
                     <button
@@ -258,6 +339,7 @@ function InventoryShow({
                 <th className="product">Item Name</th>
                 <th className="price has-text-centered">Cost</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="has-text-centered">Order</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -273,6 +355,14 @@ function InventoryShow({
                   </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="has-text-centered">
+                    <button
+                      className="button is-outlined is-small"
+                      onClick={() => handleOrderAccessoryInv(item)}
+                    >
+                      <strong>+</strong>
+                    </button>
                   </td>
                   <td className="has-text-centered">
                     <button

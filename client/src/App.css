@@ -96,13 +96,9 @@ html {
 
 #search {
   display: flex;
-  margin-left: auto;
   width: 200px;
   height: 50px;
-  border: 45px;
   border-radius: 20px;
-  border-color: #333;
-  right: 0px;
 }
 
 .notAdmin {
