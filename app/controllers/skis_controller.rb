@@ -26,7 +26,7 @@ class SkisController < ApplicationController
     private
 
     def ski_params
-        params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand)
+        params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
     end
 
   

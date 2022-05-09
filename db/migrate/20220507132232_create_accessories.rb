@@ -11,6 +11,7 @@ class CreateAccessories < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :image
       t.string :brand
+      t.integer :count
 
       t.timestamps
     end

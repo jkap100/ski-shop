@@ -65,27 +65,54 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
     });
   };
 
-  const cartAccessories = cartObj.accessories.map(
+  const cartAccessoriesPrice = cartObj.accessories.map(
     (accessory) => accessory.price
   );
-
-  const cartApparels = cartObj.apparels.map((apparel) => apparel.price);
-
-  const cartSkis = cartObj.skis.map((ski) => ski.price);
-
-  const initialValue = 0;
-  const totalAccessoryPrice = cartAccessories.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
+  const cartAccessoriesCount = cartObj.accessories.map(
+    (accessory) => accessory.count
   );
-  const totalApparelPrice = cartApparels.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
-  );
-  const totalSkiPrice = cartSkis.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
-  );
+
+  const cartApparelsPrice = cartObj.apparels.map((apparel) => apparel.price);
+  const cartApparelsCount = cartObj.apparels.map((apparel) => apparel.count);
+
+  const cartSkiPrices = cartObj.skis.map((ski) => ski.price);
+  const cartSkiCount = cartObj.skis.map((ski) => ski.count);
+  // console.log(`Prices: ${cartSkiPrices}`);
+  // console.log(`count ${cartSkiCount}`);
+
+  let totalSkiPrice = 0;
+
+  for (let i = 0; i < cartSkiPrices.length; i++) {
+    totalSkiPrice += cartSkiCount[i] * cartSkiPrices[i];
+  }
+
+  let totalApparelPrice = 0;
+
+  for (let i = 0; i < cartApparelsPrice.length; i++) {
+    totalSkiPrice += cartApparelsCount[i] * cartApparelsPrice[i];
+  }
+
+  let totalAccessoryPrice = 0;
+
+  for (let i = 0; i < cartAccessoriesCount.length; i++) {
+    totalAccessoryPrice += cartAccessoriesCount[i] * cartAccessoriesPrice[i];
+  }
+
+  // console.log(totalSkiPrice);
+
+  // const initialValue = 0;
+  // const totalAccessoryPrice = cartAccessories.reduce(
+  //   (previousValue, currentValue) => previousValue + currentValue,
+  //   initialValue
+  // );
+  // const totalApparelPrice = cartApparels.reduce(
+  //   (previousValue, currentValue) => previousValue + currentValue,
+  //   initialValue
+  // );
+  // const totalSkiPrice = cartSkiPrices.reduce(
+  //   (previousValue, currentValue) => previousValue + currentValue,
+  //   initialValue
+  // );
 
   const grandTotal = totalSkiPrice + totalApparelPrice + totalAccessoryPrice;
 
@@ -98,8 +125,10 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="price has-text-centered">Price</th>
+                <th className="qty has-text-centered">Quantity</th>
+                <th className="Total has-text-centered">Total</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -110,11 +139,17 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
                     <img src={item.image} alt="not found"></img>
                   </td>
                   <td className="product">{item.name}</td>
-                  <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
-                  </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="price has-text-centered">
+                    ${item.price.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    {item.count.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    ${(item.count * item.price).toLocaleString("en-US")}
                   </td>
                   <td className="has-text-centered">
                     <button
@@ -143,8 +178,10 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="price has-text-centered">Price</th>
+                <th className="qty has-text-centered">Quantity</th>
+                <th className="Total has-text-centered">Total</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -155,11 +192,17 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
                     <img src={item.image} alt="not found"></img>
                   </td>
                   <td className="product">{item.name}</td>
-                  <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
-                  </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="price has-text-centered">
+                    ${item.price.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    {item.count.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    ${(item.count * item.price).toLocaleString("en-US")}
                   </td>
                   <td className="has-text-centered">
                     <button
@@ -188,8 +231,10 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
               <tr>
                 <th className="cart-image has-text-centered">Item</th>
                 <th className="product">Item Name</th>
-                <th className="price has-text-centered">Price</th>
                 <th className="category has-text-centered">Category</th>
+                <th className="price has-text-centered">Price</th>
+                <th className="qty has-text-centered">Quantity</th>
+                <th className="Total has-text-centered">Total</th>
                 <th className="has-text-centered">Remove</th>
               </tr>
             </thead>
@@ -200,11 +245,17 @@ function Cart({ cart, cartObj, setCart, setErrors }) {
                     <img src={item.image} alt="not found"></img>
                   </td>
                   <td className="product">{item.name}</td>
-                  <td className="price has-text-centered">
-                    {item.price.toLocaleString("en-US")}
-                  </td>
                   <td className="category has-text-centered">
                     {item.category}
+                  </td>
+                  <td className="price has-text-centered">
+                    ${item.price.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    {item.count.toLocaleString("en-US")}
+                  </td>
+                  <td className="quantity has-text-centered">
+                    ${(item.count * item.price).toLocaleString("en-US")}
                   </td>
                   <td className="has-text-centered">
                     <button

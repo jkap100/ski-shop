@@ -79,15 +79,15 @@ html {
 }
 
 .product {
-  width: 500px;
-}
-
-.price {
   width: 300px;
 }
 
+.price {
+  width: 88px;
+}
+
 .category {
-  width: 370px;
+  width: 300px;
 }
 
 .cart-image {

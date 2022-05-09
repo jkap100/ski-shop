@@ -43,13 +43,14 @@ function ApparelAll({ allApparelObj, handleAddToCart, handleViewApparel }) {
           <footer className="card-footer has-text-centered has-background-white">
             <div>
               <button
-                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                className="mt-2 mb-2 ml-5 button is-black is-responsive"
                 onClick={() => handleAddToCart(allApparelObj)}
               >
                 Add to Cart
               </button>
               <button
-                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                class
+                className="mt-2 mb-2 ml-5 button is-black is-responsive"
                 onClick={() => handleViewApparel(allApparelObj)}
               >
                 View Details
