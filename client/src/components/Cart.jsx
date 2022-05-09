@@ -1,8 +1,7 @@
 import React from "react";
 
-function Cart({ cartObj, setErrors }) {
+function Cart({ cart, cartObj, setCart, setErrors }) {
   const handleDeleteSki = (id) => {
-    console.log(id);
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
@@ -14,7 +13,11 @@ function Cart({ cartObj, setErrors }) {
     }).then((r) => {
       if (r.ok) {
         console.log("removed from cart");
+        console.log(id);
+        // console.log(cart.skis.id);
         window.location.reload(true);
+        // cartObj = cartObj.skis.filter((r) => r.id !== id);
+        // console.log(cartObj);
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -55,6 +58,7 @@ function Cart({ cartObj, setErrors }) {
       if (r.ok) {
         console.log("removed from cart");
         window.location.reload(true);
+        // setSkiInventory(skiInventory.filter((r) => r.id !== id));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -85,7 +89,6 @@ function Cart({ cartObj, setErrors }) {
 
   const grandTotal = totalSkiPrice + totalApparelPrice + totalAccessoryPrice;
 
-  console.log(grandTotal.toLocaleString("en-US"));
   return (
     <div className="container">
       <div className="column">
@@ -118,7 +121,7 @@ function Cart({ cartObj, setErrors }) {
                       className="button is-black is-small"
                       onClick={() => handleDeleteSki(item.id)}
                     >
-                      X
+                      <i className="fas fa-trash"></i>
                     </button>
                   </td>
                 </tr>
@@ -163,7 +166,7 @@ function Cart({ cartObj, setErrors }) {
                       className="button is-black is-small"
                       onClick={() => handleDeleteApparel(item.id)}
                     >
-                      X
+                      <i className="fas fa-trash"></i>
                     </button>
                   </td>
                 </tr>
@@ -208,7 +211,7 @@ function Cart({ cartObj, setErrors }) {
                       className="button is-black is-small"
                       onClick={() => handleDeleteAccessory(item.id)}
                     >
-                      X
+                      <i className="fas fa-trash"></i>
                     </button>
                   </td>
                 </tr>

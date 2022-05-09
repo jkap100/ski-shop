@@ -1,9 +1,15 @@
 class AccessoriesController < ApplicationController
 
-    skip_before_action :authorize
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         render json: Accessory.all
+    end
+
+    def show
+        # byebug
+        accessory = Accessory.find(params[:id])
+        render json: accessory, status: :ok
     end
 
     def create

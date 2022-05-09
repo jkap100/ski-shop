@@ -123,7 +123,17 @@ function Navbar({ searchTerm, setSearchTerm }) {
 
           <div className="navbar-menu">
             <div className="navbar-end">
-              <div className="navbar-item has-dropdown is-hoverable">
+              <div className="navbar-item has-dropdown is-hoverable mr-2">
+                {localStorage.getItem("token") ? (
+                  <Link to="/cart">
+                    <div className="has-text-white">Cart</div>
+                  </Link>
+                ) : (
+                  <div className="notAdmin">Not Admin</div>
+                )}
+              </div>
+
+              <div className="navbar-item has-dropdown is-hoverable mr-2">
                 <div className="navbar-link">User</div>
 
                 <div className="navbar-dropdown">
@@ -132,9 +142,6 @@ function Navbar({ searchTerm, setSearchTerm }) {
                   </Link>
                   <Link to="/signup">
                     <div className="navbar-item">Sign Up</div>
-                  </Link>
-                  <Link to="/cart">
-                    <div className="navbar-item">Shopping Cart</div>
                   </Link>
 
                   <li className="navbar-item pointer" onClick={logOut}>

@@ -152,7 +152,6 @@ function App() {
             path="/inventory"
             element={
               <InventoryShow
-                skis={skis}
                 skiInventory={skiInventory}
                 setSkiInventory={setSkiInventory}
                 apparelInventory={apparelInventory}

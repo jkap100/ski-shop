@@ -34,7 +34,9 @@ function CartShow({
     });
   }, []);
 
-  const cartItems = cart.map((c) => <Cart key={c.id} cartObj={c} />);
+  const cartItems = cart.map((c) => (
+    <Cart key={c.id} cartObj={c} cart={cart} setCart={setCart} />
+  ));
 
   // console.log(cartItems);
 
