@@ -32,9 +32,15 @@ function Login({ username, setUsername, password, setPassword }) {
 
           navigate("/skis");
           localStorage.setItem("token", result.token);
-          localStorage.setItem("currentUserId", result.user.id);
-          localStorage.setItem("isAdmin", result.user.admin);
-          console.log(localStorage);
+
+          if (result.message == "Invalid username or password") {
+            console.log(result.message);
+            alert("invalid username or password");
+          } else {
+            localStorage.setItem("currentUserId", result.user.id);
+            localStorage.setItem("isAdmin", result.user.admin);
+            console.log(localStorage);
+          }
         }
       });
 
