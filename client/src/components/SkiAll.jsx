@@ -1,6 +1,6 @@
 import React from "react";
 
-function Ski({ allSkiObj, handleAddToCart }) {
+function Ski({ allSkiObj, handleAddToCart, handleViewSki }) {
   return (
     <div className="column is-one-quarter">
       <div className="card mx-2">
@@ -47,7 +47,10 @@ function Ski({ allSkiObj, handleAddToCart }) {
               >
                 Add to Cart
               </button>
-              <button className="mt-2 mb-2 ml-5 button is-dark is-responsive">
+              <button
+                className="mt-2 mb-2 ml-5 button is-dark is-responsive"
+                onClick={() => handleViewSki(allSkiObj)}
+              >
                 View Details
               </button>
             </div>

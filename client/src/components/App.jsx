@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 //AUTH PAGES
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Signup from "../pages/Signup";
+import Signup from "../Signup";
 //SKI PAGES
 import AllSkisShow from "../pages/skis/AllSkisShow";
 import PowderShow from "../pages/skis/PowderShow";
@@ -25,6 +25,8 @@ import CartShow from "../pages/CartShow";
 
 import InventoryShow from "../pages/inventory/InventoryShow";
 import NewInventoryOrder from "../pages/inventory/NewInventoryOrder";
+
+import ProductDetail from "../pages/ProductDetail";
 
 function App() {
   const [error, setErrors] = useState("");
@@ -52,6 +54,8 @@ function App() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
+
+  const [viewProduct, setViewProduct] = useState("");
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -203,6 +207,15 @@ function App() {
                 setErrors={setErrors}
                 cart={cart}
                 setCart={setCart}
+              />
+            }
+          />
+          <Route
+            path="/product_detail"
+            element={
+              <ProductDetail
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
               />
             }
           />

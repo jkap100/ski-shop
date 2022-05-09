@@ -3,7 +3,13 @@ import React, { useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 
-function AllSkisShow({ skis, setSkis, setErrors }) {
+function AllSkisShow({
+  skis,
+  setSkis,
+  viewProduct,
+  setViewProduct,
+  setErrors,
+}) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,6 +22,19 @@ function AllSkisShow({ skis, setSkis, setErrors }) {
       }
     });
   }, []);
+
+  const onViewSki = (ski) => {
+    console.log(ski);
+    fetch(`http://localhost:3000/skis/${ski.id}`).then((r) => {
+      if (r.ok) {
+        r.json().then(setViewProduct);
+        navigate("/product_detail");
+      } else {
+        r.json().then((error) => setErrors(error.errors));
+        navigate("/login");
+      }
+    });
+  };
 
   const onAddSkiToCart = (ski) => {
     const headers = {
@@ -45,7 +64,12 @@ function AllSkisShow({ skis, setSkis, setErrors }) {
   console.log(skis);
 
   const allSkis = skis.map((ski) => (
-    <SkiAll key={ski.id} allSkiObj={ski} handleAddToCart={onAddSkiToCart} />
+    <SkiAll
+      key={ski.id}
+      allSkiObj={ski}
+      handleAddToCart={onAddSkiToCart}
+      handleViewSki={onViewSki}
+    />
   ));
 
   return (
