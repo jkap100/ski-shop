@@ -25,10 +25,11 @@ function Login({ username, setUsername, password, setPassword }) {
       .then((response) => response.json())
       .then((result) => {
         if (result.error) {
+          navigate("/login");
           console.error(result.error);
         } else {
           console.log("token", result.token);
-          // console.log(result.user.id);
+
           navigate("/skis");
           localStorage.setItem("token", result.token);
           localStorage.setItem("currentUserId", result.user.id);

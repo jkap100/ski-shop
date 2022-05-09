@@ -95,7 +95,6 @@ function Navbar({ searchTerm, setSearchTerm }) {
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable">
-                {/* <div className="navbar-dropdown"> */}
                 {localStorage.getItem("isAdmin") ? (
                   <Link to="/inventory">
                     <div className="has-text-white">Inventory</div>
@@ -103,7 +102,16 @@ function Navbar({ searchTerm, setSearchTerm }) {
                 ) : (
                   <div className="notAdmin">Not Admin</div>
                 )}
-                {/* </div> */}
+              </div>
+
+              <div className="navbar-item has-dropdown is-hoverable ml-4">
+                {localStorage.getItem("isAdmin") ? (
+                  <Link to="/inventory_order_form">
+                    <div className="has-text-white">New Order</div>
+                  </Link>
+                ) : (
+                  <div className="notAdmin">Not Admin</div>
+                )}
               </div>
             </div>
           </div>
