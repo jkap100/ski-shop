@@ -1,13 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import useCollapse from "react-collapsed";
 
 function NewInventoryOrder({
-  skiInventory,
-  setSkiInventory,
-  apparelInventory,
-  setApparelInventory,
-  accessoryInventory,
-  setAccessoryInventory,
   name,
   setName,
   sku,
@@ -30,9 +24,35 @@ function NewInventoryOrder({
   setBrand,
   setErrors,
 }) {
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+  const [button, setButton] = useState("");
 
-  const handleSubmit = () => {
+  function AccessorySection(props) {
+    const config = {
+      defaultExpanded: props.defaultExpanded || false,
+      collapsedHeight: props.collapsedHeight || 0,
+    };
+    const { getCollapseProps, getToggleProps, isExpanded } =
+      useCollapse(config);
+    return (
+      <div className="collapsible">
+        <div className="header" {...getToggleProps()}>
+          <div className="title has-text-white">Order New Inventory</div>
+          <div className="icon">
+            <i
+              className={
+                "fas fa-chevron-circle-" + (isExpanded ? "up" : "down")
+              }
+            ></i>
+          </div>
+        </div>
+        <div {...getCollapseProps()}>
+          <div className="content">{props.children}</div>
+        </div>
+      </div>
+    );
+  }
+
+  const handleOrderSkis = () => {
     const body = {
       name: name,
       sku: sku,
@@ -65,19 +85,153 @@ function NewInventoryOrder({
       });
   };
 
+  const handleOrderApparel = () => {
+    const body = {
+      name: name,
+      sku: sku,
+      price: price,
+      cost: cost,
+      size: size,
+      category: category,
+      sex: sex,
+      description: description,
+      image: image,
+      brand: brand,
+    };
+
+    console.log(body);
+    fetch("http://localhost:3000/skis", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.error) {
+          console.error(result.error);
+        } else {
+          window.location.reload(true);
+        }
+      });
+  };
+
+  const handleOrderAccessory = () => {
+    const body = {
+      name: name,
+      sku: sku,
+      price: price,
+      cost: cost,
+      size: size,
+      category: category,
+      sex: sex,
+      description: description,
+      image: image,
+      brand: brand,
+    };
+
+    console.log(body);
+    fetch("http://localhost:3000/accessories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.error) {
+          console.error(result.error);
+        } else {
+          window.location.reload(true);
+        }
+      });
+  };
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+
+    const body = {
+      name: name,
+      sku: sku,
+      price: price,
+      cost: cost,
+      size: size,
+      category: category,
+      sex: sex,
+      description: description,
+      image: image,
+      brand: brand,
+    };
+
+    if (button === 1) {
+      console.log("button 1 clicked");
+      fetch("http://localhost:3000/skis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+            window.location.reload(true);
+          }
+        });
+    } else if (button === 2) {
+      console.log("button 2 clicked");
+      fetch("http://localhost:3000/apparels", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+            window.location.reload(true);
+          }
+        });
+    } else if (button === 3) {
+      console.log("button 3 clicked");
+      fetch("http://localhost:3000/accessories", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+            window.location.reload(true);
+          }
+        });
+    }
+  };
+
   return (
     <div className="container">
-      <div className="collapsible">
-        <div className="box">
-          <div className="header " {...getToggleProps()}>
-            <strong className="has-text-white">
-              {isExpanded ? "Collapse" : "Order Ski"}
-            </strong>
-          </div>
-          <div {...getCollapseProps()}>
+      <div className="mt-4">
+        <AccessorySection>
+          <div className="box mt-4">
             <div className="content">
               <div className="is-centered">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleOrder}>
                   <div className="field">
                     <label className="label mt-4">Product Name</label>
                     <p className="control">
@@ -220,14 +374,37 @@ function NewInventoryOrder({
 
                   <div className="field">
                     <p className="control">
-                      <button className="button is-black">Order</button>
+                      <button
+                        className="button is-black"
+                        onClick={() => setButton(1)}
+                        name="order skis"
+                        value="order skis"
+                      >
+                        Order Skis
+                      </button>
+                      <button
+                        className="button is-black mx-4"
+                        onClick={() => setButton(2)}
+                        name="order apparel"
+                        value="order apparel"
+                      >
+                        Order Apparel
+                      </button>
+                      <button
+                        className="button is-black"
+                        onClick={() => setButton(3)}
+                        name="order accessories"
+                        value="order accessories"
+                      >
+                        Order Accessories
+                      </button>
                     </p>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-        </div>
+        </AccessorySection>
       </div>
     </div>
   );

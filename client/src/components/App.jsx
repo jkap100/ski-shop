@@ -27,6 +27,8 @@ import CartShow from "../pages/CartShow";
 import InventoryShow from "../pages/inventory/InventoryShow";
 import NewInventoryOrder from "../pages/inventory/NewInventoryOrder";
 
+import Collapse from "./Collapse";
+
 function App() {
   const [error, setErrors] = useState("");
 
@@ -82,6 +84,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Collapse /> */}
       <BrowserRouter>
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
@@ -159,26 +162,6 @@ function App() {
                 setApparelInventory={setApparelInventory}
                 accessoryInventory={accessoryInventory}
                 setAccessoryInventory={setAccessoryInventory}
-                name={name}
-                setName={setName}
-                sku={sku}
-                setSku={setSku}
-                price={price}
-                setPrice={setPrice}
-                cost={cost}
-                setCost={setCost}
-                size={size}
-                setSize={setSize}
-                category={category}
-                setCategory={setCategory}
-                sex={sex}
-                setSex={setSex}
-                description={description}
-                setDescription={setDescription}
-                image={image}
-                setImage={setImage}
-                brand={brand}
-                setBrand={setBrand}
                 setErrors={setErrors}
               />
             }
@@ -187,13 +170,6 @@ function App() {
             path="/inventory_order_form"
             element={
               <NewInventoryOrder
-                className=""
-                skiInventory={skiInventory}
-                setSkiInventory={setSkiInventory}
-                apparelInventory={apparelInventory}
-                setApparelInventory={setApparelInventory}
-                accessoryInventory={accessoryInventory}
-                setAccessoryInventory={setAccessoryInventory}
                 name={name}
                 setName={setName}
                 sku={sku}
