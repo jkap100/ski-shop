@@ -94,6 +94,18 @@ html {
   width: 250px;
 }
 
+.edit {
+  width: 88px;
+}
+
+.order {
+  width: 88px;
+}
+
+.remove {
+  width: 88px;
+}
+
 #search {
   display: flex;
   width: 200px;
@@ -103,4 +115,8 @@ html {
 
 .notAdmin {
   display: none;
+}
+
+.pointer {
+  cursor: pointer;
 }

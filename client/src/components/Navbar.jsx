@@ -1,10 +1,15 @@
 import "../App.css";
-import React, { useState } from "react";
+import React from "react";
+import uuid from "react-uuid";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar({ searchTerm, setSearchTerm }) {
+  const navigate = useNavigate();
+
   const logOut = () => {
     localStorage.clear();
+    navigate("/login");
     console.log(localStorage);
   };
 
@@ -131,11 +136,10 @@ function Navbar({ searchTerm, setSearchTerm }) {
                   <Link to="/cart">
                     <div className="navbar-item">Shopping Cart</div>
                   </Link>
-                  <Link to="/login">
-                    <div className="navbar-item" onClick={logOut}>
-                      Log Out
-                    </div>
-                  </Link>
+
+                  <li className="navbar-item pointer" onClick={logOut}>
+                    Log Out
+                  </li>
                 </div>
               </div>
               <div id="search-div">

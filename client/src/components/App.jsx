@@ -1,6 +1,5 @@
 import "../App.css";
-import useCollapse from "react-collapsed";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 //AUTH PAGES
@@ -153,6 +152,7 @@ function App() {
             path="/inventory"
             element={
               <InventoryShow
+                skis={skis}
                 skiInventory={skiInventory}
                 setSkiInventory={setSkiInventory}
                 apparelInventory={apparelInventory}
