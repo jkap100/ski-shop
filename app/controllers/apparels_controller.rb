@@ -1,11 +1,15 @@
 class ApparelsController < ApplicationController
 
-    skip_before_action :authorize
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         render json: Apparel.all
     end
 
+    def show
+        apparel = Apparel.find(params[:id])
+        render json: apparel, status: :ok
+    end
 
     def create
         apparel = Apparel.create!(apparel_params)

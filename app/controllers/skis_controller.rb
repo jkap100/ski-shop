@@ -1,9 +1,14 @@
 class SkisController < ApplicationController
 
-    skip_before_action :authorize, only: [:index]
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         render json: Ski.all
+    end
+
+    def show
+        ski = Ski.find(params[:id])
+        render json: ski, status: :ok
     end
 
     def create

@@ -7,7 +7,6 @@ class AccessoriesController < ApplicationController
     end
 
     def show
-        # byebug
         accessory = Accessory.find(params[:id])
         render json: accessory, status: :ok
     end
