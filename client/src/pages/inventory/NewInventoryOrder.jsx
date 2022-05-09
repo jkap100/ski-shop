@@ -26,7 +26,7 @@ function NewInventoryOrder({
 }) {
   const [button, setButton] = useState("");
 
-  function AccessorySection(props) {
+  function Section(props) {
     const config = {
       defaultExpanded: props.defaultExpanded || false,
       collapsedHeight: props.collapsedHeight || 0,
@@ -227,7 +227,7 @@ function NewInventoryOrder({
   return (
     <div className="container">
       <div className="mt-4">
-        <AccessorySection>
+        <Section>
           <div className="box mt-4">
             <div className="content">
               <div className="is-centered">
@@ -404,7 +404,7 @@ function NewInventoryOrder({
               </div>
             </div>
           </div>
-        </AccessorySection>
+        </Section>
       </div>
     </div>
   );

@@ -27,8 +27,6 @@ import CartShow from "../pages/CartShow";
 import InventoryShow from "../pages/inventory/InventoryShow";
 import NewInventoryOrder from "../pages/inventory/NewInventoryOrder";
 
-import Collapse from "./Collapse";
-
 function App() {
   const [error, setErrors] = useState("");
 
@@ -84,7 +82,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Collapse /> */}
       <BrowserRouter>
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 

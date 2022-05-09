@@ -13,7 +13,84 @@ function InventoryShow({
   setErrors,
 }) {
   const navigate = useNavigate();
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
+  function SkiSection(props) {
+    const config = {
+      defaultExpanded: props.defaultExpanded || false,
+      collapsedHeight: props.collapsedHeight || 0,
+    };
+    const { getCollapseProps, getToggleProps, isExpanded } =
+      useCollapse(config);
+    return (
+      <div className="collapsible">
+        <div className="header" {...getToggleProps()}>
+          <div className="title has-text-white">Ski Inventory</div>
+          <div className="icon">
+            <i
+              className={
+                "fas fa-chevron-circle-" + (isExpanded ? "up" : "down")
+              }
+            ></i>
+          </div>
+        </div>
+        <div {...getCollapseProps()}>
+          <div className="content">{props.children}</div>
+        </div>
+      </div>
+    );
+  }
+
+  function ApparelSection(props) {
+    const config = {
+      defaultExpanded: props.defaultExpanded || false,
+      collapsedHeight: props.collapsedHeight || 0,
+    };
+    const { getCollapseProps, getToggleProps, isExpanded } =
+      useCollapse(config);
+    return (
+      <div className="collapsible">
+        <div className="header" {...getToggleProps()}>
+          <div className="title has-text-white">Apparel Inventory</div>
+          <div className="icon">
+            <i
+              className={
+                "fas fa-chevron-circle-" + (isExpanded ? "up" : "down")
+              }
+            ></i>
+          </div>
+        </div>
+        <div {...getCollapseProps()}>
+          <div className="content">{props.children}</div>
+        </div>
+      </div>
+    );
+  }
+
+  function AccessorySection(props) {
+    const config = {
+      defaultExpanded: props.defaultExpanded || false,
+      collapsedHeight: props.collapsedHeight || 0,
+    };
+    const { getCollapseProps, getToggleProps, isExpanded } =
+      useCollapse(config);
+    return (
+      <div className="collapsible">
+        <div className="header" {...getToggleProps()}>
+          <div className="title has-text-white">Accessory Inventory</div>
+          <div className="icon">
+            <i
+              className={
+                "fas fa-chevron-circle-" + (isExpanded ? "up" : "down")
+              }
+            ></i>
+          </div>
+        </div>
+        <div {...getCollapseProps()}>
+          <div className="content">{props.children}</div>
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     const headers = {
@@ -262,79 +339,67 @@ function InventoryShow({
 
   return (
     <div className="container">
-      <div className="collapsible">
+      <SkiSection>
         <div className="column">
           <div className="box">
-            <div className="header " {...getToggleProps()}>
-              <strong className="has-text-white">
-                {isExpanded ? "Collapse" : "Ski Inventory"}
-              </strong>
-            </div>
-            <div {...getCollapseProps()}>
-              <table className="table is-fullwidth">
-                <thead>
-                  <tr>
-                    <th className="cart-image has-text-centered">Item</th>
-                    <th className="product">Item Name</th>
-                    <th className="price has-text-centered">Cost</th>
-                    <th className="category has-text-centered">Category</th>
-                    <th className="has-text-centered">Order</th>
-                    <th className="has-text-centered">Remove</th>
+            <table className="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th className="cart-image has-text-centered">Item</th>
+                  <th className="product">Item Name</th>
+                  <th className="price has-text-centered">Cost</th>
+                  <th className="category has-text-centered">Category</th>
+                  <th className="has-text-centered">Order</th>
+                  <th className="has-text-centered">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {skiInventory.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <img src={item.image} alt="not found"></img>
+                    </td>
+                    <td className="product">{item.name}</td>
+                    <td className="price has-text-centered">
+                      {item.cost.toLocaleString("en-US")}
+                    </td>
+                    <td className="category has-text-centered">
+                      {item.category}
+                    </td>
+                    <td className="has-text-centered">
+                      <button
+                        className="button is-outlined is-small"
+                        onClick={() => handleOrderSkiInv(item)}
+                      >
+                        <strong>+</strong>
+                      </button>
+                    </td>
+                    <td className="has-text-centered">
+                      <button
+                        className="button is-black is-small"
+                        onClick={() => handleDeleteSkiInv(item.id)}
+                      >
+                        X
+                      </button>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {skiInventory.map((item, index) => (
-                    <tr key={index}>
-                      <td>
-                        <img src={item.image} alt="not found"></img>
-                      </td>
-                      <td className="product">{item.name}</td>
-                      <td className="price has-text-centered">
-                        {item.cost.toLocaleString("en-US")}
-                      </td>
-                      <td className="category has-text-centered">
-                        {item.category}
-                      </td>
-                      <td className="has-text-centered">
-                        <button
-                          className="button is-outlined is-small"
-                          onClick={() => handleOrderSkiInv(item)}
-                        >
-                          <strong>+</strong>
-                        </button>
-                      </td>
-                      <td className="has-text-centered">
-                        <button
-                          className="button is-black is-small"
-                          onClick={() => handleDeleteSkiInv(item.id)}
-                        >
-                          X
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div className="box has-background-black">
-                <h3 className="title is-4 has-text-white">
-                  Subtotal - Ski Inventory Cost : $
-                  {totalSkiCost.toLocaleString("en-US")}
-                </h3>
-              </div>
+                ))}
+              </tbody>
+            </table>
+            <div className="box has-background-black">
+              <h3 className="title is-4 has-text-white">
+                Subtotal - Ski Inventory Cost : $
+                {totalSkiCost.toLocaleString("en-US")}
+              </h3>
             </div>
           </div>
         </div>
-      </div>
+      </SkiSection>
 
-      <div className="collapsible">
-        <div className="column">
-          <div className="box">
-            <div className="header " {...getToggleProps()}>
-              <strong className="has-text-white">
-                {isExpanded ? "Collapse" : "Apparel Inventory"}
-              </strong>
-            </div>
-            <div {...getCollapseProps()}>
+      <div className="my-5">
+        <ApparelSection>
+          <div className="column">
+            <div className="box">
               <table className="table is-fullwidth">
                 <thead>
                   <tr>
@@ -387,76 +452,70 @@ function InventoryShow({
               </div>
             </div>
           </div>
-        </div>
+        </ApparelSection>
       </div>
-      <div className="collapsible">
+
+      <AccessorySection>
         <div className="column">
           <div className="box">
-            <div className="header " {...getToggleProps()}>
-              <strong className="has-text-white">
-                {isExpanded ? "Collapse" : "Apparel Inventory"}
-              </strong>
-            </div>
-            <div {...getCollapseProps()}>
-              <table className="table is-fullwidth">
-                <thead>
-                  <tr>
-                    <th className="cart-image has-text-centered">Item</th>
-                    <th className="product">Item Name</th>
-                    <th className="price has-text-centered">Cost</th>
-                    <th className="category has-text-centered">Category</th>
-                    <th className="has-text-centered">Order</th>
-                    <th className="has-text-centered">Remove</th>
+            <table className="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th className="cart-image has-text-centered">Item</th>
+                  <th className="product">Item Name</th>
+                  <th className="price has-text-centered">Cost</th>
+                  <th className="category has-text-centered">Category</th>
+                  <th className="has-text-centered">Order</th>
+                  <th className="has-text-centered">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {accessoryInventory.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <img src={item.image} alt="not found"></img>
+                    </td>
+                    <td className="product">{item.name}</td>
+                    <td className="price has-text-centered">
+                      {item.cost.toLocaleString("en-US")}
+                    </td>
+                    <td className="category has-text-centered">
+                      {item.category}
+                    </td>
+                    <td className="has-text-centered">
+                      <button
+                        className="button is-outlined is-small"
+                        onClick={() => handleOrderAccessoryInv(item)}
+                      >
+                        <strong>+</strong>
+                      </button>
+                    </td>
+                    <td className="has-text-centered">
+                      <button
+                        className="button is-black is-small"
+                        onClick={() => handleDeleteAccessoryInv(item.id)}
+                      >
+                        X
+                      </button>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {accessoryInventory.map((item, index) => (
-                    <tr key={index}>
-                      <td>
-                        <img src={item.image} alt="not found"></img>
-                      </td>
-                      <td className="product">{item.name}</td>
-                      <td className="price has-text-centered">
-                        {item.cost.toLocaleString("en-US")}
-                      </td>
-                      <td className="category has-text-centered">
-                        {item.category}
-                      </td>
-                      <td className="has-text-centered">
-                        <button
-                          className="button is-outlined is-small"
-                          onClick={() => handleOrderAccessoryInv(item)}
-                        >
-                          <strong>+</strong>
-                        </button>
-                      </td>
-                      <td className="has-text-centered">
-                        <button
-                          className="button is-black is-small"
-                          onClick={() => handleDeleteAccessoryInv(item.id)}
-                        >
-                          X
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div className="box has-background-black">
-                <h3 className="title is-4 has-text-white">
-                  Subtotal - Accessory Inventory Cost : $
-                  {totalAccessoryCost.toLocaleString("en-US")}
-                </h3>
-              </div>
+                ))}
+              </tbody>
+            </table>
+            <div className="box has-background-black">
+              <h3 className="title is-4 has-text-white">
+                Subtotal - Accessory Inventory Cost : $
+                {totalAccessoryCost.toLocaleString("en-US")}
+              </h3>
             </div>
-          </div>
-          <div className="box">
-            <h3 className="title is-4 has-text-black">
-              Total Cost of Inventory : ${totalCost.toLocaleString("en-US")}
-            </h3>
           </div>
         </div>
-      </div>
+        <div className="box">
+          <h3 className="title is-4 has-text-black">
+            Total Cost of Inventory : ${totalCost.toLocaleString("en-US")}
+          </h3>
+        </div>
+      </AccessorySection>
     </div>
   );
 }
