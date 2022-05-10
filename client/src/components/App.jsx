@@ -149,15 +149,42 @@ function App() {
               <PowderShow
                 skis={skis}
                 setSkis={setSkis}
-                viewProduct={setViewProduct}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
                 skiCartCount={skiCartCount}
                 setSkiCartCount={setSkiCartCount}
                 setErrors={setErrors}
               />
             }
           />
-          <Route path="/freestyle_skis" element={<FreestyleShow />} />
-          <Route path="/race_skis" element={<RaceShow />} />
+          <Route
+            path="/freestyle_skis"
+            element={
+              <FreestyleShow
+                skis={skis}
+                setSkis={setSkis}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                skiCartCount={skiCartCount}
+                setSkiCartCount={setSkiCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
+          <Route
+            path="/race_skis"
+            element={
+              <RaceShow
+                skis={skis}
+                setSkis={setSkis}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                skiCartCount={skiCartCount}
+                setSkiCartCount={setSkiCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
           <Route
             path="/apparels"
             element={

@@ -64,6 +64,7 @@ function PowderShow({
       handleViewSki={onViewSki}
     />
   ));
+
   return (
     <div className="container">
       <div className="columns is-multiline">{allPowderSkis}</div>
