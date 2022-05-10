@@ -20,26 +20,74 @@ function ProductDetail({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    const body = {
-      user_id: localStorage.currentUserId,
-      ski_id: viewProduct.id,
-      cart_count: qty,
-    };
+    if (!currentUser) {
+      navigate("/login");
+    } else if (viewProduct.sku >= 1000 && viewProduct.sku <= 1999) {
+      console.log("ski");
 
-    !currentUser
-      ? navigate("/login")
-      : fetch("http://localhost:3000/user_skis", {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify(body),
-        }).then((r) => {
-          if (r.ok) {
-            console.log("added to cart");
-            navigate("/cart");
-          } else {
-            r.json().then((err) => setErrors(err.errors));
-          }
-        });
+      const body = {
+        user_id: localStorage.currentUserId,
+        ski_id: viewProduct.id,
+        cart_count: qty,
+      };
+
+      fetch("http://localhost:3000/user_skis", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    } else if (viewProduct.sku >= 2000 && viewProduct.sku <= 2999) {
+      console.log("apparel");
+
+      const body = {
+        user_id: localStorage.currentUserId,
+        apparel_id: viewProduct.id,
+        cart_count: qty,
+      };
+
+      fetch("http://localhost:3000/user_apparels", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    } else if (viewProduct.sku >= 3000 && viewProduct.sku <= 3999) {
+      console.log("accessory");
+
+      const body = {
+        user_id: localStorage.currentUserId,
+        accessory_id: viewProduct.id,
+        cart_count: qty,
+      };
+
+      fetch("http://localhost:3000/user_accessories", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    } else {
+      console.log("not valid sku");
+    }
   };
 
   return (
