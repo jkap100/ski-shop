@@ -1,6 +1,5 @@
 import "../App.css";
 import React from "react";
-import uuid from "react-uuid";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 

@@ -1,24 +1,19 @@
 import React from "react";
 
-function SkiCart({ cartSkiObj, skiCart, setErrors }) {
+function SkiCart({ cartSkiObj, skiCart, setSkiCart, setErrors }) {
   const handleDeleteSki = (id) => {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    const body = {
-      ski_id: id,
-    };
-
     fetch(`http://localhost:3000/user_skis/${id}`, {
       method: "DELETE",
       headers: headers,
-      body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
         console.log("removed from cart");
-        window.location.reload(true);
+        setSkiCart(skiCart.filter((s) => s.id !== id));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

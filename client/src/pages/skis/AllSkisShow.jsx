@@ -1,5 +1,5 @@
 import "bulma/css/bulma.min.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 

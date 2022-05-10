@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useCollapse from "react-collapsed";
 
 function NewInventoryOrder({
   name,
@@ -25,34 +24,6 @@ function NewInventoryOrder({
   setErrors,
 }) {
   const [button, setButton] = useState("");
-
-  const Section = (props) => {
-    const config = {
-      defaultExpanded: props.defaultExpanded || false,
-      collapsedHeight: props.collapsedHeight || 0,
-    };
-
-    const { getCollapseProps, getToggleProps, isExpanded } =
-      useCollapse(config);
-
-    return (
-      <div className="collapsible">
-        <div className="header" {...getToggleProps()}>
-          <div className="title has-text-white">Order New Inventory</div>
-          <div className="icon">
-            <i
-              className={
-                "fas fa-chevron-circle-" + (isExpanded ? "up" : "down")
-              }
-            ></i>
-          </div>
-        </div>
-        <div {...getCollapseProps()}>
-          <div className="content">{props.children}</div>
-        </div>
-      </div>
-    );
-  };
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -130,7 +101,6 @@ function NewInventoryOrder({
   return (
     <div className="container">
       <div className="mt-4">
-        {/* <Section> */}
         <div className="box mt-4">
           <div className="content">
             <div className="is-centered">
@@ -307,7 +277,6 @@ function NewInventoryOrder({
             </div>
           </div>
         </div>
-        {/* </Section> */}
       </div>
     </div>
   );

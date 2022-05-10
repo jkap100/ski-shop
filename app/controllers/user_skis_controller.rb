@@ -13,7 +13,7 @@ class UserSkisController < ApplicationController
     end
 
     def destroy
-        user_ski = UserSki.find_by(ski_id: params[:ski_id])
+        user_ski = UserSki.find(params[:id])
         # byebug
         user_ski.destroy
         head :no_content

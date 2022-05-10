@@ -33,7 +33,7 @@ function Login({ username, setUsername, password, setPassword }) {
           navigate("/skis");
           localStorage.setItem("token", result.token);
 
-          if (result.message == "Invalid username or password") {
+          if (result.message === "Invalid username or password") {
             console.log(result.message);
             alert("invalid username or password");
           } else {

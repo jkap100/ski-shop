@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { useState } from "react";
-import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 //AUTH PAGES
 import Home from "../pages/Home";
@@ -217,12 +217,6 @@ function App() {
             path="/cart"
             element={
               <CartShow
-                skis={skis}
-                setSkis={setSkis}
-                apparels={apparels}
-                setApparels={setApparels}
-                accessories={accessories}
-                setAccessories={setAccessories}
                 skiCart={skiCart}
                 setSkiCart={setSkiCart}
                 apparelCart={apparelCart}

@@ -5,12 +5,6 @@ import ApparelCart from "../components/ApparelCart";
 import AccessoryCart from "../components/AccessoryCart";
 
 function CartShow({
-  skis,
-  setSkis,
-  apparels,
-  setApparels,
-  accessories,
-  setAccessories,
   skiCart,
   setSkiCart,
   apparelCart,
@@ -130,6 +124,8 @@ function CartShow({
     totalAccessoryPrice += accessoryPrice[i] * accessoryCount[i];
   }
 
+  const grandTotal = totalSkiPrice + totalApparelPrice + totalAccessoryPrice;
+
   return (
     <div className="container">
       <div className="column">
@@ -202,6 +198,13 @@ function CartShow({
               {totalAccessoryPrice.toLocaleString("en-US")}
             </h3>
           </div>
+        </div>
+      </div>
+      <div className="box mb-6 mt-4">
+        <div className="box has-background-black">
+          <h3 className="title is-4 has-text-white">
+            Grand Total: ${grandTotal.toLocaleString("en-US")}
+          </h3>
         </div>
       </div>
     </div>

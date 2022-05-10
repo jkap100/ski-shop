@@ -1,25 +1,24 @@
 import React from "react";
 
-function AccessoryCart({ cartAccessoryObj, accessoryCart, setErrors }) {
+function AccessoryCart({
+  cartAccessoryObj,
+  accessoryCart,
+  setAccessoryCart,
+  setErrors,
+}) {
   const handleDeleteAccessory = (id) => {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    const body = {
-      accessory_id: id,
-    };
-
     fetch(`http://localhost:3000/user_accessories/${id}`, {
       method: "DELETE",
       headers: headers,
-      body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
         console.log("removed from cart");
-        window.location.reload(true);
-        // setSkiInventory(skiInventory.filter((r) => r.id !== id));
+        setAccessoryCart(accessoryCart.filter((a) => a.id !== id));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

@@ -1,27 +1,24 @@
 import React from "react";
 
-function ApparelCart({ cartApparelObj, apparelCart, setErrors }) {
-  const apparelCartPrice = apparelCart.map((apparel) => apparel.apparel);
-  const apparelCartCount = apparelCart.map((apparel) => apparel.cart_count);
-
+function ApparelCart({
+  cartApparelObj,
+  apparelCart,
+  setApparelCart,
+  setErrors,
+}) {
   const handleDeleteApparel = (id) => {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    const body = {
-      apparel_id: id,
-    };
-
     fetch(`http://localhost:3000/user_apparels/${id}`, {
       method: "DELETE",
       headers: headers,
-      body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
         console.log("removed from cart");
-        window.location.reload(true);
+        setApparelCart(apparelCart.filter((a) => a.id !== id));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
