@@ -38,7 +38,13 @@ function App() {
   const [skis, setSkis] = useState([]);
   const [apparels, setApparels] = useState([]);
   const [accessories, setAccessories] = useState([]);
-  const [cart, setCart] = useState([]);
+
+  const [skiCart, setSkiCart] = useState([]);
+  const [skiCartCount, setSkiCartCount] = useState(1);
+  const [apparelCart, setApparelCart] = useState([]);
+  const [apparelCartCount, setApparelCartCount] = useState(1);
+  const [accessoryCart, setAccessoryCart] = useState([]);
+  const [accessoryCartCount, setAccessoryCartCount] = useState(1);
 
   const [skiInventory, setSkiInventory] = useState([]);
   const [apparelInventory, setApparelInventory] = useState([]);
@@ -122,10 +128,13 @@ function App() {
                 setSkis={setSkis}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
+                skiCartCount={skiCartCount}
+                setSkiCartCount={setSkiCartCount}
                 setErrors={setErrors}
               />
             }
           />
+
           <Route path="/powder_skis" element={<PowderShow />} />
           <Route path="/freestyle_skis" element={<FreestyleShow />} />
           <Route path="/race_skis" element={<RaceShow />} />
@@ -137,6 +146,8 @@ function App() {
                 setApparels={setApparels}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
+                apparelCartCount={apparelCartCount}
+                setApparelCartCount={setApparelCartCount}
                 setErrors={setErrors}
               />
             }
@@ -151,6 +162,8 @@ function App() {
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
+                accessoryCartCount={accessoryCartCount}
+                setAccessoryCartCount={setAccessoryCartCount}
                 setErrors={setErrors}
               />
             }
@@ -210,9 +223,13 @@ function App() {
                 setApparels={setApparels}
                 accessories={accessories}
                 setAccessories={setAccessories}
+                skiCart={skiCart}
+                setSkiCart={setSkiCart}
+                apparelCart={apparelCart}
+                setApparelCart={setApparelCart}
+                accessoryCart={accessoryCart}
+                setAccessoryCart={setAccessoryCart}
                 setErrors={setErrors}
-                cart={cart}
-                setCart={setCart}
               />
             }
           />

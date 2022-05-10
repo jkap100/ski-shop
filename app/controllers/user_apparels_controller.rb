@@ -12,7 +12,7 @@ class UserApparelsController < ApplicationController
     end
 
     def destroy
-        user_apparel = UserApparel.find_by params[:apparel_id]
+        user_apparel = UserApparel.find_by(apparel_id: params[:apparel_id])
         user_apparel.destroy
         head :no_content
     end
@@ -20,6 +20,6 @@ class UserApparelsController < ApplicationController
     private
 
     def user_apparel_params
-        params.permit(:user_id, :apparel_id)
+        params.permit(:user_id, :apparel_id, :cart_count)
     end
 end

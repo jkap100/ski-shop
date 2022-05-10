@@ -1,5 +1,5 @@
 import "bulma/css/bulma.min.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,8 @@ function AllSkisShow({
   setSkis,
   viewProduct,
   setViewProduct,
+  skiCartCount,
+  setSkiCartCount,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -24,7 +26,6 @@ function AllSkisShow({
   }, []);
 
   const onViewSki = (ski) => {
-    console.log(ski);
     fetch(`http://localhost:3000/skis/${ski.id}`).then((r) => {
       if (r.ok) {
         r.json().then(setViewProduct);
@@ -45,6 +46,7 @@ function AllSkisShow({
     const body = {
       user_id: localStorage.currentUserId,
       ski_id: ski.id,
+      cart_count: skiCartCount,
     };
 
     fetch("http://localhost:3000/user_skis", {
@@ -54,14 +56,12 @@ function AllSkisShow({
     }).then((r) => {
       if (r.ok) {
         console.log("added to cart");
-        // alert("Added to cart");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    setSkiCartCount(1);
   };
-
-  console.log(skis);
 
   const allSkis = skis.map((ski) => (
     <SkiAll

@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_153210) do
   create_table "user_accessories", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "accessory_id", null: false
+    t.integer "cart_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["accessory_id"], name: "index_user_accessories_on_accessory_id"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_153210) do
   create_table "user_apparels", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "apparel_id", null: false
+    t.integer "cart_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["apparel_id"], name: "index_user_apparels_on_apparel_id"
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_153210) do
   create_table "user_skis", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "ski_id", null: false
+    t.integer "cart_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ski_id"], name: "index_user_skis_on_ski_id"

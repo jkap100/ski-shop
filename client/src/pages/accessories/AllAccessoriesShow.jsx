@@ -7,6 +7,8 @@ function AllAccessoriesShow({
   setAccessories,
   viewProduct,
   setViewProduct,
+  accessoryCartCount,
+  setAccessoryCartCount,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -23,7 +25,6 @@ function AllAccessoriesShow({
   }, []);
 
   const onViewAccessory = (accessory) => {
-    console.log(accessory);
     fetch(`http://localhost:3000/apparels/${accessory.id}`).then((r) => {
       if (r.ok) {
         r.json().then(setViewProduct);
@@ -44,6 +45,7 @@ function AllAccessoriesShow({
     const body = {
       user_id: localStorage.currentUserId,
       accessory_id: accessory.id,
+      cart_count: accessoryCartCount,
     };
 
     fetch("http://localhost:3000/user_accessories", {
@@ -57,6 +59,7 @@ function AllAccessoriesShow({
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    setAccessoryCartCount(1);
   };
 
   const allAccessories = accessories.map((a) => (

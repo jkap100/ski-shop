@@ -7,6 +7,8 @@ function AllApparelShow({
   setApparels,
   viewProduct,
   setViewProduct,
+  apparelCartCount,
+  setApparelCartCount,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -44,6 +46,7 @@ function AllApparelShow({
     const body = {
       user_id: localStorage.currentUserId,
       apparel_id: apparel.id,
+      cart_count: apparelCartCount,
     };
 
     fetch("http://localhost:3000/user_apparels", {
@@ -57,6 +60,7 @@ function AllApparelShow({
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    setApparelCartCount(1);
   };
 
   const allApparel = apparels.map((apparel) => (

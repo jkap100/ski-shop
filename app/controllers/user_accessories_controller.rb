@@ -13,7 +13,7 @@ class UserAccessoriesController < ApplicationController
 
     def destroy
         # byebug
-        user_accessory = UserAccessory.find_by params[:accessory_id]
+        user_accessory = UserAccessory.find_by(accessory_id: params[:accessory_id])
       
         user_accessory.destroy
         head :no_content
@@ -22,7 +22,7 @@ class UserAccessoriesController < ApplicationController
     private
 
     def user_accessory_params
-        params.permit(:user_id, :accessory_id)
+        params.permit(:user_id, :accessory_id, :cart_count)
     end
 
 end
