@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import FreestyleSkiAll from "../../components/FreestyleSkiAll";
 
 function FreestyleShow({
+  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -45,17 +46,19 @@ function FreestyleShow({
       ski_id: ski.id,
       cart_count: skiCartCount,
     };
-    fetch("http://localhost:3000/user_skis", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
-      if (r.ok) {
-        console.log("added to cart");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    !currentUser
+      ? navigate("/login")
+      : fetch("http://localhost:3000/user_skis", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }).then((r) => {
+          if (r.ok) {
+            console.log("added to cart");
+          } else {
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
     setSkiCartCount(1);
   };
   const allFreestyleSkis = skis.map((ski) => (

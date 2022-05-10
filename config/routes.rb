@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :accessories
   resources :apparels
+  get '/jackets', to: "apparels#jackets"
+  get '/pants', to: "apparels#pants"  
 
   resources :skis
   get '/powder_skis', to: "skis#powder"

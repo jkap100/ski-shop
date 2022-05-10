@@ -4,6 +4,7 @@ import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 
 function AllSkisShow({
+  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -49,17 +50,19 @@ function AllSkisShow({
       cart_count: skiCartCount,
     };
 
-    fetch("http://localhost:3000/user_skis", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
-      if (r.ok) {
-        console.log("added to cart");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    !currentUser
+      ? navigate("/login")
+      : fetch("http://localhost:3000/user_skis", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }).then((r) => {
+          if (r.ok) {
+            console.log("added to cart");
+          } else {
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
     setSkiCartCount(1);
   };
 

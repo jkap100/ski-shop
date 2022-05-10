@@ -7,7 +7,7 @@ class UserApparelsController < ApplicationController
         render json: user_apparels
     end
 
-    def create
+    def create        
         user_apparel = UserApparel.create(user_apparel_params)
         render json: user_apparel, status: :created
     end

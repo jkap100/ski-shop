@@ -132,6 +132,7 @@ function App() {
             path="/skis"
             element={
               <AllSkisShow
+                currentUser={currentUser}
                 skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -147,6 +148,7 @@ function App() {
             path="/powder_skis"
             element={
               <PowderShow
+                currentUser={currentUser}
                 skis={skis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -161,6 +163,7 @@ function App() {
             path="/freestyle_skis"
             element={
               <FreestyleShow
+                currentUser={currentUser}
                 skis={skis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -175,6 +178,7 @@ function App() {
             path="/race_skis"
             element={
               <RaceShow
+                currentUser={currentUser}
                 skis={skis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -189,6 +193,7 @@ function App() {
             path="/apparels"
             element={
               <AllApparelsShow
+                currentUser={currentUser}
                 apparels={filteredApparel}
                 setApparels={setApparels}
                 viewProduct={viewProduct}
@@ -205,6 +210,7 @@ function App() {
             path="/accessories"
             element={
               <AllAccessoriesShow
+                currentUser={currentUser}
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
@@ -281,6 +287,7 @@ function App() {
               <ProductDetail
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
+                currentUser={currentUser}
               />
             }
           />

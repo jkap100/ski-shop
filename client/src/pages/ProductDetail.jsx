@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
+function ProductDetail({
+  viewProduct,
+  setViewProduct,
+  setErrors,
+  currentUser,
+}) {
   const navigate = useNavigate();
   const [qty, setQty] = useState(0);
 
@@ -19,18 +24,20 @@ function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
       cart_count: qty,
     };
 
-    fetch("http://localhost:3000/user_skis", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
-      if (r.ok) {
-        console.log("added to cart");
-        navigate("/cart");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    !currentUser
+      ? navigate("/login")
+      : fetch("http://localhost:3000/user_skis", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }).then((r) => {
+          if (r.ok) {
+            console.log("added to cart");
+            navigate("/cart");
+          } else {
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
   };
 
   return (

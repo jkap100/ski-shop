@@ -6,6 +6,16 @@ class ApparelsController < ApplicationController
         render json: Apparel.all
     end
 
+    def jackets
+        apparel_category = Apparel.where(category: 'Jackets')
+        render json: apparel_category
+    end
+
+    def pants
+        apparel_category = Apparel.where(category: 'Pants')
+        render json: apparel_category
+    end
+
     def show
         apparel = Apparel.find(params[:id])
         render json: apparel, status: :ok

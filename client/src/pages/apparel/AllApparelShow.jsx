@@ -57,6 +57,7 @@ function AllApparelShow({
       if (r.ok) {
         console.log("added to cart");
       } else {
+        navigate("./");
         r.json().then((err) => setErrors(err.errors));
       }
     });

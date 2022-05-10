@@ -22,17 +22,17 @@ Ski.create(sku: 1009, name: "Dictator 3.0", price: 720, cost: 450, size: "180", 
 Ski.create(sku: 1010, name: "Kore 105", price: 749, cost: 366, size: "177", category: "Freestyl", sex: "M", description: "The Head Kore 105 Skis have found a home in many an expert skier's quiver, and more often than not, they make most of the rest of that quiver obsolete. With tremendous edgehold, precise carving ability, and more than enough width and power to ski like a boss in variable and cut up new snow, the Kore 105 has gained enormous acceptance as a one-and-done tool for expert skiers. If you want to grab a ski in the morning with total confidence that it'll perform in any conditions, go with the Kore 105.", image:"https://images.evo.com/imgp/zoom/208271/832640/head-kore-105-skis-2022-.jpg", brand: "Head", count:5)
 
 # APPAREL
-Apparel.create(sku: 2000, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count:5)
+Apparel.create(sku: 2000, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count:5)
 
-Apparel.create(sku: 2001, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
+Apparel.create(sku: 2001, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
 
-Apparel.create(sku: 2002, name: "Trew Gear Cosmic Jacket", price: 200, cost: 100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
+Apparel.create(sku: 2002, name: "Trew Gear Cosmic Jacket", price: 200, cost: 100, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
 
-Apparel.create(sku: 2003, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2003, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
-Apparel.create(sku: 2004, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2004, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
-Apparel.create(sku: 2005, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2005, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jackets", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
 Apparel.create(sku: 2006, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
 
