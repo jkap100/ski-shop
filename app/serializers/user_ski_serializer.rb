@@ -1,5 +1,5 @@
 class UserSkiSerializer < ActiveModel::Serializer
-  attributes :id, :cart_count, :name, :price, :cost, :image, :category
+  attributes :id, :cart_count, :name, :price, :cost, :image, :category, :user_id, :username
   # has_one :user
   # has_one :ski
 
@@ -21,6 +21,14 @@ class UserSkiSerializer < ActiveModel::Serializer
   
   def category
     object.ski.category
+  end
+
+  def user_id
+    object.user.id
+  end
+
+  def username
+    object.user.username
   end
 
 end

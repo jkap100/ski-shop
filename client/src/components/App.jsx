@@ -31,6 +31,7 @@ import ProductDetail from "../pages/ProductDetail";
 function App() {
   const [error, setErrors] = useState("");
 
+  const [currentUser, setCurrentUser] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -92,7 +93,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Navbar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -104,6 +110,8 @@ function App() {
                 setUsername={setUsername}
                 password={password}
                 setPassword={setPassword}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
               />
             }
           />

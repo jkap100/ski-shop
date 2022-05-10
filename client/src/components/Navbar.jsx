@@ -3,11 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ searchTerm, setSearchTerm }) {
+function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
   const navigate = useNavigate();
 
   const logOut = () => {
     localStorage.clear();
+    setCurrentUser(false);
     navigate("/login");
     console.log(localStorage);
   };
@@ -99,7 +100,7 @@ function Navbar({ searchTerm, setSearchTerm }) {
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable">
-                {localStorage.getItem("isAdmin") === true ? (
+                {currentUser.admin === true ? (
                   <Link to="/inventory">
                     <div className="has-text-white">Inventory</div>
                   </Link>
@@ -109,7 +110,7 @@ function Navbar({ searchTerm, setSearchTerm }) {
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable ml-4">
-                {localStorage.getItem("isAdmin") === true ? (
+                {currentUser.admin === true ? (
                   <Link to="/inventory_order_form">
                     <div className="has-text-white">New Order</div>
                   </Link>
@@ -123,7 +124,7 @@ function Navbar({ searchTerm, setSearchTerm }) {
           <div className="navbar-menu">
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable mr-2">
-                {localStorage.getItem("token") ? (
+                {currentUser ? (
                   <Link to="/cart">
                     <div className="has-text-white">Cart</div>
                   </Link>

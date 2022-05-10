@@ -3,7 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function Login({ username, setUsername, password, setPassword }) {
+function Login({
+  username,
+  setUsername,
+  password,
+  setPassword,
+  currentUser,
+  setCurrentUser,
+}) {
   const navigate = useNavigate();
   // const [currentUser, setCurrentUser] = useState("");
 
@@ -40,9 +47,12 @@ function Login({ username, setUsername, password, setPassword }) {
             localStorage.setItem("currentUserId", result.user.id);
             localStorage.setItem("isAdmin", result.user.admin);
             console.log(localStorage);
+            setCurrentUser(result.user);
           }
         }
       });
+
+    console.log(currentUser);
 
     setUsername("");
     setPassword("");
