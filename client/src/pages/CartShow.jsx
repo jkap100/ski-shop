@@ -5,6 +5,7 @@ import ApparelCart from "../components/ApparelCart";
 import AccessoryCart from "../components/AccessoryCart";
 
 function CartShow({
+  currentUser,
   skiCart,
   setSkiCart,
   apparelCart,
@@ -61,9 +62,14 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch("http://localhost:3000/user_skis", {
+    const body = {
+      user_id: currentUser.id,
+    };
+
+    fetch(`http://localhost:3000/user_skis?user_id=${currentUser.id}`, {
       method: "GET",
       headers: headers,
+      // body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
         r.json().then(setSkiCart);

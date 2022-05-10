@@ -6,6 +6,8 @@ class ApplicationController < ActionController::API
   
   before_action :authorize
 
+  # @current_user = User.find(params[:user_id])
+
   def authorize
     auth_header = request.headers[:Authorization]
 

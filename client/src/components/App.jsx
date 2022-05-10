@@ -225,6 +225,7 @@ function App() {
             path="/cart"
             element={
               <CartShow
+                currentUser={currentUser}
                 skiCart={skiCart}
                 setSkiCart={setSkiCart}
                 apparelCart={apparelCart}

@@ -2,13 +2,20 @@ class UserSkisController < ApplicationController
 
     skip_before_action :authorize, only: [:index]
 
+    # def index
+    #     current_user = User.find(params[:id])
+    #     byebug
+    #     user_skis = UserSki.where(user_id: current_user.id)
+    #     render json: user_skis
+    # end
+
     def index
-        # byebug
-        render json: UserSki.all
-        # user_skis = UserSkis.where(user_id: 1).all
-        # user_skis = UserSki.find_by_all(user_id: params[:user_id])
-        # render json: user_skis
+        user_skis = UserSki.where(user_id: params[:user_id])
+        render json: user_skis
     end
+      # byebug
+        # render json: UserSki.all
+    # user_skis = UserSki.find_by_all(user_id: params[:user_id])
 
     def create
         # byebug
