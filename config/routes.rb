@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :accessories
   resources :apparels
+
   resources :skis
-  
-  
+  get '/powder_skis', to: "skis#powder"
+  get '/freestyle_skis', to: "skis#freestyle"
+  get '/race_skis', to: "skis#race"  
   
   get '/cart', to: "users#cart"
 
