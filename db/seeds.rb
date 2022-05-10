@@ -24,45 +24,45 @@ Ski.create(sku: 1010, name: "Kore 105", price: 749, cost: 366, size: "177", cate
 # APPAREL
 Apparel.create(sku: 2000, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count:5)
 
-Apparel.create(sku: 2000, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
+Apparel.create(sku: 2001, name: "Trew Gear Cosmic Jacket", price: 200,  cost:100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
 
-Apparel.create(sku: 2000, name: "Trew Gear Cosmic Jacket", price: 200, cost: 100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
+Apparel.create(sku: 2002, name: "Trew Gear Cosmic Jacket", price: 200, cost: 100, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/166505/769653/trew-gear-cosmic-jacket-.jpg", brand: "Trew", count: 5)
 
-Apparel.create(sku: 2000, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2003, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
-Apparel.create(sku: 2000, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2004, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
-Apparel.create(sku: 2000, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
+Apparel.create(sku: 2005, name: "GORE-TEX 3L Breaker", price: 300, cost: 225, size: "L", category: "Jacket", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/195585/821522/burton-gore-tex-3l-breaker-jacket-.jpg", brand: "Burton", count: 5)
 
-Apparel.create(sku: 2000, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
+Apparel.create(sku: 2006, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
 
-Apparel.create(sku: 2000, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
+Apparel.create(sku: 2007, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
 
-Apparel.create(sku: 2000, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
+Apparel.create(sku: 2008, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face", count: 5)
 
-Apparel.create(sku: 2000, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face" , count: 5)
+Apparel.create(sku: 2009, name: "Seymore Tall Pants", price: 350, cost: 230, size: "L", category: "Pants", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/204206/858847/the-north-face-seymore-tall-pants-.jpg", brand: "The North Face" , count: 5)
 
 
 # ACCESSORIES
 Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3001, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3002, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3003, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3000, name: "SmithSarek Ecocuir", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
+Accessory.create(sku: 3004, name: "SmithSarek Ecocuir", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
 
-Accessory.create(sku: 3000, name: "Sarek Ecocuir", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
+Accessory.create(sku: 3005, name: "Sarek Ecocuir", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
 
-Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
+Accessory.create(sku: 3006, name: "Smith I​/O MAG ", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
 
-Accessory.create(sku: 3000, name: "SPowder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
+Accessory.create(sku: 3007, name: "SPowder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
 
-Accessory.create(sku: 3000, name: "Powder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
+Accessory.create(sku: 3008, name: "Powder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
 
-Accessory.create(sku: 3000, name: "Powder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
+Accessory.create(sku: 3009, name: "Powder Town Beanie", price: 50, cost: 25, size: "L", category: "Hats", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/103037/857021/patagonia-powder-town-beanie-.jpg", brand: "Patagonia", count: 5)
 
 # USERS
 User.create(username: "jon", password:"jon", email:"jon@jon.com", admin: true)

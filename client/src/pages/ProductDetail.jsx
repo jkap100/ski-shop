@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ viewProduct, setViewProduct }) {
+function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
+  const navigate = useNavigate();
+
+  const onAddSkiToCart = (qty) => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
+    const body = {
+      user_id: localStorage.currentUserId,
+      ski_id: viewProduct.id,
+      cart_count: qty,
+    };
+
+    fetch("http://localhost:3000/user_skis", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (r.ok) {
+        console.log("added to cart");
+        navigate("/cart");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  };
+
   return (
     <div className="container">
       <div className="tile is-ancestor">
@@ -50,10 +79,11 @@ function ProductDetail({ viewProduct, setViewProduct }) {
                               <select
                                 className="input"
                                 type="text"
-                                name="username"
-                                placeholder="Username"
-                                // value={username}
-                                // onChange={(event) => setUsername(event.target.value)}
+                                name="qty"
+                                placeholder="qty"
+                                onChange={(event) =>
+                                  onAddSkiToCart(event.target.value)
+                                }
                               >
                                 <option>1</option>
                                 <option>2</option>
