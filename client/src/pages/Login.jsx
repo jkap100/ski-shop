@@ -51,9 +51,6 @@ function Login({
           }
         }
       });
-
-    console.log(currentUser);
-
     setUsername("");
     setPassword("");
   };

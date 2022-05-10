@@ -149,7 +149,7 @@ function App() {
             element={
               <PowderShow
                 currentUser={currentUser}
-                skis={skis}
+                skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
@@ -164,7 +164,7 @@ function App() {
             element={
               <FreestyleShow
                 currentUser={currentUser}
-                skis={skis}
+                skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
@@ -179,7 +179,7 @@ function App() {
             element={
               <RaceShow
                 currentUser={currentUser}
-                skis={skis}
+                skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
