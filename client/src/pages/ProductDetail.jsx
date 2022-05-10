@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
   const navigate = useNavigate();
+  const [qty, setQty] = useState(0);
 
-  const onAddSkiToCart = (qty) => {
+  const onAddSkiToCart = (e) => {
+    e.preventDefault();
+
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
@@ -70,7 +73,7 @@ function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
               <div className="columns is-centered">
                 <div className="content mt-6">
                   <div className="box">
-                    <form onSubmit="">
+                    <form onSubmit={onAddSkiToCart}>
                       <div className="field">
                         <div className="box has-text-centered">
                           <label className="label">Quantity</label>
@@ -81,9 +84,7 @@ function ProductDetail({ viewProduct, setViewProduct, setErrors }) {
                                 type="text"
                                 name="qty"
                                 placeholder="qty"
-                                onChange={(event) =>
-                                  onAddSkiToCart(event.target.value)
-                                }
+                                onChange={(event) => setQty(event.target.value)}
                               >
                                 <option>1</option>
                                 <option>2</option>

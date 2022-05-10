@@ -143,7 +143,19 @@ function App() {
             }
           />
 
-          <Route path="/powder_skis" element={<PowderShow />} />
+          <Route
+            path="/powder_skis"
+            element={
+              <PowderShow
+                skis={skis}
+                setSkis={setSkis}
+                viewProduct={setViewProduct}
+                skiCartCount={skiCartCount}
+                setSkiCartCount={setSkiCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
           <Route path="/freestyle_skis" element={<FreestyleShow />} />
           <Route path="/race_skis" element={<RaceShow />} />
           <Route

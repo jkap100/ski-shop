@@ -1,6 +1,6 @@
 class SkisController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :powder, :freestyle, :race, :show]
 
     def index
         render json: Ski.all
