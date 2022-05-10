@@ -9,6 +9,7 @@ class AuthenticationController < ApplicationController
             secret = "blizz"
             token=JWT.encode payload, secret
             render json: { token: token, user: @user }, status: :ok
+            
         else
             render json: { message: 'Invalid username or password' }, status: :unauthorized 
         end

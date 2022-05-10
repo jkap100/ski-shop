@@ -86,7 +86,7 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch("http://localhost:3000/user_apparels", {
+    fetch(`http://localhost:3000/user_apparels?user_id=${currentUser.id}`, {
       method: "GET",
       headers: headers,
     }).then((r) => {
@@ -105,7 +105,7 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch("http://localhost:3000/user_accessories", {
+    fetch(`http://localhost:3000/user_accessories?user_id=${currentUser.id}`, {
       method: "GET",
       headers: headers,
     }).then((r) => {

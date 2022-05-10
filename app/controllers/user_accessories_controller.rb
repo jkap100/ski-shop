@@ -2,8 +2,10 @@ class UserAccessoriesController < ApplicationController
 
     skip_before_action :authorize, only: [:index]
 
+    
     def index
-        render json: UserAccessory.all
+        user_accessories = UserAccessory.where(user_id: params[:user_id])
+        render json: user_accessories
     end
 
     def create

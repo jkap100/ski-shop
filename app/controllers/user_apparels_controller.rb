@@ -3,7 +3,8 @@ class UserApparelsController < ApplicationController
     skip_before_action :authorize, only: [:index]
 
     def index
-        render json: UserApparel.all
+        user_apparels = UserApparel.where(user_id: params[:user_id])
+        render json: user_apparels
     end
 
     def create
