@@ -204,8 +204,36 @@ function App() {
               />
             }
           />
-          <Route path="/jackets" element={<JacketsShow />} />
-          <Route path="/pants" element={<PantsShow />} />
+          <Route
+            path="/jackets"
+            element={
+              <JacketsShow
+                currentUser={currentUser}
+                apparels={filteredApparel}
+                setApparels={setApparels}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                apparelCartCount={apparelCartCount}
+                setApparelCartCount={setApparelCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
+          <Route
+            path="/pants"
+            element={
+              <PantsShow
+                currentUser={currentUser}
+                apparels={filteredApparel}
+                setApparels={setApparels}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                apparelCartCount={apparelCartCount}
+                setApparelCartCount={setApparelCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
           <Route
             path="/accessories"
             element={
@@ -221,9 +249,51 @@ function App() {
               />
             }
           />
-          <Route path="/goggles" element={<GogglesShow />} />
-          <Route path="/gloves" element={<GlovesShow />} />
-          <Route path="/hats" element={<HatsShow />} />
+          <Route
+            path="/goggles"
+            element={
+              <GogglesShow
+                currentUser={currentUser}
+                accessories={filteredAccessories}
+                setAccessories={setAccessories}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                accessoryCartCount={accessoryCartCount}
+                setAccessoryCartCount={setAccessoryCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
+          <Route
+            path="/gloves"
+            element={
+              <GlovesShow
+                currentUser={currentUser}
+                accessories={filteredAccessories}
+                setAccessories={setAccessories}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                accessoryCartCount={accessoryCartCount}
+                setAccessoryCartCount={setAccessoryCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
+          <Route
+            path="/hats"
+            element={
+              <HatsShow
+                currentUser={currentUser}
+                accessories={filteredAccessories}
+                setAccessories={setAccessories}
+                viewProduct={viewProduct}
+                setViewProduct={setViewProduct}
+                accessoryCartCount={accessoryCartCount}
+                setAccessoryCartCount={setAccessoryCartCount}
+                setErrors={setErrors}
+              />
+            }
+          />
           <Route
             path="/inventory"
             element={

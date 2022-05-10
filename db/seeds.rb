@@ -44,13 +44,13 @@ Apparel.create(sku: 2009, name: "Seymore Tall Pants", price: 350, cost: 230, siz
 
 
 # ACCESSORIES
-Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3000, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggles", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3001, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3001, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggles", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3002, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3002, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggles", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
-Accessory.create(sku: 3003, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggle", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
+Accessory.create(sku: 3003, name: "Smith I​/O MAG ", price: 200, cost: 100, size: "L", category: "Goggles", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178931/713077/smith-i-o-mag-goggles-.jpg", brand: "Smith", count: 5)
 
 Accessory.create(sku: 3004, name: "SmithSarek Ecocuir", price: 150, cost: 75, size: "L", category: "Gloves", sex: "M", description: "Description jacket goes here.", image:"https://images.evo.com/imgp/zoom/178633/725252/hestra-sarek-ecocuir-gloves-.jpg", brand: "Hestra", count: 5)
 

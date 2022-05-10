@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users
 
   resources :accessories
+  get '/gloves', to: "accessories#gloves"
+  get '/hats', to: "accessories#hats"  
+  get '/goggles', to: "accessories#goggles"
+  
   resources :apparels
   get '/jackets', to: "apparels#jackets"
   get '/pants', to: "apparels#pants"  

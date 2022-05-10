@@ -1,9 +1,26 @@
 class AccessoriesController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :goggles, :gloves, :hats, :show]
 
     def index
         render json: Accessory.all
+    end
+
+    def goggles
+        accessory_category = Accessory.where(category: 'Goggles')
+        render json: accessory_category
+    end
+
+
+    def gloves
+        accessory_category = Accessory.where(category: 'Gloves')
+        render json: accessory_category
+    end
+
+
+    def hats
+        accessory_category = Accessory.where(category: 'Hats')
+        render json: accessory_category
     end
 
     def show

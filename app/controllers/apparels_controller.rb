@@ -1,6 +1,6 @@
 class ApparelsController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show, :jackets, :pants]
 
     def index
         render json: Apparel.all

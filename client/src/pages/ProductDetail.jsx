@@ -7,6 +7,8 @@ function ProductDetail({
   setErrors,
   currentUser,
 }) {
+  console.log(`viewProduct: ${viewProduct.name}`);
+
   const navigate = useNavigate();
   const [qty, setQty] = useState(0);
 

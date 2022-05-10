@@ -3,6 +3,7 @@ import AccessoryAll from "../../components/AccessoryAll";
 import { useNavigate } from "react-router-dom";
 
 function AllAccessoriesShow({
+  currentUser,
   accessories,
   setAccessories,
   viewProduct,
@@ -25,7 +26,7 @@ function AllAccessoriesShow({
   }, []);
 
   const onViewAccessory = (accessory) => {
-    fetch(`http://localhost:3000/apparels/${accessory.id}`).then((r) => {
+    fetch(`http://localhost:3000/accessories/${accessory.id}`).then((r) => {
       if (r.ok) {
         r.json().then(setViewProduct);
         navigate("/product_detail");
@@ -47,18 +48,19 @@ function AllAccessoriesShow({
       accessory_id: accessory.id,
       cart_count: accessoryCartCount,
     };
-
-    fetch("http://localhost:3000/user_accessories", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
-      if (r.ok) {
-        console.log("added to cart");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    !currentUser
+      ? navigate("/login")
+      : fetch("http://localhost:3000/user_accessories", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }).then((r) => {
+          if (r.ok) {
+            console.log("added to cart");
+          } else {
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
     setAccessoryCartCount(1);
   };
 

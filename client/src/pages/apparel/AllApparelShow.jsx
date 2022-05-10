@@ -3,6 +3,7 @@ import ApparelAll from "../../components/ApparelAll";
 import { useNavigate } from "react-router-dom";
 
 function AllApparelShow({
+  currentUser,
   apparels,
   setApparels,
   viewProduct,
@@ -48,19 +49,20 @@ function AllApparelShow({
       apparel_id: apparel.id,
       cart_count: apparelCartCount,
     };
-
-    fetch("http://localhost:3000/user_apparels", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
-      if (r.ok) {
-        console.log("added to cart");
-      } else {
-        navigate("./");
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    !currentUser
+      ? navigate("/login")
+      : fetch("http://localhost:3000/user_apparels", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }).then((r) => {
+          if (r.ok) {
+            console.log("added to cart");
+          } else {
+            navigate("./");
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
     setApparelCartCount(1);
   };
 
