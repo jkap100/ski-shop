@@ -9,6 +9,7 @@ function ProductDetail({
   setProductCount,
 }) {
   console.log(`viewProduct: ${viewProduct.name}`);
+  console.log(productCount);
 
   const navigate = useNavigate();
   const [qty, setQty] = useState(0);
@@ -23,7 +24,7 @@ function ProductDetail({
 
     if (!localStorage.getItem("currentUserId")) {
       navigate("/login");
-    } else if (qty > productCount) {
+    } else if (qty > viewProduct.count) {
       alert("Out of Stock");
     } else if (viewProduct.sku >= 1000 && viewProduct.sku <= 1999) {
       console.log("ski");
@@ -38,6 +39,24 @@ function ProductDetail({
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+
+      const removeFromInventory = viewProduct.count - qty;
+      const removeFromInventoryBody = {
+        count: removeFromInventory,
+      };
+
+      fetch(`http://localhost:3000/skis/${viewProduct.id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
           console.log("added to cart");
@@ -67,6 +86,24 @@ function ProductDetail({
           r.json().then((err) => setErrors(err.errors));
         }
       });
+
+      const removeFromInventory = viewProduct.count - qty;
+      const removeFromInventoryBody = {
+        count: removeFromInventory,
+      };
+
+      fetch(`http://localhost:3000/apparels/${viewProduct.id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(removeFromInventoryBody),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
     } else if (viewProduct.sku >= 3000 && viewProduct.sku <= 3999) {
       console.log("accessory");
 
@@ -80,6 +117,24 @@ function ProductDetail({
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+
+      const removeFromInventory = viewProduct.count - qty;
+      const removeFromInventoryBody = {
+        count: removeFromInventory,
+      };
+
+      fetch(`http://localhost:3000/accessories/${viewProduct.id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
           console.log("added to cart");

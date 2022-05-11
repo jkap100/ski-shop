@@ -8,7 +8,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
 
   const logOut = () => {
     localStorage.clear();
-    setCurrentUser(false);
+
     navigate("/login");
     console.log(localStorage);
   };
