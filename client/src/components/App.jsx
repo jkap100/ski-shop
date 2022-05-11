@@ -20,13 +20,13 @@ import AllAccessoriesShow from "../pages/accessories/AllAccessoriesShow";
 import GogglesShow from "../pages/accessories/GogglesShow";
 import GlovesShow from "../pages/accessories/GlovesShow";
 import HatsShow from "../pages/accessories/HatsShow";
-
-import CartShow from "../pages/CartShow";
-
+//INVENTORY PAGES
 import InventoryShow from "../pages/inventory/InventoryShow";
 import NewInventoryOrder from "../pages/inventory/NewInventoryOrder";
+import UpdateInventory from "../pages/inventory/UpdateInventory";
 
 import ProductDetail from "../pages/ProductDetail";
+import CartShow from "../pages/CartShow";
 
 function App() {
   const [error, setErrors] = useState("");
@@ -51,6 +51,7 @@ function App() {
   const [apparelInventory, setApparelInventory] = useState([]);
   const [accessoryInventory, setAccessoryInventory] = useState([]);
 
+  const [productId, setProductId] = useState([]);
   const [name, setName] = useState("");
   const [sku, setSku] = useState("");
   const [price, setPrice] = useState("");
@@ -304,6 +305,17 @@ function App() {
                 setApparelInventory={setApparelInventory}
                 accessoryInventory={accessoryInventory}
                 setAccessoryInventory={setAccessoryInventory}
+                setProductId={setProductId}
+                setName={setName}
+                setSku={setSku}
+                setPrice={setPrice}
+                setCost={setCost}
+                setSize={setSize}
+                setDescription={setDescription}
+                setCategory={setCategory}
+                setSex={setSex}
+                setImage={setImage}
+                setBrand={setBrand}
                 setErrors={setErrors}
               />
             }
@@ -312,6 +324,36 @@ function App() {
             path="/inventory_order_form"
             element={
               <NewInventoryOrder
+                name={name}
+                setName={setName}
+                sku={sku}
+                setSku={setSku}
+                price={price}
+                setPrice={setPrice}
+                cost={cost}
+                setCost={setCost}
+                size={size}
+                setSize={setSize}
+                category={category}
+                setCategory={setCategory}
+                sex={sex}
+                setSex={setSex}
+                description={description}
+                setDescription={setDescription}
+                image={image}
+                setImage={setImage}
+                brand={brand}
+                setBrand={setBrand}
+                setErrors={setErrors}
+              />
+            }
+          />
+          <Route
+            path="/update_inventory"
+            element={
+              <UpdateInventory
+                productId={productId}
+                setProductId={setProductId}
                 name={name}
                 setName={setName}
                 sku={sku}

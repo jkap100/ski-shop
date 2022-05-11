@@ -26,6 +26,12 @@ class ApparelsController < ApplicationController
         render json: apparel, status: :created
     end
 
+    def update
+        apparel = Apparel.find(params[:id])
+        apparel.update(apparel_params)
+        render json: apparel, status: :accepted
+    end
+
     def destroy
         apparel = Apparel.find(params[:id])
         apparel.destroy

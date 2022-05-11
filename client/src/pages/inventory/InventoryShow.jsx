@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import useCollapse from "react-collapsed";
 import { useNavigate } from "react-router-dom";
+import UpdateInventory from "./UpdateInventory";
 
 function InventoryShow({
   skiInventory,
@@ -9,6 +10,17 @@ function InventoryShow({
   setApparelInventory,
   accessoryInventory,
   setAccessoryInventory,
+  setProductId,
+  setName,
+  setSku,
+  setPrice,
+  setCost,
+  setSize,
+  setDescription,
+  setCategory,
+  setSex,
+  setImage,
+  setBrand,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -251,6 +263,51 @@ function InventoryShow({
       });
   };
 
+  const handleUpdateSkiInv = (ski) => {
+    setProductId(ski.id);
+    setName(ski.name);
+    setSku(ski.sku);
+    setPrice(ski.price);
+    setCost(ski.cost);
+    setSize(ski.size);
+    setCategory(ski.category);
+    setSex(ski.sex);
+    setDescription(ski.description);
+    setImage(ski.image);
+    setBrand(ski.brand);
+    navigate("/update_inventory");
+  };
+
+  const handleUpdateApparelInv = (apparel) => {
+    setProductId(apparel.id);
+    setName(apparel.name);
+    setSku(apparel.sku);
+    setPrice(apparel.price);
+    setCost(apparel.cost);
+    setSize(apparel.size);
+    setCategory(apparel.category);
+    setSex(apparel.sex);
+    setDescription(apparel.description);
+    setImage(apparel.image);
+    setBrand(apparel.brand);
+    navigate("/update_inventory");
+  };
+
+  const handleUpdateAccessoryInv = (accessory) => {
+    setProductId(accessory.id);
+    setName(accessory.name);
+    setSku(accessory.sku);
+    setPrice(accessory.price);
+    setCost(accessory.cost);
+    setSize(accessory.size);
+    setCategory(accessory.category);
+    setSex(accessory.sex);
+    setDescription(accessory.description);
+    setImage(accessory.image);
+    setBrand(accessory.brand);
+    navigate("/update_inventory");
+  };
+
   const handleDeleteSkiInv = (id) => {
     console.log(id);
 
@@ -367,7 +424,7 @@ function InventoryShow({
                     <td className="edit has-text-centered">
                       <button
                         className="button is-black is-small"
-                        onClick={() => handleOrderSkiInv(item)}
+                        onClick={() => handleUpdateSkiInv(item)}
                       >
                         <i class="fas fa-wrench"></i>
                       </button>
@@ -434,7 +491,7 @@ function InventoryShow({
                       <td className="edit has-text-centered">
                         <button
                           className="button is-black is-small"
-                          onClick={() => handleOrderApparelInv(item)}
+                          onClick={() => handleUpdateApparelInv(item)}
                         >
                           <i class="fas fa-wrench"></i>
                         </button>
@@ -502,7 +559,7 @@ function InventoryShow({
                       <td className="edit has-text-centered">
                         <button
                           className="button is-black is-small"
-                          onClick={() => handleOrderAccessoryInv(item)}
+                          onClick={() => handleUpdateAccessoryInv(item)}
                         >
                           <i class="fas fa-wrench"></i>
                         </button>

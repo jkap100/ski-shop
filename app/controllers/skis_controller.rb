@@ -31,6 +31,12 @@ class SkisController < ApplicationController
         render json: ski, status: :created
     end
 
+    def update
+        ski = Ski.find(params[:id])
+        ski.update(ski_params)
+        render json: ski, status: :accepted
+    end
+
     def destroy
         ski = Ski.find(params[:id])
         # byebug

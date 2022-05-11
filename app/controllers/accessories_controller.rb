@@ -33,6 +33,12 @@ class AccessoriesController < ApplicationController
         render json: accessory, status: :created
     end
 
+    def update
+        accessory = Accessory.find(params[:id])
+        accessory.update(accessory_params)
+        render json: accessory, status: :accepted
+    end
+
     def destroy
         accessory = Accessory.find(params[:id])
         accessory.destroy

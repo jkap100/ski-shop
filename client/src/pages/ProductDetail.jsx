@@ -143,6 +143,7 @@ function ProductDetail({
                                 placeholder="qty"
                                 onChange={(event) => setQty(event.target.value)}
                               >
+                                <option>-</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
