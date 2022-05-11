@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import GlovesAll from "../../components/GlovesAll";
 
 function GlovesShow({
-  currentUser,
   accessories,
   setAccessories,
   viewProduct,
@@ -23,6 +22,7 @@ function GlovesShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewAccessory = (accessory) => {

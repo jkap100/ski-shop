@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import HatsAll from "../../components/HatsAll";
 
 function HatsShow({
-  currentUser,
   accessories,
   setAccessories,
   viewProduct,
@@ -23,6 +22,7 @@ function HatsShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewAccessory = (accessory) => {

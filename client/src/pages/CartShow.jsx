@@ -5,7 +5,6 @@ import ApparelCart from "../components/ApparelCart";
 import AccessoryCart from "../components/AccessoryCart";
 
 function CartShow({
-  currentUser,
   skiCart,
   setSkiCart,
   apparelCart,
@@ -78,6 +77,7 @@ function CartShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -102,6 +102,7 @@ function CartShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -126,6 +127,7 @@ function CartShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   for (let i = 0; i < skiPrice.length; i++) {

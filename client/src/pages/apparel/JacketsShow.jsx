@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import JacketAll from "../../components/JacketAll";
 
 function JacketsShow({
-  currentUser,
   apparels,
   setApparels,
   viewProduct,
@@ -22,6 +21,7 @@ function JacketsShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewApparel = (apparel) => {

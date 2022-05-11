@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import FreestyleSkiAll from "../../components/FreestyleSkiAll";
 
 function FreestyleShow({
-  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -13,6 +12,7 @@ function FreestyleShow({
   setErrors,
 }) {
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch("http://localhost:3000/freestyle_skis").then((r) => {
       if (r.ok) {
@@ -22,6 +22,7 @@ function FreestyleShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewSki = (ski) => {

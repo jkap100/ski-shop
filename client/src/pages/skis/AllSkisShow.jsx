@@ -4,7 +4,6 @@ import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
 
 function AllSkisShow({
-  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -24,6 +23,7 @@ function AllSkisShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewSki = (ski) => {

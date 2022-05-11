@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import PowderSkiAll from "../../components/PowderSkiAll";
 
 function PowderShow({
-  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -13,6 +12,7 @@ function PowderShow({
   setErrors,
 }) {
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch("http://localhost:3000/powder_skis").then((r) => {
       if (r.ok) {
@@ -22,6 +22,7 @@ function PowderShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewSki = (ski) => {
@@ -61,6 +62,7 @@ function PowderShow({
         });
     setSkiCartCount(1);
   };
+
   const allPowderSkis = skis.map((ski) => (
     <PowderSkiAll
       key={ski.id}

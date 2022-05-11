@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import PantsAll from "../../components/PantsAll";
 
 function PantsShow({
-  currentUser,
   apparels,
   setApparels,
   viewProduct,
@@ -13,6 +12,7 @@ function PantsShow({
   setErrors,
 }) {
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch("http://localhost:3000/pants").then((r) => {
       if (r.ok) {
@@ -22,6 +22,7 @@ function PantsShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewApparel = (apparel) => {
@@ -61,6 +62,7 @@ function PantsShow({
         });
     setApparelCartCount(1);
   };
+
   const allPants = apparels.map((apparel) => (
     <PantsAll
       key={apparel.id}
@@ -69,6 +71,7 @@ function PantsShow({
       handleViewApparel={onViewApparel}
     />
   ));
+
   return (
     <div className="container">
       <div className="columns is-multiline">{allPants}</div>

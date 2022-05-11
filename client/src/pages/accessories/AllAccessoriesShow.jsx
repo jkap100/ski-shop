@@ -3,7 +3,6 @@ import AccessoryAll from "../../components/AccessoryAll";
 import { useNavigate } from "react-router-dom";
 
 function AllAccessoriesShow({
-  currentUser,
   accessories,
   setAccessories,
   viewProduct,
@@ -23,6 +22,7 @@ function AllAccessoriesShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewAccessory = (accessory) => {

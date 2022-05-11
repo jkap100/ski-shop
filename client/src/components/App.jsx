@@ -31,8 +31,6 @@ import CartShow from "../pages/CartShow";
 function App() {
   const [error, setErrors] = useState("");
 
-  const [currentUser, setCurrentUser] = useState(false);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -96,12 +94,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
-        />
+        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -113,8 +106,6 @@ function App() {
                 setUsername={setUsername}
                 password={password}
                 setPassword={setPassword}
-                currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
               />
             }
           />
@@ -135,7 +126,6 @@ function App() {
             path="/skis"
             element={
               <AllSkisShow
-                currentUser={currentUser}
                 skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -151,7 +141,6 @@ function App() {
             path="/powder_skis"
             element={
               <PowderShow
-                currentUser={currentUser}
                 skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -166,7 +155,6 @@ function App() {
             path="/freestyle_skis"
             element={
               <FreestyleShow
-                currentUser={currentUser}
                 skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -181,7 +169,6 @@ function App() {
             path="/race_skis"
             element={
               <RaceShow
-                currentUser={currentUser}
                 skis={filteredSkis}
                 setSkis={setSkis}
                 viewProduct={viewProduct}
@@ -196,7 +183,6 @@ function App() {
             path="/apparels"
             element={
               <AllApparelsShow
-                currentUser={currentUser}
                 apparels={filteredApparel}
                 setApparels={setApparels}
                 viewProduct={viewProduct}
@@ -211,7 +197,6 @@ function App() {
             path="/jackets"
             element={
               <JacketsShow
-                currentUser={currentUser}
                 apparels={filteredApparel}
                 setApparels={setApparels}
                 viewProduct={viewProduct}
@@ -226,7 +211,6 @@ function App() {
             path="/pants"
             element={
               <PantsShow
-                currentUser={currentUser}
                 apparels={filteredApparel}
                 setApparels={setApparels}
                 viewProduct={viewProduct}
@@ -241,7 +225,6 @@ function App() {
             path="/accessories"
             element={
               <AllAccessoriesShow
-                currentUser={currentUser}
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
@@ -256,7 +239,6 @@ function App() {
             path="/goggles"
             element={
               <GogglesShow
-                currentUser={currentUser}
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
@@ -271,7 +253,6 @@ function App() {
             path="/gloves"
             element={
               <GlovesShow
-                currentUser={currentUser}
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
@@ -286,7 +267,6 @@ function App() {
             path="/hats"
             element={
               <HatsShow
-                currentUser={currentUser}
                 accessories={filteredAccessories}
                 setAccessories={setAccessories}
                 viewProduct={viewProduct}
@@ -327,8 +307,6 @@ function App() {
             path="/inventory_order_form"
             element={
               <NewInventoryOrder
-                currentUser={currentUser}
-                // setProductId={setProductId}
                 name={name}
                 setName={setName}
                 sku={sku}
@@ -391,7 +369,6 @@ function App() {
             path="/cart"
             element={
               <CartShow
-                currentUser={currentUser}
                 skiCart={skiCart}
                 setSkiCart={setSkiCart}
                 apparelCart={apparelCart}
@@ -408,7 +385,6 @@ function App() {
               <ProductDetail
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
-                currentUser={currentUser}
               />
             }
           />

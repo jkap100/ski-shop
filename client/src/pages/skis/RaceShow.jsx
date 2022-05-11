@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import RaceSkiAll from "../../components/RaceSkiAll";
 
 function RaceShow({
-  currentUser,
   skis,
   setSkis,
   viewProduct,
@@ -23,6 +22,7 @@ function RaceShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onViewSki = (ski) => {

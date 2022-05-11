@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useCollapse from "react-collapsed";
 import { useNavigate } from "react-router-dom";
-import UpdateInventory from "./UpdateInventory";
 
 function InventoryShow({
   skiInventory,
@@ -121,6 +120,7 @@ function InventoryShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -140,6 +140,7 @@ function InventoryShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -159,6 +160,7 @@ function InventoryShow({
         navigate("/login");
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOrderSkiInv = (ski) => {
@@ -445,7 +447,7 @@ function InventoryShow({
                         className="button is-black is-small"
                         onClick={() => handleUpdateSkiInv(item)}
                       >
-                        <i class="fas fa-wrench"></i>
+                        <i className="fas fa-wrench"></i>
                       </button>
                     </td>
                     <td className="order has-text-centered">
@@ -453,7 +455,7 @@ function InventoryShow({
                         className=" button is-black is-small"
                         onClick={() => handleOrderSkiInv(item)}
                       >
-                        <i class="fas fa-plus"></i>
+                        <i className="fas fa-plus"></i>
                       </button>
                     </td>
                     <td className="remove has-text-centered">
@@ -461,7 +463,7 @@ function InventoryShow({
                         className="button is-black is-small"
                         onClick={() => handleDeleteSkiInv(item.id)}
                       >
-                        <i class="fas fa-trash"></i>
+                        <i className="fas fa-trash"></i>
                       </button>
                     </td>
                   </tr>
@@ -525,7 +527,7 @@ function InventoryShow({
                           className="button is-black is-small"
                           onClick={() => handleUpdateApparelInv(item)}
                         >
-                          <i class="fas fa-wrench"></i>
+                          <i className="fas fa-wrench"></i>
                         </button>
                       </td>
                       <td className="order has-text-centered">
@@ -533,7 +535,7 @@ function InventoryShow({
                           className=" button is-black is-small"
                           onClick={() => handleOrderApparelInv(item)}
                         >
-                          <i class="fas fa-plus"></i>
+                          <i className="fas fa-plus"></i>
                         </button>
                       </td>
                       <td className="remove has-text-centered">
@@ -541,7 +543,7 @@ function InventoryShow({
                           className="button is-black is-small"
                           onClick={() => handleDeleteApparelInv(item.id)}
                         >
-                          <i class="fas fa-trash"></i>
+                          <i className="fas fa-trash"></i>
                         </button>
                       </td>
                     </tr>
@@ -606,7 +608,7 @@ function InventoryShow({
                           className="button is-black is-small"
                           onClick={() => handleUpdateAccessoryInv(item)}
                         >
-                          <i class="fas fa-wrench"></i>
+                          <i className="fas fa-wrench"></i>
                         </button>
                       </td>
                       <td className="order has-text-centered">
@@ -614,7 +616,7 @@ function InventoryShow({
                           className=" button is-black is-small"
                           onClick={() => handleOrderAccessoryInv(item)}
                         >
-                          <i class="fas fa-plus"></i>
+                          <i className="fas fa-plus"></i>
                         </button>
                       </td>
                       <td className="remove has-text-centered">
@@ -622,7 +624,7 @@ function InventoryShow({
                           className="button is-black is-small"
                           onClick={() => handleDeleteAccessoryInv(item.id)}
                         >
-                          <i class="fas fa-trash"></i>
+                          <i className="fas fa-trash"></i>
                         </button>
                       </td>
                     </tr>
