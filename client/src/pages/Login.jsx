@@ -46,8 +46,10 @@ function Login({
           } else {
             localStorage.setItem("currentUserId", result.user.id);
             localStorage.setItem("isAdmin", result.user.admin);
+            localStorage.setItem("currentUsername", result.user.username);
+            localStorage.setItem("currentEmail", result.user.email);
+            // localStorage.setItem("currentUser", true);
             console.log(localStorage);
-            setCurrentUser(result.user);
           }
         }
       });

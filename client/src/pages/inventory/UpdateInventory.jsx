@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UpdateInventory({
   productId,
@@ -27,6 +28,7 @@ function UpdateInventory({
   setProductCount,
   setErrors,
 }) {
+  const navigate = useNavigate();
   const [button, setButton] = useState("");
 
   const handleUpdate = (e) => {
@@ -47,7 +49,9 @@ function UpdateInventory({
       count: productCount,
     };
 
-    if (button === 1) {
+    if (!localStorage.getItem("currentUserId")) {
+      navigate("/login");
+    } else if (button === 1) {
       console.log("button 1 clicked");
       fetch(`http://localhost:3000/skis/${productId}`, {
         method: "PATCH",

@@ -62,7 +62,7 @@ function NewInventoryOrder({
       count: productCount,
     };
 
-    if (!currentUser) {
+    if (!localStorage.getItem("currentUserId")) {
       navigate("/login");
     } else if (button === 1) {
       console.log("button 1 clicked");

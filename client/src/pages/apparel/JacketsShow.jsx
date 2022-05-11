@@ -46,7 +46,7 @@ function JacketsShow({
       apparel_id: apparel.id,
       cart_count: apparelCartCount,
     };
-    !currentUser
+    !localStorage.getItem("currentUserId")
       ? navigate("/login")
       : fetch("http://localhost:3000/user_apparels", {
           method: "POST",

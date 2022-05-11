@@ -100,7 +100,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable">
-                {currentUser.admin === true ? (
+                {localStorage.getItem("isAdmin") === "true" ? (
                   <Link to="/inventory">
                     <div className="has-text-white">Inventory</div>
                   </Link>
@@ -110,7 +110,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
               </div>
 
               <div className="navbar-item has-dropdown is-hoverable ml-4">
-                {currentUser.admin === true ? (
+                {localStorage.getItem("isAdmin") === "true" ? (
                   <Link to="/inventory_order_form">
                     <div className="has-text-white">New Order</div>
                   </Link>
@@ -124,7 +124,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
           <div className="navbar-menu">
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable mr-2">
-                {currentUser ? (
+                {localStorage.getItem("currentUserId") ? (
                   <Link to="/cart">
                     <div className="has-text-white">Cart</div>
                   </Link>

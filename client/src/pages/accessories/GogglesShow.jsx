@@ -48,7 +48,7 @@ function GogglesShow({
       accessory_id: accessory.id,
       cart_count: accessoryCartCount,
     };
-    !currentUser
+    !localStorage.getItem("currentUserId")
       ? navigate("/login")
       : fetch("http://localhost:3000/user_accessories", {
           method: "POST",

@@ -62,10 +62,15 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/user_skis?user_id=${currentUser.id}`, {
-      method: "GET",
-      headers: headers,
-    }).then((r) => {
+    fetch(
+      `http://localhost:3000/user_skis?user_id=${parseInt(
+        localStorage.getItem("currentUserId")
+      )}`,
+      {
+        method: "GET",
+        headers: headers,
+      }
+    ).then((r) => {
       if (r.ok) {
         r.json().then(setSkiCart);
       } else {
@@ -81,10 +86,15 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/user_apparels?user_id=${currentUser.id}`, {
-      method: "GET",
-      headers: headers,
-    }).then((r) => {
+    fetch(
+      `http://localhost:3000/user_apparels?user_id=${parseInt(
+        localStorage.getItem("currentUserId")
+      )}`,
+      {
+        method: "GET",
+        headers: headers,
+      }
+    ).then((r) => {
       if (r.ok) {
         r.json().then(setApparelCart);
       } else {
@@ -100,10 +110,15 @@ function CartShow({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/user_accessories?user_id=${currentUser.id}`, {
-      method: "GET",
-      headers: headers,
-    }).then((r) => {
+    fetch(
+      `http://localhost:3000/user_accessories?user_id=${parseInt(
+        localStorage.getItem("currentUserId")
+      )}`,
+      {
+        method: "GET",
+        headers: headers,
+      }
+    ).then((r) => {
       if (r.ok) {
         r.json().then(setAccessoryCart);
       } else {

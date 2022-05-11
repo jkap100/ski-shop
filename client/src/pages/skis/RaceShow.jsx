@@ -48,7 +48,7 @@ function RaceShow({
       ski_id: ski.id,
       cart_count: skiCartCount,
     };
-    !currentUser
+    !localStorage.getItem("currentUserId")
       ? navigate("/login")
       : fetch("http://localhost:3000/user_skis", {
           method: "POST",

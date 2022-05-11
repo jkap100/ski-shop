@@ -20,7 +20,7 @@ function ProductDetail({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    if (!currentUser) {
+    if (!localStorage.getItem("currentUserId")) {
       navigate("/login");
     } else if (viewProduct.sku >= 1000 && viewProduct.sku <= 1999) {
       console.log("ski");
