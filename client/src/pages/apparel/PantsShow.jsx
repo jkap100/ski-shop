@@ -42,24 +42,58 @@ function PantsShow({
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
-    const body = {
-      user_id: localStorage.currentUserId,
-      apparel_id: apparel.id,
-      cart_count: apparelCartCount,
-    };
-    !localStorage.getItem("currentUserId")
-      ? navigate("/login")
-      : fetch("http://localhost:3000/user_apparels", {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify(body),
-        }).then((r) => {
-          if (r.ok) {
-            console.log("added to cart");
-          } else {
-            r.json().then((err) => setErrors(err.errors));
-          }
-        });
+
+    if (!localStorage.getItem("currentUserId")) {
+      navigate("/login");
+    } else if (apparel.count < 1) {
+      alert("Out of Stock");
+      console.log(apparel.count);
+    } else {
+      const body = {
+        user_id: localStorage.currentUserId,
+        apparel_id: apparel.id,
+        cart_count: apparelCartCount,
+      };
+
+      !localStorage.getItem("currentUserId")
+        ? navigate("/login")
+        : fetch("http://localhost:3000/user_apparels", {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(body),
+          }).then((r) => {
+            if (r.ok) {
+              alert("Added to cart");
+            } else {
+              r.json().then((err) => setErrors(err.errors));
+            }
+          });
+
+      const removeFromInventory = apparel.count - 1;
+      const removeFromInventoryBody = {
+        count: removeFromInventory,
+      };
+
+      fetch(`http://localhost:3000/apparels/${apparel.id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(removeFromInventoryBody),
+      }).then((r) => {
+        if (r.ok) {
+          fetch("http://localhost:3000/apparels/pants").then((r) => {
+            if (r.ok) {
+              r.json().then(setApparels);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    }
+
     setApparelCartCount(1);
   };
 

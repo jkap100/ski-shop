@@ -18,6 +18,13 @@ class UserApparelsController < ApplicationController
         head :no_content
     end
 
+
+    def destroy_all
+        user_apparel = UserApparel.all
+        user_apparel.destroy_all
+        head :no_content
+    end
+
     private
 
     def user_apparel_params

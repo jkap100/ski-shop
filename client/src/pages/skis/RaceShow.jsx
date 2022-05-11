@@ -42,11 +42,7 @@ function RaceShow({
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
-    const body = {
-      user_id: localStorage.currentUserId,
-      ski_id: ski.id,
-      cart_count: skiCartCount,
-    };
+
     if (!localStorage.getItem("currentUserId")) {
       navigate("/login");
     } else if (ski.count < 1) {
@@ -67,7 +63,7 @@ function RaceShow({
             body: JSON.stringify(body),
           }).then((r) => {
             if (r.ok) {
-              console.log("added to cart");
+              alert("Added to cart");
             } else {
               r.json().then((err) => setErrors(err.errors));
             }
@@ -84,13 +80,20 @@ function RaceShow({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
-          navigate("/cart");
+          fetch("http://localhost:3000/race_skis").then((r) => {
+            if (r.ok) {
+              r.json().then(setSkis);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
       });
     }
+
     setSkiCartCount(1);
   };
 

@@ -64,7 +64,7 @@ function AllSkisShow({
             body: JSON.stringify(body),
           }).then((r) => {
             if (r.ok) {
-              console.log("added to cart");
+              alert("Added to cart");
             } else {
               r.json().then((err) => setErrors(err.errors));
             }
@@ -81,8 +81,14 @@ function AllSkisShow({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
-          navigate("/cart");
+          fetch("http://localhost:3000/skis").then((r) => {
+            if (r.ok) {
+              r.json().then(setSkis);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
         } else {
           r.json().then((err) => setErrors(err.errors));
         }

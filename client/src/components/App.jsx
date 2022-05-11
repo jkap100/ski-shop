@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 //AUTH PAGES
 import Home from "../pages/Home";
@@ -27,8 +27,10 @@ import UpdateInventory from "../pages/inventory/UpdateInventory";
 
 import ProductDetail from "../pages/ProductDetail";
 import CartShow from "../pages/CartShow";
+import OrderConfirmation from "../pages/OrderConfirmation";
 
 function App() {
+  // const navigate = useNavigate();
   const [error, setErrors] = useState("");
 
   const [username, setUsername] = useState("");
@@ -91,6 +93,21 @@ function App() {
     );
   });
 
+  const onViewSki = (ski) => {
+    // console.log("viewSki");
+    fetch(`http://localhost:3000/skis/${ski.id}`).then((r) => {
+      if (r.ok) {
+        r.json().then(setViewProduct);
+        // navigate("/product_detail");
+        <Navigate to="/product_detail" />;
+      } else {
+        r.json().then((error) => setErrors(error.errors));
+        // navigate("/login");
+        <Navigate to="/login" />;
+      }
+    });
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -147,7 +164,7 @@ function App() {
                 setViewProduct={setViewProduct}
                 skiCartCount={skiCartCount}
                 setSkiCartCount={setSkiCartCount}
-                setErrors={setErrors}
+                onViewSki={onViewSki}
               />
             }
           />
@@ -390,6 +407,7 @@ function App() {
               />
             }
           />
+          <Route path="/order_confirmation" element={<OrderConfirmation />} />
         </Routes>
       </BrowserRouter>
     </div>

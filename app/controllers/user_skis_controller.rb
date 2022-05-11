@@ -21,6 +21,12 @@ class UserSkisController < ApplicationController
 
     end
 
+    def destroy_all
+        user_ski = UserSki.all
+        user_ski.destroy_all
+        head :no_content
+    end
+
     private
 
     def user_ski_params
