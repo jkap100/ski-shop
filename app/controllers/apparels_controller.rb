@@ -32,6 +32,12 @@ class ApparelsController < ApplicationController
         render json: apparel, status: :accepted
     end
 
+    def add_back_to_inventory
+        apparel = Apparel.find(params[:id])
+        apparel.update(add_or_remove_from_inventory_params)
+        render json: apparel, status: :accepted
+    end
+
     def remove_from_inventory
         apparel = Apparel.find(params[:id])
         apparel.update(remove_from_inventory_params)
@@ -52,7 +58,7 @@ class ApparelsController < ApplicationController
         params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
     end
 
-    def remove_from_inventory_params
+    def add_or_remove_from_inventory_params
         params.permit(:count)
     end
 

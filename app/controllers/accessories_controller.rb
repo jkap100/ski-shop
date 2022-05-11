@@ -1,6 +1,6 @@
 class AccessoriesController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :goggles, :gloves, :hats, :show, :remove_from_inventory]
+    skip_before_action :authorize, only: [:index, :goggles, :gloves, :hats, :show, :remove_from_inventory, :add_back_to_inventory]
 
     def index
         render json: Accessory.all
@@ -39,6 +39,12 @@ class AccessoriesController < ApplicationController
         render json: accessory, status: :accepted
     end
 
+    def add_back_to_inventory
+        accessory = Accessory.find(params[:id])
+        accessory.update(add_or_remove_from_inventory_params)
+        render json: accessory, status: :accepted
+    end
+
     def remove_from_inventory
         accessory = Accessory.find(params[:id])
         accessory.update(remove_from_inventory_params)
@@ -58,7 +64,7 @@ class AccessoriesController < ApplicationController
         params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
     end
 
-    def remove_from_inventory_params
+    def add_or_remove_from_inventory_params
         params.permit(:count)
     end
 end

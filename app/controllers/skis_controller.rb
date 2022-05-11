@@ -1,6 +1,6 @@
 class SkisController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :powder, :freestyle, :race, :show, :remove_from_inventory]
+    skip_before_action :authorize, only: [:index, :powder, :freestyle, :race, :show, :remove_from_inventory, :add_back_to_inventory]
 
     def index
         render json: Ski.all
@@ -37,9 +37,15 @@ class SkisController < ApplicationController
         render json: ski, status: :accepted
     end
 
+    def add_back_to_inventory
+        ski = Ski.find(params[:id])
+        ski.update(add_or_remove_from_inventory_params)
+        render json: ski, status: :accepted
+    end
+
     def remove_from_inventory
         ski = Ski.find(params[:id])
-        ski.update(remove_from_inventory_params)
+        ski.update(add_or_remove_from_inventory_params)
         render json: ski, status: :accepted
     end
 
@@ -56,7 +62,7 @@ class SkisController < ApplicationController
         params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
     end
 
-    def remove_from_inventory_params
+    def add_or_remove_from_inventory_params
         params.permit(:count)
     end
   
