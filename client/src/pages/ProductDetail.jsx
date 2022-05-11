@@ -5,7 +5,8 @@ function ProductDetail({
   viewProduct,
   setViewProduct,
   setErrors,
-  currentUser,
+  productCount,
+  setProductCount,
 }) {
   console.log(`viewProduct: ${viewProduct.name}`);
 
@@ -22,6 +23,8 @@ function ProductDetail({
 
     if (!localStorage.getItem("currentUserId")) {
       navigate("/login");
+    } else if (qty > productCount) {
+      alert("Out of Stock");
     } else if (viewProduct.sku >= 1000 && viewProduct.sku <= 1999) {
       console.log("ski");
 
@@ -93,7 +96,7 @@ function ProductDetail({
   return (
     <div className="container">
       <div className="tile is-ancestor">
-        <div className="tile is-vertical is-7">
+        <div className="tile is-vertical is-8">
           <div className="tile">
             <div className="tile is-parent is-vertical">
               <article className="tile is-child notification is-white has-text-centered">
@@ -126,6 +129,7 @@ function ProductDetail({
                 <p className="subtitle">
                   ${parseInt(viewProduct.price).toLocaleString("en-US")}
                 </p>
+                <p className="subtitle">Left in Stock: {viewProduct.count}</p>
               </div>
               <div className="columns is-centered">
                 <div className="content mt-6">

@@ -1,6 +1,6 @@
 class ApparelsController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :show, :jackets, :pants]
+    skip_before_action :authorize, only: [:index, :show, :jackets, :pants, :remove_from_inventory]
 
     def index
         render json: Apparel.all
@@ -32,6 +32,13 @@ class ApparelsController < ApplicationController
         render json: apparel, status: :accepted
     end
 
+    def remove_from_inventory
+        apparel = Apparel.find(params[:id])
+        apparel.update(remove_from_inventory_params)
+        render json: apparel, status: :accepted
+    end
+
+
     def destroy
         apparel = Apparel.find(params[:id])
         apparel.destroy
@@ -43,6 +50,10 @@ class ApparelsController < ApplicationController
 
     def apparel_params
         params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
+    end
+
+    def remove_from_inventory_params
+        params.permit(:count)
     end
 
 end

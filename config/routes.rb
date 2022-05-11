@@ -8,15 +8,18 @@ Rails.application.routes.draw do
   get '/gloves', to: "accessories#gloves"
   get '/hats', to: "accessories#hats"  
   get '/goggles', to: "accessories#goggles"
+  patch  '/accessories/:id', to: "accessories#remove_from_inventory"
   
   resources :apparels
   get '/jackets', to: "apparels#jackets"
   get '/pants', to: "apparels#pants"  
+  patch  '/apparels/:id', to: "apparels#remove_from_inventory"
 
   resources :skis
   get '/powder_skis', to: "skis#powder"
   get '/freestyle_skis', to: "skis#freestyle"
   get '/race_skis', to: "skis#race"  
+  patch  '/skis/:id', to: "skis#remove_from_inventory"
   
   get '/cart', to: "users#cart"
 

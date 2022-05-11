@@ -385,6 +385,8 @@ function App() {
               <ProductDetail
                 viewProduct={viewProduct}
                 setViewProduct={setViewProduct}
+                productCount={productCount}
+                setProductCount={setProductCount}
               />
             }
           />
