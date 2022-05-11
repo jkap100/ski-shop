@@ -79,7 +79,7 @@ function JacketsShow({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          fetch("http://localhost:3000/apparels/jackets").then((r) => {
+          fetch("http://localhost:3000/jackets").then((r) => {
             if (r.ok) {
               r.json().then(setApparels);
             } else {

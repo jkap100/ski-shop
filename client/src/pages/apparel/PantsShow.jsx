@@ -80,7 +80,7 @@ function PantsShow({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          fetch("http://localhost:3000/apparels/pants").then((r) => {
+          fetch("http://localhost:3000/pants").then((r) => {
             if (r.ok) {
               r.json().then(setApparels);
             } else {
