@@ -42,25 +42,55 @@ function RaceShow({
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
-
     const body = {
       user_id: localStorage.currentUserId,
       ski_id: ski.id,
       cart_count: skiCartCount,
     };
-    !localStorage.getItem("currentUserId")
-      ? navigate("/login")
-      : fetch("http://localhost:3000/user_skis", {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify(body),
-        }).then((r) => {
-          if (r.ok) {
-            console.log("added to cart");
-          } else {
-            r.json().then((err) => setErrors(err.errors));
-          }
-        });
+    if (!localStorage.getItem("currentUserId")) {
+      navigate("/login");
+    } else if (ski.count < 1) {
+      alert("Out of Stock");
+      console.log(ski.count);
+    } else {
+      const body = {
+        user_id: localStorage.currentUserId,
+        ski_id: ski.id,
+        cart_count: skiCartCount,
+      };
+
+      !localStorage.getItem("currentUserId")
+        ? navigate("/login")
+        : fetch("http://localhost:3000/user_skis", {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(body),
+          }).then((r) => {
+            if (r.ok) {
+              console.log("added to cart");
+            } else {
+              r.json().then((err) => setErrors(err.errors));
+            }
+          });
+
+      const removeFromInventory = ski.count - 1;
+      const removeFromInventoryBody = {
+        count: removeFromInventory,
+      };
+
+      fetch(`http://localhost:3000/skis/${ski.id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(removeFromInventoryBody),
+      }).then((r) => {
+        if (r.ok) {
+          console.log("added to cart");
+          navigate("/cart");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    }
     setSkiCartCount(1);
   };
 
