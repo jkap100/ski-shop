@@ -23,6 +23,8 @@ function UpdateInventory({
   setImage,
   brand,
   setBrand,
+  productCount,
+  setProductCount,
   setErrors,
 }) {
   const [button, setButton] = useState("");
@@ -42,6 +44,7 @@ function UpdateInventory({
       description: description,
       image: image,
       brand: brand,
+      count: productCount,
     };
 
     if (button === 1) {
@@ -82,7 +85,7 @@ function UpdateInventory({
         });
     } else if (button === 3) {
       console.log("button 3 clicked");
-      fetch(`http://localhost:3000/accessories${productId}`, {
+      fetch(`http://localhost:3000/accessories/${productId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -160,6 +163,20 @@ function UpdateInventory({
                       placeholder="Cost"
                       value={cost}
                       onChange={(event) => setCost(event.target.value)}
+                    ></input>
+                  </p>
+                </div>
+
+                <div className="field">
+                  <label className="label">Quantity</label>
+                  <p className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="quantity"
+                      placeholder="Quantity"
+                      value={productCount}
+                      onChange={(event) => setProductCount(event.target.value)}
                     ></input>
                   </p>
                 </div>

@@ -62,6 +62,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
+  const [productCount, setProductCount] = useState("");
 
   const [viewProduct, setViewProduct] = useState("");
 
@@ -316,6 +317,7 @@ function App() {
                 setSex={setSex}
                 setImage={setImage}
                 setBrand={setBrand}
+                setProductCount={setProductCount}
                 setErrors={setErrors}
               />
             }
@@ -324,6 +326,8 @@ function App() {
             path="/inventory_order_form"
             element={
               <NewInventoryOrder
+                currentUser={currentUser}
+                // setProductId={setProductId}
                 name={name}
                 setName={setName}
                 sku={sku}
@@ -344,6 +348,8 @@ function App() {
                 setImage={setImage}
                 brand={brand}
                 setBrand={setBrand}
+                productCount={productCount}
+                setProductCount={setProductCount}
                 setErrors={setErrors}
               />
             }
@@ -374,6 +380,8 @@ function App() {
                 setImage={setImage}
                 brand={brand}
                 setBrand={setBrand}
+                productCount={productCount}
+                setProductCount={setProductCount}
                 setErrors={setErrors}
               />
             }

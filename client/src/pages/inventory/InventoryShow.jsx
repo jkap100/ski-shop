@@ -21,6 +21,7 @@ function InventoryShow({
   setSex,
   setImage,
   setBrand,
+  setProductCount,
   setErrors,
 }) {
   const navigate = useNavigate();
@@ -175,6 +176,7 @@ function InventoryShow({
       description: ski.description,
       image: ski.image,
       brand: ski.brand,
+      count: ski.count,
     };
     console.log(body);
     fetch("http://localhost:3000/skis", {
@@ -209,6 +211,7 @@ function InventoryShow({
       description: apparel.description,
       image: apparel.image,
       brand: apparel.brand,
+      count: apparel.count,
     };
     console.log(body);
     fetch("http://localhost:3000/apparels", {
@@ -243,6 +246,7 @@ function InventoryShow({
       description: accessory.description,
       image: accessory.image,
       brand: accessory.brand,
+      count: accessory.count,
     };
     console.log(body);
     fetch("http://localhost:3000/accessories", {
@@ -275,6 +279,7 @@ function InventoryShow({
     setDescription(ski.description);
     setImage(ski.image);
     setBrand(ski.brand);
+    setProductCount(ski.count);
     navigate("/update_inventory");
   };
 
@@ -290,6 +295,7 @@ function InventoryShow({
     setDescription(apparel.description);
     setImage(apparel.image);
     setBrand(apparel.brand);
+    setProductCount(apparel.count);
     navigate("/update_inventory");
   };
 
@@ -305,6 +311,7 @@ function InventoryShow({
     setDescription(accessory.description);
     setImage(accessory.image);
     setBrand(accessory.brand);
+    setProductCount(accessory.count);
     navigate("/update_inventory");
   };
 
@@ -401,8 +408,11 @@ function InventoryShow({
                 <tr>
                   <th className="cart-image has-text-centered">Item</th>
                   <th className="product">Item Name</th>
-                  <th className="price has-text-centered">Cost</th>
                   <th className="category has-text-centered">Category</th>
+                  <th className="cost has-text-centered">Quantity</th>
+                  <th className="cost has-text-centered">Cost</th>
+                  <th className="price has-text-centered">Total Cost</th>
+                  <th className="price has-text-centered">Price</th>
                   <th className="edit has-text-centered">Edit</th>
                   <th className="order has-text-centered">Order</th>
                   <th className="remove has-text-centered">Remove</th>
@@ -415,12 +425,21 @@ function InventoryShow({
                       <img src={item.image} alt="not found"></img>
                     </td>
                     <td className="product">{item.name}</td>
-                    <td className="price has-text-centered">
-                      {item.cost.toLocaleString("en-US")}
-                    </td>
                     <td className="category has-text-centered">
                       {item.category}
                     </td>
+                    <td className="category has-text-centered">{item.count}</td>
+                    <td className="price has-text-centered">
+                      ${parseInt(item.cost).toLocaleString("en-US")}
+                    </td>
+                    <td className="price has-text-centered">
+                      $
+                      {parseInt(item.cost * item.count).toLocaleString("en-US")}
+                    </td>
+                    <td className="category has-text-centered">
+                      ${parseInt(item.price).toLocaleString("en-US")}
+                    </td>
+
                     <td className="edit has-text-centered">
                       <button
                         className="button is-black is-small"
@@ -468,8 +487,11 @@ function InventoryShow({
                   <tr>
                     <th className="cart-image has-text-centered">Item</th>
                     <th className="product">Item Name</th>
-                    <th className="price has-text-centered">Cost</th>
                     <th className="category has-text-centered">Category</th>
+                    <th className="cost has-text-centered">Quantity</th>
+                    <th className="cost has-text-centered">Cost</th>
+                    <th className="price has-text-centered">Total Cost</th>
+                    <th className="price has-text-centered">Price</th>
                     <th className="edit has-text-centered">Edit</th>
                     <th className="order has-text-centered">Order</th>
                     <th className="remove has-text-centered">Remove</th>
@@ -482,12 +504,22 @@ function InventoryShow({
                         <img src={item.image} alt="not found"></img>
                       </td>
                       <td className="product">{item.name}</td>
-                      <td className="price has-text-centered">
-                        {item.cost.toLocaleString("en-US")}
-                      </td>
                       <td className="category has-text-centered">
                         {item.category}
                       </td>
+                      <td className="category has-text-centered">
+                        {item.count}
+                      </td>
+                      <td className="price has-text-centered">
+                        ${item.cost.toLocaleString("en-US")}
+                      </td>
+                      <td className="price has-text-centered">
+                        ${(item.cost * item.count).toLocaleString("en-US")}
+                      </td>
+                      <td className="category has-text-centered">
+                        ${item.price.toLocaleString("en-US")}
+                      </td>
+
                       <td className="edit has-text-centered">
                         <button
                           className="button is-black is-small"
@@ -536,8 +568,11 @@ function InventoryShow({
                   <tr>
                     <th className="cart-image has-text-centered">Item</th>
                     <th className="product">Item Name</th>
-                    <th className="price has-text-centered">Cost</th>
                     <th className="category has-text-centered">Category</th>
+                    <th className="cost has-text-centered">Quantity</th>
+                    <th className="cost has-text-centered">Cost</th>
+                    <th className="price has-text-centered">Total Cost</th>
+                    <th className="price has-text-centered">Price</th>
                     <th className="edit has-text-centered">Edit</th>
                     <th className="order has-text-centered">Order</th>
                     <th className="remove has-text-centered">Remove</th>
@@ -550,12 +585,22 @@ function InventoryShow({
                         <img src={item.image} alt="not found"></img>
                       </td>
                       <td className="product">{item.name}</td>
-                      <td className="price has-text-centered">
-                        {item.cost.toLocaleString("en-US")}
-                      </td>
                       <td className="category has-text-centered">
                         {item.category}
                       </td>
+                      <td className="category has-text-centered">
+                        {item.count}
+                      </td>
+                      <td className="price has-text-centered">
+                        ${item.cost.toLocaleString("en-US")}
+                      </td>
+                      <td className="price has-text-centered">
+                        ${(item.cost * item.count).toLocaleString("en-US")}
+                      </td>
+                      <td className="category has-text-centered">
+                        ${item.price.toLocaleString("en-US")}
+                      </td>
+
                       <td className="edit has-text-centered">
                         <button
                           className="button is-black is-small"

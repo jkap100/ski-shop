@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewInventoryOrder({
+  currentUser,
+  // setProductId,
   name,
   setName,
   sku,
@@ -21,9 +24,26 @@ function NewInventoryOrder({
   setImage,
   brand,
   setBrand,
+  productCount,
+  setProductCount,
   setErrors,
 }) {
+  const navigate = useNavigate();
   const [button, setButton] = useState("");
+
+  const clearForm = () => {
+    setName("");
+    setSku("");
+    setPrice("");
+    setCost("");
+    setSize("");
+    setCategory("");
+    setSex("");
+    setDescription("");
+    setImage("");
+    setBrand("");
+    setProductCount("");
+  };
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -39,9 +59,12 @@ function NewInventoryOrder({
       description: description,
       image: image,
       brand: brand,
+      count: productCount,
     };
 
-    if (button === 1) {
+    if (!currentUser) {
+      navigate("/login");
+    } else if (button === 1) {
       console.log("button 1 clicked");
       fetch("http://localhost:3000/skis", {
         method: "POST",
@@ -56,7 +79,6 @@ function NewInventoryOrder({
           if (result.error) {
             console.error(result.error);
           } else {
-            window.location.reload(true);
           }
         });
     } else if (button === 2) {
@@ -74,7 +96,6 @@ function NewInventoryOrder({
           if (result.error) {
             console.error(result.error);
           } else {
-            window.location.reload(true);
           }
         });
     } else if (button === 3) {
@@ -92,7 +113,6 @@ function NewInventoryOrder({
           if (result.error) {
             console.error(result.error);
           } else {
-            window.location.reload(true);
           }
         });
     }
@@ -105,6 +125,16 @@ function NewInventoryOrder({
           <div className="content">
             <div className="is-centered">
               <form onSubmit={handleOrder}>
+                <div className="field has-text-white">
+                  <p className="">
+                    <button
+                      className="button is-black is-Outlined"
+                      onClick={clearForm}
+                    >
+                      Clear Form
+                    </button>
+                  </p>
+                </div>
                 <div className="field">
                   <label className="label mt-4">Product Name</label>
                   <p className="control">
@@ -162,6 +192,20 @@ function NewInventoryOrder({
                 </div>
 
                 <div className="field">
+                  <label className="label">Quantity</label>
+                  <p className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="quantity"
+                      placeholder="Quantity"
+                      value={productCount}
+                      onChange={(event) => setProductCount(event.target.value)}
+                    ></input>
+                  </p>
+                </div>
+
+                <div className="field">
                   <label className="label">Size</label>
                   <p className="control">
                     <input
@@ -206,14 +250,14 @@ function NewInventoryOrder({
                 <div className="field">
                   <label className="label">Description</label>
                   <p className="control">
-                    <input
-                      className="input"
+                    <textarea
+                      className="textarea"
                       type="textarea"
                       name="description"
                       placeholder="Description"
                       value={description}
                       onChange={(event) => setDescription(event.target.value)}
-                    ></input>
+                    ></textarea>
                   </p>
                 </div>
 
