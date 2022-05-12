@@ -66,7 +66,7 @@ function UpdateInventory({
           if (result.error) {
             console.error(result.error);
           } else {
-            // window.location.reload(true);
+            alert("Inventory Item Updated");
           }
         });
     } else if (button === 2) {
