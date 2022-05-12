@@ -59,6 +59,17 @@ ActiveRecord::Schema.define(version: 2022_05_12_170630) do
     t.string "brand"
     t.integer "count"
     t.bigint "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.integer "card_number"
+    t.integer "ccv"
+    t.string "expiration"
+    t.integer "card_zip"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

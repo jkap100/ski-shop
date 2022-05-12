@@ -1,25 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import useCollapse from "react-collapsed";
 
-function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
-  // console.log(skiCart);
-  console.log(apparelCart);
-  // console.log(accessoryCart);
-
+function OrderConfirmation({
+  skiCart,
+  apparelCart,
+  accessoryCart,
+  setErrors,
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  address,
+  setAddress,
+  city,
+  setCity,
+  state,
+  setState,
+  zip,
+  setZip,
+  cardNumber,
+  setCardNumber,
+  ccv,
+  setCCV,
+  expiration,
+  setExpiration,
+  cardZip,
+  setCardZip,
+}) {
   const skiOrder = !skiCart
     ? console.log("nothing in ski cart")
     : skiCart.map((ski) => ski);
-  // console.log(skiOrder);
 
   const apparelOrder = !apparelCart
     ? console.log("nothing in ski cart")
     : apparelCart.map((apparel) => apparel);
-  // console.log(apparelOrder);
 
   const accessoryOrder = !accessoryCart
     ? console.log("nothing in ski cart")
     : accessoryCart.map((accessory) => accessory);
-  // console.log(accessoryOrder);
 
   const skiPrice = !skiCart
     ? console.log("nothing in ski cart")
@@ -60,40 +78,48 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
-    // for (let i = 0; i < skiOrder.length; i++) {
-    //   // console.log(i);
+    for (let i = 0; i < skiOrder.length; i++) {
+      const body = {
+        sku: skiOrder[i].sku,
+        name: skiOrder[i].name,
+        price: skiOrder[i].price,
+        cost: skiOrder[i].cost,
+        size: skiOrder[i].size,
+        category: skiOrder[i].category,
+        sex: skiOrder[i].sex,
+        image: skiOrder[i].image,
+        brand: skiOrder[i].brand,
+        count: skiOrder[i].cart_count,
+        user_id: skiOrder[i].user_id,
+        first_name: firstName,
+        last_name: lastName,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        card_number: cardNumber,
+        ccv: ccv,
+        expiration: expiration,
+        card_zip: cardZip,
+      };
+      console.log(body);
 
-    //   const body = {
-    //     sku: skiOrder[i].sku,
-    //     name: skiOrder[i].name,
-    //     price: skiOrder[i].price,
-    //     cost: skiOrder[i].cost,
-    //     size: skiOrder[i].size,
-    //     category: skiOrder[i].category,
-    //     sex: skiOrder[i].sex,
-    //     image: skiOrder[i].image,
-    //     brand: skiOrder[i].brand,
-    //     count: skiOrder[i].cart_count,
-    //     user_id: skiOrder[i].user_id,
-    //   };
-    //   console.log(body);
-
-    //   fetch(`http://localhost:3000/orders`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.token}`,
-    //     },
-    //     body: JSON.stringify(body),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((result) => {
-    //       if (result.error) {
-    //         console.error(result.error);
-    //       } else {
-    //       }
-    //     });
-    // }
+      fetch(`http://localhost:3000/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+          }
+        });
+    }
 
     for (let i = 0; i < apparelOrder.length; i++) {
       const body = {
@@ -108,6 +134,16 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
         brand: apparelOrder[i].brand,
         count: apparelOrder[i].cart_count,
         user_id: apparelOrder[i].user_id,
+        first_name: firstName,
+        last_name: lastName,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        card_number: cardNumber,
+        ccv: ccv,
+        expiration: expiration,
+        card_zip: cardZip,
       };
 
       fetch(`http://localhost:3000/orders`, {
@@ -142,6 +178,16 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
         brand: accessoryOrder[i].brand,
         count: accessoryOrder[i].cart_count,
         user_id: accessoryOrder[i].user_id,
+        first_name: firstName,
+        last_name: lastName,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        card_number: cardNumber,
+        ccv: ccv,
+        expiration: expiration,
+        card_zip: cardZip,
       };
       console.log(body);
 
@@ -402,8 +448,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="firstName"
                       placeholder="First Name"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={firstName}
+                      onChange={(event) => setFirstName(event.target.value)}
                     ></input>
                   </p>
                   {/* <label className="label">Last Name</label> */}
@@ -413,8 +459,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="lastName"
                       placeholder="Last Name"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={lastName}
+                      onChange={(event) => setLastName(event.target.value)}
                     ></input>
                   </p>
                 </div>
@@ -427,8 +473,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="address"
                       placeholder="Address"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={address}
+                      onChange={(event) => setAddress(event.target.value)}
                     ></input>
                   </p>
                 </div>
@@ -440,8 +486,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="city"
                       placeholder="City"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={city}
+                      onChange={(event) => setCity(event.target.value)}
                     ></input>
                   </p>
                   {/* <label className="label">Last Name</label> */}
@@ -451,8 +497,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="state"
                       placeholder="State"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={state}
+                      onChange={(event) => setState(event.target.value)}
                     ></input>
                   </p>
                   <p className="control ">
@@ -461,8 +507,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="zip"
                       placeholder="Zip Code"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={zip}
+                      onChange={(event) => setZip(event.target.value)}
                     ></input>
                   </p>
                 </div>
@@ -475,8 +521,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="creditCard"
                       placeholder="Card Number"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={cardNumber}
+                      onChange={(event) => setCardNumber(event.target.value)}
                     ></input>
                   </p>
                 </div>
@@ -488,19 +534,19 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="ccv"
                       placeholder="CCV"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={ccv}
+                      onChange={(event) => setCCV(event.target.value)}
                     ></input>
                   </p>
                   {/* <label className="label">Last Name</label> */}
                   <p className="control ">
                     <input
                       className="input"
-                      type="text"
+                      type="date"
                       name="expiration"
                       placeholder="Expiration"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={expiration}
+                      onChange={(event) => setExpiration(event.target.value)}
                     ></input>
                   </p>
                   <p className="control ">
@@ -509,8 +555,8 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                       type="text"
                       name="ccZip"
                       placeholder="Zip Code"
-                      // value={username}
-                      // onChange={(event) => setUsername(event.target.value)}
+                      value={cardZip}
+                      onChange={(event) => setCardZip(event.target.value)}
                     ></input>
                   </p>
                 </div>

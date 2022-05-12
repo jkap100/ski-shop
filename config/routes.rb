@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :orders
+  
   resources :user_accessories
   resources :user_apparels
   resources :user_skis
   resources :users
+
+  resources :orders
+  get '/filled_orders', to: "orders#filled"
+  get '/open_orders', to: "orders#open"
 
   resources :accessories
   get '/gloves', to: "accessories#gloves"

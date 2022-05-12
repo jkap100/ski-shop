@@ -65,6 +65,19 @@ function App() {
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
   const [productCount, setProductCount] = useState("");
+  const [orders, setOrders] = useState([]);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [ccv, setCCV] = useState("");
+  const [expiration, setExpiration] = useState("");
+  const [cardZip, setCardZip] = useState("");
+  const [createdAt, setCreatedAt] = useState("");
 
   const [viewProduct, setViewProduct] = useState("");
 
@@ -416,10 +429,64 @@ function App() {
                 skiCart={skiCart}
                 apparelCart={apparelCart}
                 accessoryCart={accessoryCart}
+                firstName={firstName}
+                setFirstName={setFirstName}
+                lastName={lastName}
+                setLastName={setLastName}
+                address={address}
+                setAddress={setAddress}
+                city={city}
+                setCity={setCity}
+                state={state}
+                setState={setState}
+                zip={zip}
+                setZip={setZip}
+                cardNumber={cardNumber}
+                setCardNumber={setCardNumber}
+                ccv={ccv}
+                setCCV={setCCV}
+                expiration={expiration}
+                setExpiration={setExpiration}
+                cardZip={cardZip}
+                setCardZip={setCardZip}
               />
             }
           />
-          <Route path="/orders" element={<Orders />} />
+          <Route
+            path="/orders"
+            element={
+              <Orders
+                setErrors={setErrors}
+                skiCart={skiCart}
+                apparelCart={apparelCart}
+                accessoryCart={accessoryCart}
+                firstName={firstName}
+                setFirstName={setFirstName}
+                lastName={lastName}
+                setLastName={setLastName}
+                address={address}
+                setAddress={setAddress}
+                city={city}
+                setCity={setCity}
+                state={state}
+                setState={setState}
+                zip={zip}
+                setZip={setZip}
+                cardNumber={cardNumber}
+                setCardNumber={setCardNumber}
+                ccv={ccv}
+                setCCV={setCCV}
+                expiration={expiration}
+                setExpiration={setExpiration}
+                cardZip={cardZip}
+                setCardZip={setCardZip}
+                orders={orders}
+                createdAt={createdAt}
+                setCreatedAt={setCreatedAt}
+                setOrders={setOrders}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
