@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/race_skis', to: "skis#race"  
   patch  '/skis/:id', to: "skis#remove_from_inventory"
   patch  '/skis/:id', to: "skis#add_back_to_inventory"
+  patch  '/skis/:id', to: "skis#add_one_to_inventory"
 
   delete '/user_skis/', to: "user_skis#destroy_all"
   delete '/apparels/', to: "apparels#destroy_all"

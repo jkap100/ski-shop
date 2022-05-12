@@ -42,6 +42,12 @@ class SkisController < ApplicationController
         render json: ski, status: :accepted
     end
 
+    def add_one_to_inventory
+        ski = Ski.find(params[:id])
+        ski.update(add_or_remove_from_inventory_params)
+        render json: ski, status: :accepted
+    end
+
     def add_back_to_inventory
         ski = Ski.find(params[:id])
         ski.update(add_or_remove_from_inventory_params)
@@ -66,6 +72,7 @@ class SkisController < ApplicationController
     def ski_params
         params.permit(:sku, :name, :price, :cost, :size, :category, :sex, :description, :image, :brand, :count)
     end
+
 
     def add_or_remove_from_inventory_params
         params.permit(:count)

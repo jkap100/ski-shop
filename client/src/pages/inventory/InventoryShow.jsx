@@ -166,27 +166,18 @@ function InventoryShow({
   const handleOrderSkiInv = (ski) => {
     // event.preventDefault();
     console.log(ski);
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
 
     const body = {
-      name: ski.name,
-      sku: ski.sku,
-      price: ski.price,
-      cost: ski.cost,
-      size: ski.size,
-      category: ski.category,
-      sex: ski.sex,
-      description: ski.description,
-      image: ski.image,
-      brand: ski.brand,
-      count: ski.count,
+      count: ski.count + 1,
     };
     console.log(body);
-    fetch("http://localhost:3000/skis", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
+    fetch(`http://localhost:3000/skis/${ski.id}`, {
+      method: "PATCH",
+      headers: headers,
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
@@ -194,7 +185,17 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          setSkiInventory([...skiInventory, body]);
+          fetch("http://localhost:3000/skis", {
+            method: "GET",
+            headers: headers,
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then(setSkiInventory);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
         }
       });
   };
