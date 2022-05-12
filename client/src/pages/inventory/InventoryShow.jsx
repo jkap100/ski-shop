@@ -27,7 +27,7 @@ function InventoryShow({
 
   const SkiSection = (props) => {
     const config = {
-      defaultExpanded: props.defaultExpanded || false,
+      defaultExpanded: props.defaultExpanded || true,
       collapsedHeight: props.collapsedHeight || 0,
     };
     const { getCollapseProps, getToggleProps, isExpanded } =
@@ -53,7 +53,7 @@ function InventoryShow({
 
   const ApparelSection = (props) => {
     const config = {
-      defaultExpanded: props.defaultExpanded || false,
+      defaultExpanded: props.defaultExpanded || true,
       collapsedHeight: props.collapsedHeight || 0,
     };
     const { getCollapseProps, getToggleProps, isExpanded } =
@@ -79,7 +79,7 @@ function InventoryShow({
 
   const AccessorySection = (props) => {
     const config = {
-      defaultExpanded: props.defaultExpanded || false,
+      defaultExpanded: props.defaultExpanded || true,
       collapsedHeight: props.collapsedHeight || 0,
     };
     const { getCollapseProps, getToggleProps, isExpanded } =
@@ -203,26 +203,18 @@ function InventoryShow({
   const handleOrderApparelInv = (apparel) => {
     console.log(apparel);
 
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
     const body = {
-      name: apparel.name,
-      sku: apparel.sku,
-      price: apparel.price,
-      cost: apparel.cost,
-      size: apparel.size,
-      category: apparel.category,
-      sex: apparel.sex,
-      description: apparel.description,
-      image: apparel.image,
-      brand: apparel.brand,
-      count: apparel.count,
+      count: apparel.count + 1,
     };
     console.log(body);
-    fetch("http://localhost:3000/apparels", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
+    fetch(`http://localhost:3000/apparels/${apparel.id}`, {
+      method: "PATCH",
+      headers: headers,
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
@@ -230,7 +222,17 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          setApparelInventory([...apparelInventory, body]);
+          fetch("http://localhost:3000/apparels", {
+            method: "GET",
+            headers: headers,
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then(setApparelInventory);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
         }
       });
   };
@@ -238,26 +240,18 @@ function InventoryShow({
   const handleOrderAccessoryInv = (accessory) => {
     console.log(accessory);
 
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`,
+    };
+
     const body = {
-      name: accessory.name,
-      sku: accessory.sku,
-      price: accessory.price,
-      cost: accessory.cost,
-      size: accessory.size,
-      category: accessory.category,
-      sex: accessory.sex,
-      description: accessory.description,
-      image: accessory.image,
-      brand: accessory.brand,
-      count: accessory.count,
+      count: accessory.count + 1,
     };
     console.log(body);
-    fetch("http://localhost:3000/accessories", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
+    fetch(`http://localhost:3000/accessories/${accessory.id}`, {
+      method: "PATCH",
+      headers: headers,
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
@@ -265,7 +259,17 @@ function InventoryShow({
         if (result.error) {
           console.error(result.error);
         } else {
-          setAccessoryInventory([...accessoryInventory, body]);
+          fetch("http://localhost:3000/accessories", {
+            method: "GET",
+            headers: headers,
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then(setAccessoryInventory);
+            } else {
+              r.json().then((error) => setErrors(error.errors));
+              navigate("/login");
+            }
+          });
         }
       });
   };
@@ -514,13 +518,13 @@ function InventoryShow({
                         {item.count}
                       </td>
                       <td className="price has-text-centered">
-                        ${item.cost.toLocaleString("en-US")}
+                        ${parseInt(item.cost).toLocaleString("en-US")}
                       </td>
                       <td className="price has-text-centered">
                         ${(item.cost * item.count).toLocaleString("en-US")}
                       </td>
                       <td className="category has-text-centered">
-                        ${item.price.toLocaleString("en-US")}
+                        ${parseInt(item.price).toLocaleString("en-US")}
                       </td>
 
                       <td className="edit has-text-centered">
