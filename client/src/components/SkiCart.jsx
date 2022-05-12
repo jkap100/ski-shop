@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function SkiCart({ cartSkiObj, skiCart, setSkiCart, setErrors }) {
   const navigate = useNavigate();
-  const [ski, setSki] = useState("");
 
   const handleDeleteSki = (id) => {
     const headers = {
@@ -20,8 +19,7 @@ function SkiCart({ cartSkiObj, skiCart, setSkiCart, setErrors }) {
         headers: headers,
       }).then((r) => {
         if (r.ok) {
-          r.json().then(setSki);
-          console.log(ski);
+          r.json();
         } else {
           r.json().then((error) => setErrors(error.errors));
           navigate("/login");
@@ -60,41 +58,6 @@ function SkiCart({ cartSkiObj, skiCart, setSkiCart, setErrors }) {
       });
     }
   };
-
-  // fetch("http://localhost:3000/skis").then((r) => {
-  //       if (r.ok) {
-  //         r.json().then(setSki);
-  //       } else {
-  //         r.json().then((error) => setErrors(error.errors));
-  //         navigate("/login");
-  //       }
-  //     });
-
-  // fetch(`http://localhost:3000/skis/${ski.id}`, {
-  //   method: "PATCH",
-  //   headers: headers,
-  //   body: JSON.stringify(addBackToInvBody),
-  // }).then((r) => {
-  //   if (r.ok) {
-  //     fetch("http://localhost:3000/skis").then((r) => {
-  //       if (r.ok) {
-  //         r.json().then(setSki);
-  //       } else {
-  //         r.json().then((error) => setErrors(error.errors));
-  //         navigate("/login");
-  //       }
-  //     });
-
-  // r.json().then((err) => setErrors(err.errors));
-
-  // componentDidUpdate(ski){
-  console.log(cartSkiObj.cart_count);
-  console.log(ski.count);
-  // const count = cartSkiObj.cart_count + ski.count;
-  // const addBackToInvBody = {
-  //   count: count,
-  // };
-  // }
 
   return (
     <tbody>
