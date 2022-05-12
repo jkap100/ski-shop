@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import useCollapse from "react-collapsed";
+import React from "react";
 
 function OrderConfirmation({
   skiCart,
@@ -26,6 +25,8 @@ function OrderConfirmation({
   setExpiration,
   cardZip,
   setCardZip,
+  viewOrder,
+  setViewOrder,
 }) {
   const skiOrder = !skiCart
     ? console.log("nothing in ski cart")

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import SkiCart from "../components/SkiCart";
 import ApparelCart from "../components/ApparelCart";
 import AccessoryCart from "../components/AccessoryCart";
@@ -130,25 +129,6 @@ function CartShow({
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const emptyCart = () => {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.token}`,
-    };
-
-    fetch(`http://localhost:3000/user_skis`, {
-      method: "DELETE",
-      headers: headers,
-    }).then((r) => {
-      if (r.ok) {
-        console.log("removed from cart");
-        // setSkiCart(skiCart.filter((s) => s.id !== id));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
-  };
 
   for (let i = 0; i < skiPrice.length; i++) {
     totalSkiPrice += skiPrice[i] * skiCount[i];

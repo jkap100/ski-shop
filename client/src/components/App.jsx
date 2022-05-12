@@ -29,6 +29,7 @@ import ProductDetail from "../pages/ProductDetail";
 import CartShow from "../pages/CartShow";
 import OrderConfirmation from "../pages/OrderConfirmation";
 import Orders from "../pages/Orders";
+import ViewOrder from "../pages/ViewOrder";
 
 function App() {
   // const navigate = useNavigate();
@@ -78,6 +79,7 @@ function App() {
   const [expiration, setExpiration] = useState("");
   const [cardZip, setCardZip] = useState("");
   const [createdAt, setCreatedAt] = useState("");
+  const [viewOrder, setViewOrder] = useState("");
 
   const [viewProduct, setViewProduct] = useState("");
 
@@ -484,6 +486,46 @@ function App() {
                 createdAt={createdAt}
                 setCreatedAt={setCreatedAt}
                 setOrders={setOrders}
+                viewOrder={viewOrder}
+                setViewOrder={setViewOrder}
+              />
+            }
+          />
+
+          <Route
+            path="/view_order"
+            element={
+              <ViewOrder
+                setErrors={setErrors}
+                skiCart={skiCart}
+                apparelCart={apparelCart}
+                accessoryCart={accessoryCart}
+                firstName={firstName}
+                setFirstName={setFirstName}
+                lastName={lastName}
+                setLastName={setLastName}
+                address={address}
+                setAddress={setAddress}
+                city={city}
+                setCity={setCity}
+                state={state}
+                setState={setState}
+                zip={zip}
+                setZip={setZip}
+                cardNumber={cardNumber}
+                setCardNumber={setCardNumber}
+                ccv={ccv}
+                setCCV={setCCV}
+                expiration={expiration}
+                setExpiration={setExpiration}
+                cardZip={cardZip}
+                setCardZip={setCardZip}
+                orders={orders}
+                createdAt={createdAt}
+                setCreatedAt={setCreatedAt}
+                setOrders={setOrders}
+                viewOrder={viewOrder}
+                setViewOrder={setViewOrder}
               />
             }
           />
