@@ -1,10 +1,14 @@
 class UserApparelSerializer < ActiveModel::Serializer
-  attributes :id, :cart_count, :name, :price, :cost, :image, :category, :user_id, :username, :apparel_id, :count, :add_back
+  attributes :id, :cart_count, :name, :sku, :price, :cost, :size, :category, :sex, :image, :brand, :user_id, :username, :apparel_id, :count, :add_back
   # has_one :user
   # has_one :apparel
 
   def name
     object.apparel.name
+  end
+
+  def sku
+    object.apparel.sku
   end
 
   def price
@@ -15,12 +19,28 @@ class UserApparelSerializer < ActiveModel::Serializer
     object.apparel.cost
   end
 
+  def size
+    object.apparel.size
+  end
+
+  def sex
+    object.apparel.sex
+  end
+
+  def category
+    object.apparel.category
+  end
+
+  def sex
+    object.apparel.sex
+  end
+
   def image
     object.apparel.image
   end
   
-  def category
-    object.apparel.category
+  def brand
+    object.apparel.brand
   end
 
   def user_id

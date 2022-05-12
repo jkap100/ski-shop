@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :user_accessories
   resources :user_apparels
   resources :user_skis

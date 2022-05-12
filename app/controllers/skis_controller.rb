@@ -32,7 +32,6 @@ class SkisController < ApplicationController
     end
 
     def create
-        Ski.order(id: :asc)
         ski = Ski.create!(ski_params)
         render json: ski, status: :created
     end
@@ -41,7 +40,6 @@ class SkisController < ApplicationController
         ski = Ski.find(params[:id])
         ski.update(ski_params)
         render json: ski, status: :accepted
-        Ski.order(id: :asc)
     end
 
     def add_one_to_inventory
@@ -50,8 +48,7 @@ class SkisController < ApplicationController
         render json: ski, status: :accepted
     end
 
-    def add_back_to_inventory
-        
+    def add_back_to_inventory        
         ski = Ski.find(params[:id])
         ski.update(add_or_remove_from_inventory_params)
         render json: ski, status: :accepted
@@ -63,10 +60,8 @@ class SkisController < ApplicationController
         render json: ski, status: :accepted
     end
 
-    def destroy
-        
+    def destroy        
         ski = Ski.find(params[:id])
-        # byebug
         ski.destroy
         head :no_content
     end

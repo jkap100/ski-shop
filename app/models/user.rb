@@ -10,4 +10,6 @@ class User < ApplicationRecord
     has_many :user_accessories, dependent: :destroy
     has_many :accessories, through: :user_accessories
 
+    has_many :orders
+
 end

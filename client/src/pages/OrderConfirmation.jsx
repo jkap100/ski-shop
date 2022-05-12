@@ -2,9 +2,24 @@ import React from "react";
 import useCollapse from "react-collapsed";
 
 function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
-  console.log(skiCart);
+  // console.log(skiCart);
   console.log(apparelCart);
-  console.log(accessoryCart);
+  // console.log(accessoryCart);
+
+  const skiOrder = !skiCart
+    ? console.log("nothing in ski cart")
+    : skiCart.map((ski) => ski);
+  // console.log(skiOrder);
+
+  const apparelOrder = !apparelCart
+    ? console.log("nothing in ski cart")
+    : apparelCart.map((apparel) => apparel);
+  // console.log(apparelOrder);
+
+  const accessoryOrder = !accessoryCart
+    ? console.log("nothing in ski cart")
+    : accessoryCart.map((accessory) => accessory);
+  // console.log(accessoryOrder);
 
   const skiPrice = !skiCart
     ? console.log("nothing in ski cart")
@@ -33,9 +48,9 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
   let totalApparelPrice = 0;
   let totalAccessoryPrice = 0;
 
-  const skiArrLength = !skiCart ? 0 : skiCart.length;
-  const apparelArrLength = !apparelCart ? 0 : skiCart.length;
-  const accessoryArrLength = !accessoryCart ? 0 : skiCart.length;
+  const skiArrLength = !skiCart ? 1 : skiCart.length;
+  const apparelArrLength = !apparelCart ? 1 : skiCart.length;
+  const accessoryArrLength = !accessoryCart ? 1 : skiCart.length;
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -45,6 +60,107 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.token}`,
     };
+    // for (let i = 0; i < skiOrder.length; i++) {
+    //   // console.log(i);
+
+    //   const body = {
+    //     sku: skiOrder[i].sku,
+    //     name: skiOrder[i].name,
+    //     price: skiOrder[i].price,
+    //     cost: skiOrder[i].cost,
+    //     size: skiOrder[i].size,
+    //     category: skiOrder[i].category,
+    //     sex: skiOrder[i].sex,
+    //     image: skiOrder[i].image,
+    //     brand: skiOrder[i].brand,
+    //     count: skiOrder[i].cart_count,
+    //     user_id: skiOrder[i].user_id,
+    //   };
+    //   console.log(body);
+
+    //   fetch(`http://localhost:3000/orders`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${localStorage.token}`,
+    //     },
+    //     body: JSON.stringify(body),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((result) => {
+    //       if (result.error) {
+    //         console.error(result.error);
+    //       } else {
+    //       }
+    //     });
+    // }
+
+    for (let i = 0; i < apparelOrder.length; i++) {
+      const body = {
+        sku: apparelOrder[i].sku,
+        name: apparelOrder[i].name,
+        price: apparelOrder[i].price,
+        cost: apparelOrder[i].cost,
+        size: apparelOrder[i].size,
+        category: apparelOrder[i].category,
+        sex: apparelOrder[i].sex,
+        image: apparelOrder[i].image,
+        brand: apparelOrder[i].brand,
+        count: apparelOrder[i].cart_count,
+        user_id: apparelOrder[i].user_id,
+      };
+
+      fetch(`http://localhost:3000/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+          }
+        });
+    }
+
+    for (let i = 0; i < accessoryOrder.length; i++) {
+      // console.log(i);
+
+      const body = {
+        sku: accessoryOrder[i].sku,
+        name: accessoryOrder[i].name,
+        price: accessoryOrder[i].price,
+        cost: accessoryOrder[i].cost,
+        size: accessoryOrder[i].size,
+        category: accessoryOrder[i].category,
+        sex: accessoryOrder[i].sex,
+        image: accessoryOrder[i].image,
+        brand: accessoryOrder[i].brand,
+        count: accessoryOrder[i].cart_count,
+        user_id: accessoryOrder[i].user_id,
+      };
+      console.log(body);
+
+      fetch(`http://localhost:3000/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+          }
+        });
+    }
 
     fetch(`http://localhost:3000/user_skis`, {
       method: "DELETE",
@@ -75,12 +191,14 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
       headers: headers,
     }).then((r) => {
       if (r.ok) {
-        alert("Order Received");
+        // alert("Order Received");
         // setSkiCart(skiCart.filter((a) => a.id !== id));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+
+    alert("Order Received");
   };
 
   for (let i = 0; i < skiArrLength; i++) {
@@ -128,14 +246,14 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                               {item.category}
                             </td>
                             <td className="category has-text-centered">
-                              {item.count}
+                              {item.cart_count}
                             </td>
                             <td className="category has-text-centered">
                               ${parseInt(item.price).toLocaleString("en-US")}
                             </td>
                             <td className="price has-text-centered">
                               $
-                              {(item.price * item.count).toLocaleString(
+                              {(item.price * item.cart_count).toLocaleString(
                                 "en-US"
                               )}
                             </td>
@@ -179,14 +297,14 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                               {item.category}
                             </td>
                             <td className="category has-text-centered">
-                              {item.count}
+                              {item.cart_count}
                             </td>
                             <td className="category has-text-centered">
                               ${parseInt(item.price).toLocaleString("en-US")}
                             </td>
                             <td className="price has-text-centered">
                               $
-                              {(item.price * item.count).toLocaleString(
+                              {(item.price * item.cart_count).toLocaleString(
                                 "en-US"
                               )}
                             </td>
@@ -231,14 +349,14 @@ function OrderConfirmation({ skiCart, apparelCart, accessoryCart, setErrors }) {
                               {item.Category}
                             </td>
                             <td className="category has-text-centered">
-                              {item.count}
+                              {item.cart_count}
                             </td>
                             <td className="category has-text-centered">
                               ${parseInt(item.price).toLocaleString("en-US")}
                             </td>
                             <td className="price has-text-centered">
                               $
-                              {(item.price * item.count).toLocaleString(
+                              {(item.price * item.cart_count).toLocaleString(
                                 "en-US"
                               )}
                             </td>
