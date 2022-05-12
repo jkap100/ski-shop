@@ -125,7 +125,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable mr-4">
                 {localStorage.getItem("isAdmin") === "true" ? (
-                  <Link to="/inventory_order_form">
+                  <Link to="/orders">
                     <div className="has-text-white">Orders</div>
                   </Link>
                 ) : (

@@ -64,6 +64,14 @@ function PowderShow({
           }).then((r) => {
             if (r.ok) {
               alert("Added to cart");
+              // fetch("http://localhost:3000/powder_skis").then((r) => {
+              //   if (r.ok) {
+              //     r.json().then(setSkis);
+              //   } else {
+              //     r.json().then((error) => setErrors(error.errors));
+              //     navigate("/login");
+              //   }
+              // });
             } else {
               r.json().then((err) => setErrors(err.errors));
             }
@@ -83,6 +91,14 @@ function PowderShow({
           fetch("http://localhost:3000/powder_skis").then((r) => {
             if (r.ok) {
               r.json().then(setSkis);
+              // fetch("http://localhost:3000/powder_skis").then((r) => {
+              //   if (r.ok) {
+              //     r.json().then(setSkis);
+              //   } else {
+              //     r.json().then((error) => setErrors(error.errors));
+              //     navigate("/login");
+              //   }
+              // });
             } else {
               r.json().then((error) => setErrors(error.errors));
               navigate("/login");

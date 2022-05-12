@@ -49,7 +49,6 @@ function PantsAll({ allApparelObj, handleAddToCart, handleViewApparel }) {
                 Add to Cart
               </button>
               <button
-                class
                 className="mt-2 mb-2 ml-5 button is-black is-responsive"
                 onClick={() => handleViewApparel(allApparelObj)}
               >

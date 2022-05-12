@@ -28,6 +28,7 @@ import UpdateInventory from "../pages/inventory/UpdateInventory";
 import ProductDetail from "../pages/ProductDetail";
 import CartShow from "../pages/CartShow";
 import OrderConfirmation from "../pages/OrderConfirmation";
+import Orders from "../pages/Orders";
 
 function App() {
   // const navigate = useNavigate();
@@ -418,6 +419,7 @@ function App() {
               />
             }
           />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </BrowserRouter>
     </div>
