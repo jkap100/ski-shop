@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   patch  '/skis/:id', to: "skis#add_one_to_inventory"
 
   delete '/user_skis/', to: "user_skis#destroy_all"
-  delete '/apparels/', to: "apparels#destroy_all"
-  delete '/accessories/', to: "accessories#destroy_all"
+  delete '/user_apparels/', to: "user_apparels#destroy_all"
+  delete '/user_accessories/', to: "user_accessories#destroy_all"
   
   get '/cart', to: "users#cart"
 

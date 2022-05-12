@@ -407,7 +407,17 @@ function App() {
               />
             }
           />
-          <Route path="/order_confirmation" element={<OrderConfirmation />} />
+          <Route
+            path="/order_confirmation"
+            element={
+              <OrderConfirmation
+                setErrors={setErrors}
+                skiCart={skiCart}
+                apparelCart={apparelCart}
+                accessoryCart={accessoryCart}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
