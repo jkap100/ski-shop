@@ -6,6 +6,11 @@ class SkisController < ApplicationController
         render json: Ski.all
     end
 
+    def show
+        ski = Ski.find(params[:id])
+        render json: ski
+    end
+
     def powder
         ski_category = Ski.where(category: 'Powder')
         render json: ski_category
