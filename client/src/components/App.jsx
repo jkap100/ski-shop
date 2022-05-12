@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 //AUTH PAGES
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Signup from "../Signup";
+import Signup from "../pages/Signup";
 //SKI PAGES
 import AllSkisShow from "../pages/skis/AllSkisShow";
 import PowderShow from "../pages/skis/PowderShow";
