@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
-function ProductDetail({
-  viewProduct,
-  setViewProduct,
-  setErrors,
-  productCount,
-  setProductCount,
-}) {
+function ProductDetail({ viewProduct, setErrors }) {
   // console.log(`viewProduct: ${viewProduct.name}`);
   // console.log(productCount);
 
@@ -149,7 +144,12 @@ function ProductDetail({
   };
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="tile is-ancestor">
         <div className="tile is-vertical is-8">
           <div className="tile">
@@ -234,7 +234,7 @@ function ProductDetail({
           </article>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

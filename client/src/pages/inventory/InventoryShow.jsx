@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import useCollapse from "react-collapsed";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function InventoryShow({
   skiInventory,
@@ -406,7 +407,12 @@ function InventoryShow({
   const totalCost = totalSkiCost + totalApparelCost + totalAccessoryCost;
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <SkiSection>
         <div className="column">
           <div className="box">
@@ -651,7 +657,7 @@ function InventoryShow({
           </div>
         </AccessorySection>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

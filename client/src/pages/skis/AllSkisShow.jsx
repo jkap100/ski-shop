@@ -2,11 +2,11 @@ import "bulma/css/bulma.min.css";
 import React, { useEffect } from "react";
 import SkiAll from "../../components/SkiAll";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function AllSkisShow({
   skis,
   setSkis,
-  viewProduct,
   setViewProduct,
   skiCartCount,
   setSkiCartCount,
@@ -108,9 +108,14 @@ function AllSkisShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%", height: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allSkis}</div>
-    </div>
+    </motion.div>
   );
 }
 

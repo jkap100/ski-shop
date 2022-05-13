@@ -1,6 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion/dist/framer-motion";
 
-function ViewOrder({ viewOrder, setViewOrder }) {
+function ViewOrder({ viewOrder }) {
   const fillOrder = () => {
     console.log("filled");
 
@@ -27,7 +28,12 @@ function ViewOrder({ viewOrder, setViewOrder }) {
   };
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%", height: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="tile is-ancestor">
         <div className="tile is-vertical is-4">
           <div className="tile">
@@ -120,7 +126,7 @@ function ViewOrder({ viewOrder, setViewOrder }) {
           </article>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

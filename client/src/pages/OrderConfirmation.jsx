@@ -1,10 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function OrderConfirmation({
   skiCart,
   apparelCart,
   accessoryCart,
-  setErrors,
   firstName,
   setFirstName,
   lastName,
@@ -25,8 +25,7 @@ function OrderConfirmation({
   setExpiration,
   cardZip,
   setCardZip,
-  viewOrder,
-  setViewOrder,
+  setErrors,
 }) {
   const skiOrder = !skiCart
     ? console.log("nothing in ski cart")
@@ -277,7 +276,12 @@ function OrderConfirmation({
   const grandTotal = tSkiP + tApparelP + tAccessoryP;
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns">
         <div className="column">
           <div className="columns is-mobile">
@@ -584,7 +588,7 @@ function OrderConfirmation({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

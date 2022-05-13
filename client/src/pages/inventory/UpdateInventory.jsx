@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function UpdateInventory({
   productId,
@@ -109,7 +110,12 @@ function UpdateInventory({
   };
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="mt-4">
         <div className="box mt-4">
           <div className="content">
@@ -302,7 +308,7 @@ function UpdateInventory({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

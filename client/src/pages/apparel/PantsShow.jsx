@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PantsAll from "../../components/PantsAll";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function PantsShow({
   apparels,
@@ -107,9 +108,14 @@ function PantsShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allPants}</div>
-    </div>
+    </motion.div>
   );
 }
 

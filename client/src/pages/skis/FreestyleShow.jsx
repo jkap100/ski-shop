@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FreestyleSkiAll from "../../components/FreestyleSkiAll";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function FreestyleShow({
   skis,
   setSkis,
-  viewProduct,
   setViewProduct,
   skiCartCount,
   setSkiCartCount,
@@ -107,9 +107,14 @@ function FreestyleShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%", height: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allFreestyleSkis}</div>
-    </div>
+    </motion.div>
   );
 }
 

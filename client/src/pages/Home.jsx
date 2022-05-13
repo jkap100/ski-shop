@@ -1,10 +1,16 @@
 import "bulma/css/bulma.min.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function Home() {
   return (
-    <div className="container my-6">
+    <motion.div
+      className="container my-6"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div class="columns is-centered ">
         <div class="column is-half">
           <div className="box has-text-centered mx-6">
@@ -33,37 +39,8 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default Home;
-
-// {
-//  <div className="columns is-centered">
-// <div className="column is-half">
-//   <div className="box has-text-centered mx-6">
-//     <h1 className="title">Ski Shop </h1>
-//   </div>
-// </div>
-// <div>
-//   <div className="columns is-centered">
-//     <div className="column">
-//       <div className="box has-text-centered mx-6">
-//         <p>
-//           <Link to="/login">
-//             <button className="button is-black is-large mx-4">
-//               Log In
-//             </button>
-//           </Link>
-
-//           <Link to="/skis">
-//             <button className="button is-black is-large">Shop</button>
-//           </Link>
-//         </p>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// </div>
-// }

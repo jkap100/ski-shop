@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function Signup({
   username,
@@ -44,7 +45,12 @@ function Signup({
   };
 
   return (
-    <div className="container my-6">
+    <motion.div
+      className="container my-6"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-centered">
         <form onSubmit={handleLogin}>
           <div className="field">
@@ -111,7 +117,7 @@ function Signup({
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

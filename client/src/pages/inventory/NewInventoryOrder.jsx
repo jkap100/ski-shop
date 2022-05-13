@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function NewInventoryOrder({
   currentUser,
@@ -80,6 +81,7 @@ function NewInventoryOrder({
             console.error(result.error);
             alert(result.error);
           } else {
+            alert("Order Placed");
           }
         });
     } else if (button === 2) {
@@ -97,6 +99,7 @@ function NewInventoryOrder({
           if (result.error) {
             console.error(result.error);
           } else {
+            alert("Order Placed");
           }
         });
     } else if (button === 3) {
@@ -114,13 +117,19 @@ function NewInventoryOrder({
           if (result.error) {
             console.error(result.error);
           } else {
+            alert("Order Placed");
           }
         });
     }
   };
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="mt-4">
         <div className="box mt-4">
           <div className="content">
@@ -323,7 +332,7 @@ function NewInventoryOrder({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

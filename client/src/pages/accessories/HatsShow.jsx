@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HatsAll from "../../components/HatsAll";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function HatsShow({
   accessories,
@@ -107,9 +108,14 @@ function HatsShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allHats}</div>
-    </div>
+    </motion.div>
   );
 }
 

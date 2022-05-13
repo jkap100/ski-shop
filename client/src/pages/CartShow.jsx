@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SkiCart from "../components/SkiCart";
 import ApparelCart from "../components/ApparelCart";
 import AccessoryCart from "../components/AccessoryCart";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function CartShow({
   skiCart,
@@ -145,7 +146,12 @@ function CartShow({
   const grandTotal = totalSkiPrice + totalApparelPrice + totalAccessoryPrice;
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="column">
         <div className="box">
           <table className="table is-fullwidth">
@@ -235,7 +241,7 @@ function CartShow({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

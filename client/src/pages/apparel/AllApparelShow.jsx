@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ApparelAll from "../../components/ApparelAll";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function AllApparelShow({
   currentUser,
@@ -109,9 +110,14 @@ function AllApparelShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allApparel}</div>
-    </div>
+    </motion.div>
   );
 }
 export default AllApparelShow;

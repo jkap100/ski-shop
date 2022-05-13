@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AccessoryAll from "../../components/AccessoryAll";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function AllAccessoriesShow({
   accessories,
@@ -107,9 +108,14 @@ function AllAccessoriesShow({
   ));
 
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="columns is-multiline">{allAccessories}</div>
-    </div>
+    </motion.div>
   );
 }
 
