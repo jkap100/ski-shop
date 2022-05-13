@@ -18,7 +18,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :city
       t.string :state
       t.integer :zip
-      t.integer :card_number
+      t.integer :card_number, :limit => 8
       t.integer :ccv
       t.string :expiration
       t.integer :card_zip

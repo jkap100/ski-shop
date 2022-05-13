@@ -13,6 +13,32 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
     console.log(localStorage);
   };
 
+  const adminNav = (
+    <div className="navbar-item has-dropdown is-hoverable">
+      <div className="navbar-link">Admin</div>
+      <div className="navbar-dropdown has-text-black">
+        <Link to="/inventory">
+          <div className="navbar-item">Inventory</div>
+        </Link>
+        <Link to="/inventory_order_form">
+          <div className="navbar-item">New Inv Order</div>
+        </Link>
+        <Link to="/orders">
+          <div className="navbar-item">Orders</div>
+        </Link>
+        {/* <Link to="/freestyle_skis">
+          <div className="navbar-item">Freestyle</div>
+        </Link>
+        <Link to="/race_skis">
+          <div className="navbar-item">Race</div>
+        </Link>
+        <Link to="/skis">
+          <div className="navbar-item">All Skis</div>
+        </Link> */}
+      </div>
+    </div>
+  );
+
   console.log(`Is User Admin: ${localStorage.getItem("isAdmin")}`);
 
   return (
@@ -99,7 +125,13 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
                 </div>
               </div>
 
-              <div className="navbar-item has-dropdown is-hoverable">
+              {localStorage.getItem("isAdmin") === "true" ? (
+                adminNav
+              ) : (
+                <div className="notAdmin">Not Admin</div>
+              )}
+
+              {/* <div className="navbar-item has-dropdown is-hoverable">
                 {localStorage.getItem("isAdmin") === "true" ? (
                   <Link to="/inventory">
                     <div className="has-text-white">Inventory</div>
@@ -107,9 +139,9 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
                 ) : (
                   <div className="notAdmin">Not Admin</div>
                 )}
-              </div>
+              </div> */}
 
-              <div className="navbar-item has-dropdown is-hoverable ml-4">
+              {/* <div className="navbar-item has-dropdown is-hoverable ml-4">
                 {localStorage.getItem("isAdmin") === "true" ? (
                   <Link to="/inventory_order_form">
                     <div className="has-text-white">New Inventory Order</div>
@@ -117,13 +149,19 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
                 ) : (
                   <div className="notAdmin">Not Admin</div>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div className="navbar-menu">
             <div className="navbar-end">
-              <div className="navbar-item has-dropdown is-hoverable mr-4">
+              {/* {localStorage.getItem("isAdmin") === "true" ? (
+                adminNav
+              ) : (
+                <div className="notAdmin">Not Admin</div>
+              )} */}
+
+              {/* <div className="navbar-item has-dropdown is-hoverable mr-4">
                 {localStorage.getItem("isAdmin") === "true" ? (
                   <Link to="/orders">
                     <div className="has-text-white">Orders</div>
@@ -131,7 +169,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
                 ) : (
                   <div className="notAdmin">Not Admin</div>
                 )}
-              </div>
+              </div> */}
 
               <div className="navbar-item has-dropdown is-hoverable mr-2">
                 {localStorage.getItem("currentUserId") ? (

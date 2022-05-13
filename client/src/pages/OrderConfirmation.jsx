@@ -205,6 +205,16 @@ function OrderConfirmation({
           if (result.error) {
             console.error(result.error);
           } else {
+            setFirstName("");
+            setLastName("");
+            setAddress("");
+            setCity("");
+            setState("");
+            setZip("");
+            setCardNumber("");
+            setCCV("");
+            setExpiration("");
+            setCardZip("");
           }
         });
     }
@@ -253,14 +263,21 @@ function OrderConfirmation({
   }
 
   for (let i = 0; i < apparelArrLength; i++) {
-    totalApparelPrice += apparelPrice[i] * apparelCount[i];
+    totalApparelPrice += apparelPrice[i] * apparelCount[i] + 0;
   }
 
   for (let i = 0; i < accessoryArrLength; i++) {
     totalAccessoryPrice += accessoryPrice[i] * accessoryCount[i];
   }
+  console.log(totalAccessoryPrice);
 
-  const grandTotal = totalSkiPrice + totalApparelPrice + totalAccessoryPrice;
+  const tSkiP = totalSkiPrice || 0;
+  const tApparelP = totalApparelPrice || 0;
+  const tAccessoryP = totalAccessoryPrice || 0;
+
+  console.log(tAccessoryP);
+
+  const grandTotal = tSkiP + tApparelP + tAccessoryP;
 
   return (
     <div className="container">
@@ -311,7 +328,7 @@ function OrderConfirmation({
                 <div className="box has-background-black">
                   <h3 className="is-4 has-text-white">
                     Subtotal - Ski Inventory Cost : $
-                    {totalSkiPrice.toLocaleString("en-US")}
+                    {tSkiP.toLocaleString("en-US")}
                   </h3>
                 </div>
               </div>
@@ -361,8 +378,7 @@ function OrderConfirmation({
                 </table>
                 <div className="box has-background-black">
                   <h3 className="is-4 has-text-white">
-                    Subtotal - Apparel : $
-                    {totalApparelPrice.toLocaleString("en-US")}
+                    Subtotal - Apparel : ${tApparelP.toLocaleString("en-US")}
                   </h3>
                 </div>
               </div>
@@ -393,7 +409,7 @@ function OrderConfirmation({
                             </td>
                             <td className="product">{item.name}</td>
                             <td className="category has-text-centered">
-                              {item.Category}
+                              {item.category}
                             </td>
                             <td className="category has-text-centered">
                               {item.cart_count}
@@ -414,7 +430,7 @@ function OrderConfirmation({
                 <div className="box has-background-black">
                   <h3 className="is-4 has-text-white">
                     Subtotal - Accessories: $
-                    {totalAccessoryPrice.toLocaleString("en-US")}
+                    {tAccessoryP.toLocaleString("en-US")}
                   </h3>
                 </div>
               </div>
@@ -453,7 +469,7 @@ function OrderConfirmation({
                       onChange={(event) => setFirstName(event.target.value)}
                     ></input>
                   </p>
-                  {/* <label className="label">Last Name</label> */}
+
                   <p className="control ">
                     <input
                       className="input"
@@ -491,7 +507,7 @@ function OrderConfirmation({
                       onChange={(event) => setCity(event.target.value)}
                     ></input>
                   </p>
-                  {/* <label className="label">Last Name</label> */}
+
                   <p className="control ">
                     <input
                       className="input"
@@ -539,7 +555,7 @@ function OrderConfirmation({
                       onChange={(event) => setCCV(event.target.value)}
                     ></input>
                   </p>
-                  {/* <label className="label">Last Name</label> */}
+
                   <p className="control ">
                     <input
                       className="input"

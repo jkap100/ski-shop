@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_170630) do
     t.string "city"
     t.string "state"
     t.integer "zip"
-    t.integer "card_number"
+    t.bigint "card_number"
     t.integer "ccv"
     t.string "expiration"
     t.integer "card_zip"
