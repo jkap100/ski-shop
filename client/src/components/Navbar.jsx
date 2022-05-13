@@ -1,10 +1,12 @@
 import "../App.css";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Navbar({ searchTerm, setSearchTerm }) {
   const navigate = useNavigate();
+
+  const [isActive, setIsActive] = useState(false);
 
   const logOut = () => {
     localStorage.clear();
@@ -46,8 +48,11 @@ function Navbar({ searchTerm, setSearchTerm }) {
             </span>
 
             <div
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
               role="button"
-              className="navbar-burger"
+              className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
               aria-label="menu"
               aria-expanded="false"
               data-target="navbarBasicExample"
@@ -59,15 +64,19 @@ function Navbar({ searchTerm, setSearchTerm }) {
             </div>
           </div>
 
-          <div className="navbar-menu">
+          <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
             <div className="navbar-start">
               <Link to="/">
                 <strong className="navbar-item has-text-white">Home</strong>
               </Link>
 
-              <div className="navbar-item has-dropdown is-hoverable">
+              <div
+                className={`navbar-item has-dropdown is-hoverable ${
+                  isActive ? "is-active" : ""
+                }`}
+              >
                 <div className="navbar-link">Skis</div>
-                <div className="navbar-dropdown">
+                <div className={`navbar-dropdown`}>
                   <Link to="/powder_skis">
                     <div className="navbar-item">Powder</div>
                   </Link>
