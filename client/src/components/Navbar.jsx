@@ -30,7 +30,7 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
     </div>
   );
 
-  console.log(`Is User Admin: ${localStorage.getItem("isAdmin")}`);
+  // console.log(`Is User Admin: ${localStorage.getItem("isAdmin")}`);
 
   return (
     <div>

@@ -8,8 +8,8 @@ function ProductDetail({
   productCount,
   setProductCount,
 }) {
-  console.log(`viewProduct: ${viewProduct.name}`);
-  console.log(productCount);
+  // console.log(`viewProduct: ${viewProduct.name}`);
+  // console.log(productCount);
 
   const navigate = useNavigate();
   const [qty, setQty] = useState(0);
@@ -27,7 +27,7 @@ function ProductDetail({
     } else if (qty > viewProduct.count) {
       alert("Out of Stock");
     } else if (viewProduct.sku >= 1000 && viewProduct.sku <= 1999) {
-      console.log("ski");
+      // console.log("ski");
 
       const body = {
         user_id: localStorage.currentUserId,
@@ -41,7 +41,7 @@ function ProductDetail({
         body: JSON.stringify(body),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
@@ -59,14 +59,14 @@ function ProductDetail({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
       });
     } else if (viewProduct.sku >= 2000 && viewProduct.sku <= 2999) {
-      console.log("apparel");
+      // console.log("apparel");
 
       const body = {
         user_id: localStorage.currentUserId,
@@ -80,7 +80,7 @@ function ProductDetail({
         body: JSON.stringify(body),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
@@ -98,14 +98,14 @@ function ProductDetail({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
       });
     } else if (viewProduct.sku >= 3000 && viewProduct.sku <= 3999) {
-      console.log("accessory");
+      // console.log("accessory");
 
       const body = {
         user_id: localStorage.currentUserId,
@@ -119,7 +119,7 @@ function ProductDetail({
         body: JSON.stringify(body),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
@@ -137,7 +137,7 @@ function ProductDetail({
         body: JSON.stringify(removeFromInventoryBody),
       }).then((r) => {
         if (r.ok) {
-          console.log("added to cart");
+          // console.log("added to cart");
           navigate("/cart");
         } else {
           r.json().then((err) => setErrors(err.errors));
@@ -193,29 +193,27 @@ function ProductDetail({
                       <div className="field">
                         <div className="box has-text-centered">
                           <label className="label">Quantity</label>
-                          <p className="control">
-                            <div className="select">
-                              <select
-                                className="input"
-                                type="text"
-                                name="qty"
-                                placeholder="qty"
-                                onChange={(event) => setQty(event.target.value)}
-                              >
-                                <option>-</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                              </select>
-                            </div>
-                          </p>
+                          <div className="select">
+                            <select
+                              className="input"
+                              type="text"
+                              name="qty"
+                              placeholder="qty"
+                              onChange={(event) => setQty(event.target.value)}
+                            >
+                              <option>-</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
 

@@ -269,13 +269,10 @@ function OrderConfirmation({
   for (let i = 0; i < accessoryArrLength; i++) {
     totalAccessoryPrice += accessoryPrice[i] * accessoryCount[i];
   }
-  console.log(totalAccessoryPrice);
 
   const tSkiP = totalSkiPrice || 0;
   const tApparelP = totalApparelPrice || 0;
   const tAccessoryP = totalAccessoryPrice || 0;
-
-  console.log(tAccessoryP);
 
   const grandTotal = tSkiP + tApparelP + tAccessoryP;
 
