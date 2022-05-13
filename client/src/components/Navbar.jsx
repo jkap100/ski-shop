@@ -26,15 +26,6 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
         <Link to="/orders">
           <div className="navbar-item">Orders</div>
         </Link>
-        {/* <Link to="/freestyle_skis">
-          <div className="navbar-item">Freestyle</div>
-        </Link>
-        <Link to="/race_skis">
-          <div className="navbar-item">Race</div>
-        </Link>
-        <Link to="/skis">
-          <div className="navbar-item">All Skis</div>
-        </Link> */}
       </div>
     </div>
   );
@@ -130,47 +121,11 @@ function Navbar({ searchTerm, setSearchTerm, currentUser, setCurrentUser }) {
               ) : (
                 <div className="notAdmin">Not Admin</div>
               )}
-
-              {/* <div className="navbar-item has-dropdown is-hoverable">
-                {localStorage.getItem("isAdmin") === "true" ? (
-                  <Link to="/inventory">
-                    <div className="has-text-white">Inventory</div>
-                  </Link>
-                ) : (
-                  <div className="notAdmin">Not Admin</div>
-                )}
-              </div> */}
-
-              {/* <div className="navbar-item has-dropdown is-hoverable ml-4">
-                {localStorage.getItem("isAdmin") === "true" ? (
-                  <Link to="/inventory_order_form">
-                    <div className="has-text-white">New Inventory Order</div>
-                  </Link>
-                ) : (
-                  <div className="notAdmin">Not Admin</div>
-                )}
-              </div> */}
             </div>
           </div>
 
           <div className="navbar-menu">
             <div className="navbar-end">
-              {/* {localStorage.getItem("isAdmin") === "true" ? (
-                adminNav
-              ) : (
-                <div className="notAdmin">Not Admin</div>
-              )} */}
-
-              {/* <div className="navbar-item has-dropdown is-hoverable mr-4">
-                {localStorage.getItem("isAdmin") === "true" ? (
-                  <Link to="/orders">
-                    <div className="has-text-white">Orders</div>
-                  </Link>
-                ) : (
-                  <div className="notAdmin">Not Admin</div>
-                )}
-              </div> */}
-
               <div className="navbar-item has-dropdown is-hoverable mr-2">
                 {localStorage.getItem("currentUserId") ? (
                   <Link to="/cart">

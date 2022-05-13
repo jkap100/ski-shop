@@ -78,6 +78,7 @@ function NewInventoryOrder({
         .then((result) => {
           if (result.error) {
             console.error(result.error);
+            alert(result.error);
           } else {
           }
         });
